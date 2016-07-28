@@ -1,0 +1,11 @@
+{
+  "dev": {
+    "API": "https://api.jpedev.com"
+  },
+  "prod": {
+    "API": "https://api.jpedev.com"
+  },
+  "staging": {
+    "API": "https://staging.com"
+  }
+}
