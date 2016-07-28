@@ -1,6 +1,6 @@
 {
   "dev": {
-    "API": "https://api.jpedev.com"
+    "API": "http://jpapi.localhost"
   },
   "prod": {
     "API": "https://api.jpedev.com"
