@@ -8,6 +8,7 @@ export * from './config/index';
 export * from './cache/index';
 export * from './splash/index';
 export * from './logo/index';
+export * from './icon-button/index';
 
 import {ConfigService} from './config/config.service';
 import {CacheService} from './cache/cache.service';

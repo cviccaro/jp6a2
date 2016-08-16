@@ -2,7 +2,27 @@
     <div class="logo">
         <jp-logo></jp-logo>
     </div>
-    <h1>{{ config.main_site_splash_headline }}</h1>
+    <h1 class="text-uppercase">{{ config.main_site_splash_headline }}</h1>
     <p [innerHTML]="config.main_site_splash_body"></p>
-    <h4 class="learn-more">Click To Learn More</h4>
+    <h4 class="learn-more text-uppercase">Click To Learn More</h4>
+    <div class="flex-row icon-buttons">
+	    <jp-icon-button class="col-md-3 blue publishing">
+	    	<jp-icon></jp-icon>
+	    	<jp-icon-hover></jp-icon-hover>
+	    	<jp-icon-button-text>Publishing</jp-icon-button-text>
+	    </jp-icon-button>
+	    <jp-icon-button class="col-md-3 yellow creative">
+	    	<jp-icon></jp-icon>
+	    	<jp-icon-hover></jp-icon-hover>
+	    	<jp-icon-button-text>Creative</jp-icon-button-text>
+	    </jp-icon-button>
+	    <jp-icon-button class="col-md-3 fuchsia interactive">
+	    	<jp-icon></jp-icon>
+	    	<jp-icon-hover></jp-icon-hover>
+	    	<jp-icon-button-text>Interactive</jp-icon-button-text>
+	    </jp-icon-button>
+    </div>
+    <button class="scroll-down text-uppercase" md-button>
+    	<span>Scroll</span>&nbsp;&nbsp;&nbsp;<img src="assets/images/scroll-down.png" alt="Scroll Down" title="Scroll Down" class="ng-scope" />&nbsp;&nbsp;&nbsp;<span>Down</span>
+	</button>
 </jp-splash>

@@ -10,6 +10,6 @@ export class LogoComponent {
   logo: { [key: string] : any };
 
   constructor(public cache: CacheService) {
-    this.logo= this.cache.get('config').main_site_logo;
+    this.logo = this.cache.get('config').main_site_logo;
   }
 }

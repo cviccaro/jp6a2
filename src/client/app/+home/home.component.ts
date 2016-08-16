@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { REACTIVE_FORM_DIRECTIVES } from '@angular/forms';
 
-import { NameListService } from '../shared/index';
+import { NameListService, IconButtonComponent } from '../shared/index';
 import {CacheService} from '../shared/cache/cache.service';
 import {IConfig} from '../shared/config/env.config';
 import {SplashComponent} from '../shared/splash/splash.component';
@@ -15,7 +15,7 @@ import {LogoComponent} from '../shared/logo/logo.component';
   selector: 'sd-home',
   templateUrl: 'home.component.html',
   styleUrls: ['home.component.css'],
-  directives: [REACTIVE_FORM_DIRECTIVES, SplashComponent, LogoComponent]
+  directives: [REACTIVE_FORM_DIRECTIVES, SplashComponent, LogoComponent, IconButtonComponent]
 })
 export class HomeComponent implements OnInit {
 
