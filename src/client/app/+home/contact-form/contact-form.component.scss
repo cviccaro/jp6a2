@@ -1,0 +1,57 @@
+:host {
+	form {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		.form-group {
+			width: 48%;
+			margin-right: 1%;
+			flex-shrink: 0;
+			&:nth-child(2n) {
+				margin-right: 0;
+				margin-left: 1%;
+			}
+			md-input {
+				width: 100%;
+			}
+			input {
+				border: 1px solid $white;
+			}
+			input,.md-input-placeholder {
+				color: $white_trans;
+				font-weight: normal;
+				font-family: $source-sans-pro;
+			}
+			.md-input-placeholder:not(.md-focused) {
+				height: 100%;
+		    line-height: 39px;
+		    padding-left: 20px;
+		    margin: 0;
+			}
+			.md-input-placeholder.md-focused {
+				color: $blue;
+			}
+			.md-placeholder-required {
+				color: $red_500;
+			}
+		}
+	}
+	.ng-valid[required] {
+	  border-left: 5px solid $green_500!important; /* green */
+	}
+
+	.ng-invalid:not(.ng-pristine) {
+	  border-left: 5px solid $fuchsia!important;
+	  border-color: $fuchsia!important;
+	  border-top-width: 1px;
+	  border-bottom-width: 1px;
+	  border-right-width: 1px;
+	  & + .error-messages {
+	  	display: inline-block;
+	  }
+	}
+	.error-messages {
+		color: $fuchsia;
+		padding-top: 1em;
+	}
+}

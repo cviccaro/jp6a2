@@ -1,29 +1,74 @@
 import { Component, OnInit } from '@angular/core';
-import { REACTIVE_FORM_DIRECTIVES } from '@angular/forms';
+import { MD_BUTTON_DIRECTIVES } from '@angular2-material/button';
+import { MD_RIPPLE_DIRECTIVES } from '@angular2-material/core';
+import { MD_GRID_LIST_DIRECTIVES } from '@angular2-material/grid-list/grid-list';
 
-import { NameListService, IconButtonComponent } from '../shared/index';
-import {CacheService} from '../shared/cache/cache.service';
-import {IConfig} from '../shared/config/env.config';
-import {SplashComponent} from '../shared/splash/splash.component';
-import {LogoComponent} from '../shared/logo/logo.component';
+import {
+  IconButtonComponent,
+  NavbarComponent,
+  CacheService,
+  IConfig,
+  SplashComponent,
+  LogoComponent,
+  WorkService,
+  StaffService,
+  CardComponent,
+  BackgroundDirective,
+  GlassSquareComponent,
+  BlogService,
+  PostComponent,
+  SocialIconsComponent
+} from '../shared/index';
+
+import { ContactFormComponent } from './contact-form/index';
 
 /**
  * This class represents the lazy loaded HomeComponent.
  */
 @Component({
   moduleId: module.id,
-  selector: 'sd-home',
+  selector: 'jp-home',
   templateUrl: 'home.component.html',
   styleUrls: ['home.component.css'],
-  directives: [REACTIVE_FORM_DIRECTIVES, SplashComponent, LogoComponent, IconButtonComponent]
+  directives: [
+    SplashComponent,
+    LogoComponent,
+    IconButtonComponent,
+    NavbarComponent,
+    CardComponent,
+    BackgroundDirective,
+    GlassSquareComponent,
+    MD_RIPPLE_DIRECTIVES,
+    MD_GRID_LIST_DIRECTIVES,
+    MD_BUTTON_DIRECTIVES,
+    PostComponent,
+    SocialIconsComponent,
+    ContactFormComponent
+  ]
 })
 export class HomeComponent implements OnInit {
-
+  blogs: any[];
   config: IConfig;
+  clients = [
+    'Adobe',
+    'Cisco',
+    'Cicci',
+    'Fisher Scientific',
+    'Henry Schein',
+    'Kennametal',
+    'Kobold',
+    'LA Turbine',
+    'NetworkKing',
+    'Quantum',
+    'Thomas and Betts',
+    'Wesco'
+  ];
 
-  newName: string = '';
-  errorMessage: string;
-  names: any[] = [];
+  staff: any[];
+  wowEnabled = true;
+  work: any[];
+  workLimit = 6;
+  year = new Date().getFullYear();
 
   /**
    * Creates an instance of the HomeComponent with the injected
@@ -31,40 +76,42 @@ export class HomeComponent implements OnInit {
    *
    * @param {NameListService} nameListService - The injected NameListService.
    */
-  constructor(public nameListService: NameListService, public cache: CacheService) {
+  constructor(
+    public cache: CacheService,
+    public workService: WorkService,
+    public staffService: StaffService,
+    public blogService: BlogService
+  ) {
     this.config = this.cache.get('config');
+    this.fetchAll();
     console.log('HomeComponent constructed', this);
   }
 
+  fetchAll() {
+    this.workService.recent(0, this.workLimit)
+      .subscribe(res => {
+        this.work = res;
+        console.log('fetched work: ', this.work);
+      });
+
+    this.staffService.all()
+      .subscribe(res => {
+        this.staff = res;
+        console.log('fetched staff: ', this.staff);
+      });
+    
+    this.blogService.recent()
+      .subscribe(res => {
+        this.blogs = res;
+        console.log('fetch blogs: ', this.blogs);
+      });
+
+  }
+
   /**
-   * Get the names OnInit
+   * OnInit
    */
   ngOnInit() {
-    this.getNames();
-
     console.log('HomeComponent Initialized', this);
   }
-
-  /**
-   * Handle the nameListService observable
-   */
-  getNames() {
-    this.nameListService.get()
-                     .subscribe(
-                       names => this.names = names,
-                       error =>  this.errorMessage = <any>error
-                       );
-  }
-
-  /**
-   * Pushes a new name onto the names array
-   * @return {boolean} false to prevent default form submit behavior to refresh the page.
-   */
-  addName(): boolean {
-    // TODO: implement nameListService.post
-    this.names.push(this.newName);
-    this.newName = '';
-    return false;
-  }
-
 }

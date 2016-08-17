@@ -1,4 +1,30 @@
-<nav>
-  <a [routerLink]="['/']">HOME</a>
-  <a [routerLink]="['/about']">ABOUT</a>
-</nav>
+<div class="container">
+	<a href="/" title="Go Home"><img class="logo" src="assets/images/logo-colored.png" /></a>
+	<span class="filler"></span>
+	<div class="menu-links">
+	  <div class="menu">
+	    <a md-button [routerLink]="['Index', {selector: 'work'}]" title="Work" aria-label="Work">Work</a>
+	    <a md-button [routerLink]="['Index', {selector: 'staff'}]" title="Leadership" aria-label="Leadership">Leadership</a>
+	    <a md-button [routerLink]="['Index', {selector: 'clients'}]" title="Clients" aria-label="Clients">Clients</a>
+	    <a md-button [routerLink]="['Index', {selector: 'blog'}]" title="Blog" aria-label="Blog">Blog</a>
+	    <a md-button [routerLink]="['Index', {selector: 'contact'}]" title="Contact" aria-label="Contact">Contact</a>
+	  </div>
+	</div>
+	 <div class="icon-menu">
+	  	<jp-icon-button class="icon-menu-button publishing blue">
+	  		<jp-icon></jp-icon>
+	  		<jp-icon-hover></jp-icon-hover>
+	  		<jp-underline></jp-underline>
+	  	</jp-icon-button>
+	  	<jp-icon-button class="icon-menu-button creative yellow">
+	  		<jp-icon></jp-icon>
+	  		<jp-icon-hover></jp-icon-hover>
+	  		<jp-underline></jp-underline>
+	  	</jp-icon-button>
+	  	<jp-icon-button class="icon-menu-button interactive fuchsia">
+	  		<jp-icon></jp-icon>
+	  		<jp-icon-hover></jp-icon-hover>
+	  		<jp-underline></jp-underline>
+	  	</jp-icon-button>
+  	</div>
+</div>

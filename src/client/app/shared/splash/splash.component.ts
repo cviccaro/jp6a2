@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, HostListener} from '@angular/core';
+import {Component, Input, OnInit, HostListener, HostBinding } from '@angular/core';
 import {DomSanitizationService, SafeStyle} from '@angular/platform-browser';
 
 @Component({
@@ -13,14 +13,24 @@ export class SplashComponent implements OnInit {
 
   @Input() splashUrl: string;
 
+  @HostBinding('style.height') get heightStyle() {
+    return this.elHeight;
+  }
+
   @HostListener('window:resize')
   onResize() {
-    this.elHeight = window.innerHeight+'px';
+    this.setHeight();
   }
 
   constructor(public sanitizer: DomSanitizationService) { }
 
+  setHeight() {
+    let h = window.innerHeight > 558 ? window.innerHeight : 558;
+    this.elHeight = h+'px';
+  }
+
   ngOnInit() {
     this.bgStyle = this.sanitizer.bypassSecurityTrustStyle(`url('${this.splashUrl}')`);
+    this.setHeight();
   }
 }

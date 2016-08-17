@@ -17,7 +17,7 @@ div {
 /* Set up a default font and some padding to provide breathing room */
 body {
   font-family: $source-sans-pro;
-  font-size: 16px;
+  font-size: 13px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -26,10 +26,14 @@ h1,h2,h3,h4,h5 {
   font-family: $proxima-nova;
 }
 
+h3 {
+  font-size: 18px;
+}
+
 p {
   font-weight: 400;
   letter-spacing: 0.01em;
-  line-height: 20px;
+  line-height: 22px;
   margin-bottom: 1em;
   margin-top: 1em;
 }
@@ -52,6 +56,12 @@ input {
   padding: 8px;
 }
 
+button,
+button[md-button],
+button[md-raised-button] {
+  font-family: $source-sans-pro;
+}
+
 button {
   background-color: #106cc8;
   border-style: none;
@@ -68,12 +78,113 @@ button:hover {
   background-color: #28739e;
 }
 
+.inverted-button,
+[md-button].inverted-button {
+  border: 1px solid $blackish;
+  background: #fff;
+  padding: 0 40px;
+  line-height: 30px;
+  height: 30px;
+  @include border-radius(0);
+  span {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $text-color;
+  }
+  @include transition(background $transition_duration linear);
+  &:hover {
+    background: $text-color;
+    span { color: $white_trans; }
+  }
+}
+
 .flex-row {
   display: flex;
   flex-direction: row;
 }
 
+.filler {
+  flex: 1 1 auto;
+}
+
 .icon-buttons {
   justify-content: space-between;
   width: 100%;
+}
+
+jp-app {
+  position: relative;
+  display: block;
+}
+
+.section-title {
+  font-size: 42px;
+  font-weight: 300;
+  font-family: $proxima-nova;
+  margin: 0 0 1em;
+}
+
+section,.section-padding {
+  padding: 130px 0;
+}
+
+section {
+  .content {
+    flex-direction: row;
+    flex-wrap: wrap;
+    display: flex;
+    .cell {
+      width: 32%;
+      margin-right: 2%;
+      margin-bottom: 16px;
+      &:nth-child(3n) {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+.theme-dark,
+section.theme-dark {
+  background: $blackish;
+  .section-title,
+  p,
+  a,
+  div,
+  h3,
+  h4 {
+    color: $white_trans;
+  }
+}
+
+.light {
+  font-weight: 300;
+}
+
+footer {
+  width: 100%;
+  min-height: 270px;
+  padding: 80px 0px 0px;
+  position: relative;
+  text-align: center;
+  h3 {
+    font-size: 1.17em;
+    margin-bottom: 1em;
+  }
+  p {
+    font-size: 12px;
+    letter-spacing: .020em;
+    margin: 0;
+    line-height: normal;
+  }
+  jp-social-icons {
+    md-toolbar,md-toolbar.transparent {
+      [md-button],[md-button]:not(.md-primary) {
+        md-icon {
+          color: $white_trans;
+        }
+      }
+    }
+  }
 }

@@ -1,0 +1,30 @@
+:host {
+	margin-top: 0.5em;
+	.social-icons:not(.vertical) {
+		height: 64px;
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		button {
+			margin: 1em 0.33em;
+			min-height: 0px;
+			min-width: 0px;
+			width: 30px;
+			height: 30px;
+			line-height: normal!important;
+			padding: 3px!important;
+			background: transparent;
+			md-icon,[md-icon],svg > g > path {
+				fill: $white_trans;
+				color: $white_trans;
+			}
+		}
+	}
+	.social-icons.vertical {
+		md-icon,[md-icon],svg > g > path {
+			text-indent: 0;
+			color: $blue;
+			fill: $blue_translucent;
+		}
+	}
+}

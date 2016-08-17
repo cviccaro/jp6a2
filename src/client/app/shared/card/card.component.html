@@ -1,0 +1,10 @@
+<div class="jp-card-content" layout="column">
+	<div class="card-img">
+		<a [href]="url" layout-align="center center" md-ink-ripple [title]="cardTitle" hover-dynamics>
+			<div *ngIf="overlay" md-ink-ripple class="overlay" [style.background-image]="'url('+overlay+')'"></div>
+			<img [src]="image" [title]="cardTitle" />
+		</a>
+	</div>
+	<h3 class="card-title"><a href="#" [title]="cardTitle" md-ink-ripple>{{ cardTitle }}</a></h3>
+	<h4 class="card-subtitle md-body-1">{{ subTitle }}</h4>
+</div>

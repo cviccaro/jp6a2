@@ -3,7 +3,7 @@
         <jp-logo></jp-logo>
     </div>
     <h1 class="text-uppercase">{{ config.main_site_splash_headline }}</h1>
-    <p [innerHTML]="config.main_site_splash_body"></p>
+    <div class="splash-body" [innerHTML]="config.main_site_splash_body"></div>
     <h4 class="learn-more text-uppercase">Click To Learn More</h4>
     <div class="flex-row icon-buttons">
 	    <jp-icon-button class="col-md-3 blue publishing">
@@ -26,3 +26,86 @@
     	<span>Scroll</span>&nbsp;&nbsp;&nbsp;<img src="assets/images/scroll-down.png" alt="Scroll Down" title="Scroll Down" class="ng-scope" />&nbsp;&nbsp;&nbsp;<span>Down</span>
 	</button>
 </jp-splash>
+
+<jp-navbar></jp-navbar>
+
+<section id="work" class="content-start flex-col">
+	<div class="container">
+		<h2 class="section-title text-right text-uppercase" [class.wow]="wowEnabled" [class.slideInRight]="wowEnabled">Our Projects</h2>
+		<div class="content" md-swipe-left="vm.prevWork()" md-swipe-right="vm.nextWork()" *ngIf="work">
+	    	<jp-card *ngFor="let item of work.projects" [cardTitle]="item.title" [subTitle]="item.client.name" [image]="item.image.url"></jp-card>
+		</div>
+		<jp-pager class="wide" [currentPage]="workIndex" [totalPages]="workTotal" [pagerType]="'minimal'" (pageChanged)="fetchWork($event)" [includeNav]="true"></jp-pager>
+	</div>
+</section>
+
+<section id="staff" class="theme-dark">
+	<div class="container">
+		<h2 class="section-title text-uppercase" [class.wow]="wowEnabled" [class.slideInLeft]="wowEnabled">Our Leadership</h2>
+		<div class="content" *ngIf="staff">
+		    <jp-card *ngFor="let person of staff" 
+		    class="cell"
+				[cardTitle]="person.first_name + ' ' + person.last_name" 
+				[subTitle]="person.title" 
+				[image]="person.image.url" 
+				overlay="assets/images/contact-overlay.png">
+			</jp-card>
+		</div>
+	</div>
+</section>
+
+<section id="clients" [jpBackground]="'assets/images/banner-clients.jpg'" background-parallax>
+	<div class="container">
+		<h2 class="section-title text-right text-uppercase" [class.wow]="wowEnabled" [class.slideInRight]="wowEnabled">Our Clients</h2>
+		<md-grid-list cols="6" gutterSize="8px" rowHeight="1:1">
+		  <md-grid-tile *ngFor="let client of clients">
+		  	<img [alt]="client" [title]="client" [src]="'/assets/images/client-' + client + '.png'" />
+		  </md-grid-tile>
+		</md-grid-list>
+	</div>
+</section>
+
+<section id="blog">
+	<div class="container">
+	  <h2 class="section-title text-uppercase" [class.wow]="wowEnabled" [class.slideInLeft]="wowEnabled">Our Blog</h2>
+	  <div class="content" *ngIf="blogs">
+	    <jp-post *ngFor="let blog of blogs.blogs" 
+	    	class="cell"
+	    	[image]="blog.image.url" 
+	    	[title]="blog.title" 
+	    	[text]="blog.summary" 
+	    	[longText]="blog.body" 
+	    	[date]="blog.created_at" 
+	    	[tag]="blog.divisions[0].name" 
+	    	[author]="blog.author" 
+	    	[routerLink]="['./Blog', {identifier: blog.identifier}]">
+		</jp-post>
+	    <button md-button class="inverted-button boxy-button">Load More Blogs</button>
+	  </div>
+	</div>
+</section>
+
+<section id="contact" [jpBackground]="'assets/images/banner-lines.jpg'" class="theme-dark">
+	<div class="container">
+	  <h2 class="section-title text-uppercase text-right" [class.wow]="wowEnabled" [class.slideInRight]="wowEnabled">Contact Us</h2>
+	  <jp-contact-form (formSubmitSuccess)="formSubmitSuccess($event)"></jp-contact-form>
+  </div>
+</section>
+
+<section id="directions" class="theme-dark" [jpBackground]="'assets/images/map.jpg'">
+  <!-- <jp-map layout="row" layout-align="center center"></jp-map> -->
+</section>
+
+<footer class="theme-dark">
+  <div class="container">
+    <img src="assets/images/logo-tiny.png" class="wow bounceInDown" data-wow-delay="450ms" />
+    <h3 class="text-uppercase light">Thanks for stopping by!</h3>
+    <p>&copy; 2015-{{year}} JP Enterprises Unlimited, Inc. — your partner in marketing</p>
+    <p><a href="/privacy" title="Privacy Policy">Privacy Policy</a> | e: <a href="mailto:sales@jpenterprises.com">sales@jpenterprises.com</a> | p: 888-Let-JP-Help (888-538-5743)</p>
+    <jp-social-icons></jp-social-icons>
+  </div>
+</footer>
+
+<toaster-container [toasterconfig]="toasterConfig"></toaster-container>
+
+<router-outlet></router-outlet>

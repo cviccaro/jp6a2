@@ -6,9 +6,9 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
  */
 @Component({
   moduleId: module.id,
-  selector: 'sd-navbar',
-  templateUrl: 'navbar.component.html',
-  styleUrls: ['navbar.component.css'],
+  selector: 'jp-navbar',
+  templateUrl: './navbar.component.html',
+  styleUrls: ['./navbar.component.css'],
   directives: [ROUTER_DIRECTIVES]
 })
 export class NavbarComponent {}
