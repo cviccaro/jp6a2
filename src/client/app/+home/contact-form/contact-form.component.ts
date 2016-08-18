@@ -1,13 +1,13 @@
 import {Component, Output, EventEmitter} from '@angular/core';
-import {REACTIVE_FORM_DIRECTIVES, FormBuilder, FormGroup} from '@angular/forms';
+import {REACTIVE_FORM_DIRECTIVES, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {MD_INPUT_DIRECTIVES} from '@angular2-material/input';
-import {FormSubmission} from '../../shared/index';
-//import {TextareaAutoexpandDirective} from '../../../shared/directives/textarea-autoexpand/textarea-autoexpand.directive';
+import {MD_BUTTON_DIRECTIVES} from '@angular2-material/button';
+import {FormSubmission, TextareaAutoexpandDirective, EmailValidator} from '../../shared/index';
 
 @Component({
 	selector: 'jp-contact-form',
 	moduleId: module.id,
-	directives: [MD_INPUT_DIRECTIVES, REACTIVE_FORM_DIRECTIVES],
+	directives: [MD_INPUT_DIRECTIVES, REACTIVE_FORM_DIRECTIVES, MD_BUTTON_DIRECTIVES, TextareaAutoexpandDirective],
 	templateUrl: './contact-form.component.html',
 	styleUrls: ['./contact-form.component.css']
 })
@@ -19,13 +19,13 @@ export class ContactFormComponent {
 
 	constructor(builder: FormBuilder) {
 		this.contactForm = builder.group({
-			first_name: [''],
-			last_name: [''],
-			company: [''],
-			email: [''],
+			first_name: ['', Validators.required],
+			last_name: ['', Validators.required],
+			company: ['', Validators.required],
+			email: ['', [Validators.required, EmailValidator.emailFormat]],
 			phone: [''],
 			contact_time: [''],
-			comments: ['']
+			comments: ['', Validators.required]
 		});
 	}
 	submit() {

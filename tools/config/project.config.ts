@@ -23,6 +23,7 @@ export class ProjectConfig extends SeedConfig {
     this.NPM_DEPENDENCIES = [
       ...this.NPM_DEPENDENCIES,
       {src: 'jquery/dist/jquery.min.js', inject: 'libs'},
+      { src: 'dynamics.js/lib/dynamics.min.js', inject: 'libs' },
       // {src: 'lodash/lodash.min.js', inject: 'libs'},
     ];
 
@@ -35,22 +36,10 @@ export class ProjectConfig extends SeedConfig {
 
     /* Add to or override NPM module configurations: */
     // this.mergeObject(this.PLUGIN_CONFIGS['browser-sync'], { ghostMode: false });
-    
+
     this.SYSTEM_CONFIG_DEV.packageConfigPaths.push('/node_modules/@angular2-material/*/package.json');
     this.SYSTEM_BUILDER_CONFIG.packageConfigPaths.push(join(this.PROJECT_ROOT, 'node_modules', '@angular2-material', '*', 'package.json'));
-
-    this.SYSTEM_CONFIG_DEV.packages['@angular2-material/core'] = {
-      main: 'core.js',
-      defaultExtension: 'js'
-    };
-    this.SYSTEM_CONFIG_DEV.packages['@angular2-material/button'] = {
-      main: 'button.js',
-      defaultExtension: 'js'
-    };
-    this.SYSTEM_CONFIG_DEV.packages['@angular2-material/grid-list'] = {
-      main: 'grid-list.js',
-      defaultExtension: 'js'
-    };
+    this.SYSTEM_BUILDER_CONFIG.packageConfigPaths.push(join(this.PROJECT_ROOT, 'node_modules', 'angular2-google-maps', 'package.json'));
 
     this.SYSTEM_BUILDER_CONFIG.packages['moment'] = {
         main: 'min/moment-with-locales.min.js',
@@ -61,6 +50,16 @@ export class ProjectConfig extends SeedConfig {
         main: 'index.js',
         defaultExtension: 'js'
     };
+
+    this.SYSTEM_BUILDER_CONFIG.packages['angular2-google-maps/core'] = {
+      defaultExtension: 'js',
+      main: 'core.umd.js' // you can also use core.umd.js here, if you want faster loads
+    };
+
+    this.SYSTEM_CONFIG_DEV.paths['angular2-google-maps/core'] = 'node_modules/angular2-google-maps/core/core.umd.js';
+
+    console.log(this);
+
   }
 
 }

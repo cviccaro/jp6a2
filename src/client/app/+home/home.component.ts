@@ -17,7 +17,9 @@ import {
   GlassSquareComponent,
   BlogService,
   PostComponent,
-  SocialIconsComponent
+  SocialIconsComponent,
+  ClientService,
+  MapComponent
 } from '../shared/index';
 
 import { ContactFormComponent } from './contact-form/index';
@@ -43,27 +45,14 @@ import { ContactFormComponent } from './contact-form/index';
     MD_BUTTON_DIRECTIVES,
     PostComponent,
     SocialIconsComponent,
-    ContactFormComponent
+    ContactFormComponent,
+    MapComponent
   ]
 })
 export class HomeComponent implements OnInit {
   blogs: any[];
   config: IConfig;
-  clients = [
-    'Adobe',
-    'Cisco',
-    'Cicci',
-    'Fisher Scientific',
-    'Henry Schein',
-    'Kennametal',
-    'Kobold',
-    'LA Turbine',
-    'NetworkKing',
-    'Quantum',
-    'Thomas and Betts',
-    'Wesco'
-  ];
-
+  clients: any[];
   staff: any[];
   wowEnabled = true;
   work: any[];
@@ -80,7 +69,8 @@ export class HomeComponent implements OnInit {
     public cache: CacheService,
     public workService: WorkService,
     public staffService: StaffService,
-    public blogService: BlogService
+    public blogService: BlogService,
+    public clientService: ClientService
   ) {
     this.config = this.cache.get('config');
     this.fetchAll();
@@ -99,11 +89,17 @@ export class HomeComponent implements OnInit {
         this.staff = res;
         console.log('fetched staff: ', this.staff);
       });
-    
+
     this.blogService.recent()
       .subscribe(res => {
         this.blogs = res;
         console.log('fetch blogs: ', this.blogs);
+      });
+
+    this.clientService.featured()
+      .subscribe(res => {
+        this.clients = res;
+        console.log('fetch clients: ', this.clients);
       });
 
   }
@@ -113,5 +109,9 @@ export class HomeComponent implements OnInit {
    */
   ngOnInit() {
     console.log('HomeComponent Initialized', this);
+  }
+
+  formSubmitSuccess(submission: any) {
+    console.log('submitted contact form!', submission);
   }
 }

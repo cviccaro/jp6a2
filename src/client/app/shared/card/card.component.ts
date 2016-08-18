@@ -1,12 +1,12 @@
 import {Component, Input} from '@angular/core';
-//import {HoverDynamicsDirective} from '../../directives/hover-dynamics/hover-dynamics.directive';
+import {HoverDynamicsDirective} from '../hover-dynamics/index';
 
 @Component({
 	selector: 'jp-card',
 	moduleId: module.id,
 	templateUrl: './card.component.html',
 	styleUrls: ['./card.component.css'],
-//	directives: [HoverDynamicsDirective]
+	directives: [HoverDynamicsDirective]
 })
 export class CardComponent {
 	@Input() cardTitle: string;

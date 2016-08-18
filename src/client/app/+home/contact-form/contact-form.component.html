@@ -1,30 +1,15 @@
 <form class="jp-form" name="contactForm" layout="row" layout-wrap novalidate (ngSubmit)="submit()" [formGroup]="contactForm">
   <div class="form-group required">
     <md-input name="first_name" [formControl]="contactForm.controls.first_name" required placeholder="First Name"></md-input>
-    <div class="error-messages" [hidden]="contactForm.controls.first_name.valid || contactForm.controls.first_name.pristine">
-      <div *ngIf="contactForm.controls.first_name.hasError('required')" class="alert alert-danger">
-        First Name is required.
-      </div>
-    </div>
   </div>
   <div class="form-group required">
-    <md-input name="last_name" [formControl]="contactForm.controls.last_name" placeholder="Last Name"></md-input>
+    <md-input name="last_name" [formControl]="contactForm.controls.last_name" placeholder="Last Name" required></md-input>
   </div>
   <div class="form-group required">
     <md-input name="company" required [formControl]="contactForm.controls.company" placeholder="Company Name"></md-input>
-    <div class="error-messages" [hidden]="contactForm.controls.company.valid || contactForm.controls.company.pristine">
-      <div *ngIf="contactForm.controls.company.hasError('required')" class="alert alert-danger">
-        Company Name is required.
-      </div>
-    </div>
   </div>
   <div class="form-group required">
     <md-input type="email" name="email" required [formControl]="contactForm.controls.email" placeholder="Email Address"></md-input>
-    <div class="error-messages" [hidden]="contactForm.controls.email.valid || contactForm.controls.email.pristine">
-      <div *ngIf="contactForm.controls.email.hasError('required')" class="alert alert-danger">
-        Email Address is required.
-      </div>
-    </div>
   </div>
   <div class="form-group">
     <md-input type="tel" name="phone" [formControl]="contactForm.controls.phone" placeholder="Phone Number"></md-input>
@@ -32,16 +17,11 @@
   <div class="form-group">
     <md-input name="contact_time" [formControl]="contactForm.controls.contact_time" placeholder="Best time to contact you"></md-input>
   </div>
-  <div class="form-group full required">
-     <label>Additional Comments</label>
-     <textarea jp-textarea-autoexpand md-input name="comments" required [formControl]="contactForm.controls.comments"></textarea>
-     <div class="error-messages" [hidden]="contactForm.controls.comments.valid || contactForm.controls.comments.pristine">
-       <div *ngIf="contactForm.controls.comments.hasError('required')" class="alert alert-danger">
-         Some comments are required.
-       </div>
-     </div>
+  <div class="form-group full textarea required">
+     <label class="md-input-placeholder md-float md-empty">Additional Comments <span class="md-placeholder-required">*</span></label>
+     <textarea jpTextareaAutoexpand md-input name="comments" required [formControl]="contactForm.controls.comments"></textarea>
   </div>
   <div class="form-actions">
-    <button md-button type="submit" class="form-submit nverted-button" [disabled]="!contactForm.valid">Submit</button>
+    <button md-button type="submit" class="form-submit inverted-button" [disabled]="!contactForm.valid">Submit Form</button>
   </div>
 </form>

@@ -1,5 +1,9 @@
 @import "bootstrap-sass/assets/stylesheets/bootstrap";
 
+.light {
+  font-weight: 300;
+}
+
 /* Reset */
 html,
 body,
@@ -97,6 +101,23 @@ button:hover {
     background: $text-color;
     span { color: $white_trans; }
   }
+  &[disabled] {
+    opacity: 0.2;
+    &:hover {
+      background: initial!important;
+    }
+  }
+}
+
+.md-placeholder-required {
+  color: $red_500;
+}
+
+.form-group.full {
+  width: 100%;
+  label {
+    display: block;
+  }
 }
 
 .flex-row {
@@ -156,10 +177,42 @@ section.theme-dark {
   h4 {
     color: $white_trans;
   }
+
+  .inverted-button,
+  [md-button].inverted-button {
+    background: transparent;
+    border-color: $white_trans;
+    span {
+      color: $white_trans;
+    }
+    &:hover {
+      background: $white;
+      span {
+        color: $text-color;
+      }
+    }
+    &[disabled]:hover {
+      span {
+        color: $white_trans;
+      }
+    }
+  }
 }
 
-.light {
-  font-weight: 300;
+#directions {
+  position: relative;
+  min-height: 146px;
+  padding: 0;
+  -webkit-transition: all false false,.15s false false,ease-in-out false false;
+  -webkit-transition: all .15s ease-in-out;
+  transition: all .15s ease-in-out;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  &.expanded {
+    min-height: 438px;
+  }
 }
 
 footer {

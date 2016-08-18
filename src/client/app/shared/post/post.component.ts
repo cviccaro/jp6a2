@@ -3,7 +3,7 @@ import { NgSwitch, NgSwitchCase } from '@angular/common';
 import {DateFormatPipe} from 'angular2-moment';
 import {Trimmed} from '../pipes/trimmed.pipe';
 import {Capitalize} from '../pipes/capitalize.pipe';
-//import {HoverDynamicsDirective} from '../../directives/hover-dynamics/hover-dynamics.directive';
+import {HoverDynamicsDirective} from '../hover-dynamics/index';
 import {ROUTER_DIRECTIVES} from '@angular/router';
 
 @Component({
@@ -11,7 +11,7 @@ import {ROUTER_DIRECTIVES} from '@angular/router';
 	moduleId: module.id,
 	templateUrl: './post.component.html',
 	styleUrls: ['./post.component.css'],
-	directives: [ROUTER_DIRECTIVES, NgSwitch, NgSwitchCase],
+	directives: [ROUTER_DIRECTIVES, NgSwitch, NgSwitchCase, HoverDynamicsDirective],
 	pipes: [DateFormatPipe, Trimmed, Capitalize]
 })
 export class PostComponent implements AfterViewInit {

@@ -1,6 +1,6 @@
 <div layout="column" [class.slideInUp]="animateIn" [class.animated]="animateIn" [hidden]="animateIn && !animating">
 	<div class="img-container">
-		<a [routerLink]="routerLink" [title]="title" md-ink-ripple hover-dynamics layout="column" layout-align="center center">
+		<a [routerLink]="routerLink" [title]="title" md-ink-ripple jpHoverDynamics layout="column" layout-align="center center">
 			<img *ngIf="image" [title]="title" [src]="image" />
 			<img *ngIf="!image" [title]="title" [src]="'assets/images/placeholder.png'" />
 		</a>

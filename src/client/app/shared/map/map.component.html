@@ -1,0 +1,27 @@
+  <md-toolbar flex layout="row" [hidden]="!mapShowing" class="map-toolbar">
+    <button md-button md-fab class="md-icon-button md-mini md-fab md-primary locate-me" aria-label="Locate me" title="Locate me" (click)="locateMe()">
+      <md-icon>location_on</md-icon>
+    </button>
+    <label class="md-caption locate-me-label" hide-xs>Locate Me</label>
+    <md-input-container class="small map-toolbar-input-container" flex>
+      <label class="address-label">Need Directions?</label>
+      <input class="md-body-1 map-toolbar-input" type="text" [formControl]="directionsOrigin" placeholder="Enter your address..." size="60">
+    </md-input-container>
+  </md-toolbar>
+  <sebm-google-map id="map" [latitude]="latitude" [longitude]="longitude" [zoom]="zoom" [options]="options" [control]="control" [hidden]="!mapShowing" class="fadeIn animated">
+    <jp-map-control (mapLoaded)="mapLoaded($event)"></jp-map-control>
+    <div id="directionsPanel" [hidden]="!directionsShowing">
+      <div class="directions-toolbar" layout="row" flex>
+        <button md-button flex (click)="openDirectionsExternally()" aria-label="View on Google"><md-icon class="material-icons">directions</md-icon>Print and Share on Google Maps</button>
+      </div>
+    </div>
+    <button md-button md-fab class="md-icon-button md-fab md-mini close" id="mapClose" aria-label="Close" title="Close" (click)="closeMap()">
+      <md-icon>close</md-icon>
+    </button>
+    <sebm-google-map-marker [label]="'J'" [title]="title" [latitude]="latitude" [longitude]="longitude" events="vm.map.pin.events" (markerClick)="addInfoWindow()">
+<!--       <sebm-google-map-info-window options="vm.map.markerWindowOptions" show="vm.map.markerWindowOptions.visible" closeClick="vm.hideMarkerWindow()">
+        <div>JP Enterprises<br />108 Commerce Blvd<br/ >Lawrence, PA 15055</div>
+      </sebm-google-map-info-window> -->
+    </sebm-google-map-marker>
+  </sebm-google-map>
+  <button md-button class="inverted-button" (click)="openMap()" [hidden]="mapShowing">Get Directions</button>
