@@ -1,0 +1,55 @@
+:host {
+	display: block;
+	position: fixed;
+	top: 100%;
+	left: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 999;
+	overflow: auto;
+	padding: 4.188em 0 calc(75px + 4.188em) 0;
+	margin: 0;
+	border: 0;
+	background-color: $white_trans;
+
+	-webkit-overflow-scrolling: touch;
+	justify-content: center;
+	align-items: center;
+	@include transition(all 0.33s $transition_ease);
+
+	&.active {
+		top: 75px;
+	}
+	.overlay-close-mobile {
+		display: none;
+	}
+	md-content {
+		overflow: visible;
+	}
+	.overlay-toolbar {
+		width: 100%;
+		font-family: $proxima-nova;
+		background-color: transparent;
+		margin-bottom: 50px;
+		padding-left: 0;
+		padding-right: 0;
+		.section-title {
+			position: relative;
+			top: 8px;
+			text-align: left;
+		}
+		h2,[md-button] {
+			margin: 0;
+		}
+		jp-icon-button {
+			margin-right: 0.33em;
+		}
+		[md-icon] {
+			color: $almost_black;
+			font-size: 20px;
+			position: relative;
+			top: -2px;
+		}
+	}
+}

@@ -1,0 +1,13 @@
+<div class="container">
+	<md-toolbar class="overlay-toolbar first" layout="row">
+		<h2 *ngIf="title" class="section-title text-uppercase" [innerHTML]="title"></h2>
+		<span class="filler"></span>
+		<button md-button class="inverted-button overlay-close" (click)="close()">
+			Close Window
+		</button>
+		<button md-button class="md-icon-button overlay-close-mobile" (click)="close()">
+			<i md-icon class="material-icons">close</i>
+		</button>
+	</md-toolbar>
+	<ng-content></ng-content>
+</div>

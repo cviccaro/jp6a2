@@ -1,0 +1,12 @@
+:host {
+	.filters-buttonset {
+		display: flex;
+		flex-direction: row;
+		width: 600px;
+		margin-left: 16px;
+		jp-icon-button {
+			width: 33%;
+			height: 39px;
+		}
+	}
+}

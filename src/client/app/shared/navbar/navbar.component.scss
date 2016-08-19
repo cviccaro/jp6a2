@@ -8,6 +8,7 @@
   z-index: 500;
   box-sizing: border-box;
   border-bottom: 1px solid $grey_300;
+  background-color: $white;
   .container {
     display: flex;
     flex-direction: row;
@@ -24,8 +25,20 @@
       font-family: $proxima-nova;
       padding: 0 6px;
       margin: 0 10px;
+      position: relative;
+      will-change: color;
+      @include transition(color $transition_duration $transition_ease);
       &:hover {
         color: $blue_translucent;
+        background-color: transparent;
+        text-decoration: none;
+        &::after {
+          background-color: transparent;
+        }
+      }
+      .md-ripple-foreground {
+        max-height: 100%;
+        max-width: 100%;
       }
     }
   }

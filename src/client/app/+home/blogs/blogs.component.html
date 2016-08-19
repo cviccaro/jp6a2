@@ -1,0 +1,41 @@
+<jp-content-overlay id="blogs" layout="column" [title]="'Our Blog'" jp-infinite-scroll-container #container>
+	<md-toolbar id="filters" class="overlay-toolbar grid transparent" layout="column" layout-gt-md="row" layout-align="start center">
+		<h4 class="light text-uppercase">Filter By:</h4>
+		<div class="filters-buttonset" layout="row" flex jp-icon-buttonset>
+			<jp-icon-button class="horizontal publishing blue">
+				<jp-icon-button-text>Publishing</jp-icon-button-text>
+				<jp-icon></jp-icon>
+				<jp-icon-hover></jp-icon-hover>
+			</jp-icon-button>
+			<jp-icon-button class="horizontal creative yellow">
+				<jp-icon-button-text>Creative</jp-icon-button-text>
+				<jp-icon></jp-icon>
+				<jp-icon-hover></jp-icon-hover>
+			</jp-icon-button>
+			<jp-icon-button class="horizontal interactive fuchsia">
+				<jp-icon-button-text>Interactive</jp-icon-button-text>
+				<jp-icon></jp-icon>
+				<jp-icon-hover></jp-icon-hover>
+			</jp-icon-button>
+		</div>
+	</md-toolbar>
+	<div class="content" *ngIf="blogs">
+	<!-- <md-content layout="row" layout-wrap ng-cloak jp-infinite-scroll [container]="container" (prefetch)="prefetchMoreBlogs()" (render)="renderMoreBlogs()" class="blogs-list grid"> -->
+		<jp-post *ngFor="let blog of blogs.blogs" 
+			[image]="blog.image.url" 
+			[title]="blog.title" 
+			[text]="blog.summary" 
+			[longText]="blog.body" 
+			[date]="blog.created_at" 
+			[tag]="blog.divisions[0].name" 
+			[author]="blog.author" 
+			[routerLink]="['../Blog', {'identifier': blog.identifier}]"
+			[animateIn]="blog.animateIn"
+			class="cell">
+		</jp-post>
+    <!-- </md-content> -->
+  </div>
+	<div class="infinite-scroll-finished full-width" [hidden]="finished">
+		<md-icon>receipt</md-icon><div>End of Content</div>
+	</div>
+</jp-content-overlay>

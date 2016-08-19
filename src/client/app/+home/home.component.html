@@ -33,7 +33,12 @@
 	<div class="container">
 		<h2 class="section-title text-right text-uppercase" [class.wow]="wowEnabled" [class.slideInRight]="wowEnabled">Our Projects</h2>
 		<div class="content" md-swipe-left="vm.prevWork()" md-swipe-right="vm.nextWork()" *ngIf="work">
-	    	<jp-card *ngFor="let item of work.projects" [cardTitle]="item.title" [subTitle]="item.client?.name" [image]="item.image.url"></jp-card>
+	    	<jp-card *ngFor="let item of work.projects" 
+	    		[cardTitle]="item.title" 
+	    		[subTitle]="item.client?.name" 
+	    		[image]="item.image.url"
+	    		class="cell">
+    		</jp-card>
 		</div>
 		<jp-pager class="wide" [currentPage]="workIndex" [totalPages]="workTotal" [pagerType]="'minimal'" (pageChanged)="fetchWork($event)" [includeNav]="true"></jp-pager>
 	</div>
@@ -80,7 +85,7 @@
 	    	[author]="blog.author" 
 	    	[routerLink]="['./Blog', {identifier: blog.identifier}]">
 		</jp-post>
-	    <button md-button class="inverted-button boxy-button">Load More Blogs</button>
+	    <button md-button class="inverted-button boxy-button" [routerLink]="['/blogs']">Load More Blogs</button>
 	  </div>
 	</div>
 </section>

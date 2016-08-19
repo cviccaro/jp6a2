@@ -119,6 +119,10 @@ button:hover {
     display: block;
   }
 }
+.wide,
+.grid-wide {
+  width: 1160px;
+}
 
 .flex-row {
   display: flex;
@@ -151,17 +155,19 @@ section,.section-padding {
 }
 
 section {
-  .content {
-    flex-direction: row;
-    flex-wrap: wrap;
-    display: flex;
-    .cell {
-      width: 32%;
-      margin-right: 2%;
-      margin-bottom: 16px;
-      &:nth-child(3n) {
-        margin-right: 0;
-      }
+  position: relative;
+}
+
+.content {
+  flex-direction: row;
+  flex-wrap: wrap;
+  display: flex;
+  .cell {
+    width: 32%;
+    margin-right: 2%;
+    margin-bottom: 16px;
+    &:nth-child(3n) {
+      margin-right: 0;
     }
   }
 }
@@ -196,6 +202,24 @@ section.theme-dark {
         color: $white_trans;
       }
     }
+  }
+}
+
+#work
+{
+  jp-pager {
+    margin: 0;
+    ul.jp-pager {
+      display: none;
+    }
+  }
+}
+
+#contact
+{
+  padding-bottom: 175px;
+  .section-title {
+    margin-top: 15px;
   }
 }
 
@@ -240,4 +264,39 @@ footer {
       }
     }
   }
+}
+
+/**
+ * Content Overlay
+ */
+
+jp-content-overlay
+{
+  z-index: 999!important;
+  background-color: #fff!important;
+  section {
+    padding-top: 4.188em;
+  }
+  md-content,[md-button] {
+    background: transparent;
+  }
+  .md-inverted-button[md-button] {
+    background: transparent!important;
+  }
+}
+
+.infinite-scroll-finished {
+  width: 100%;
+  margin-top: 4em;
+  text-align: center;
+  md-icon {
+    margin: 0 0 5px 0;
+  }
+}
+
+body.scroll-disabled {
+  overflow: hidden;
+  height: 100%;
+  position: fixed;
+  width: 100%;
 }

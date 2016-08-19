@@ -40,6 +40,7 @@ export class MapComponent {
 	directionsResult: any;
 	directionsService: any;
 	directionsShowing = false;
+	infoWindowOpen = false;
 	latitude = 40.3115483;
 	longitude = -80.1245562;
 	map: any = null;
@@ -62,20 +63,6 @@ export class MapComponent {
 			.debounceTime(500)
 			.distinctUntilChanged()
 			.subscribe((term) => this.getDirections(term));
-	}
-
-	addInfoWindow() {
-		let infoWindow = new google.maps.InfoWindow({
-			content: this.addressFormatted,
-			position: <LatLngLiteral>{ lat: this.latitude, lng: this.longitude },
-			pixelOffset: new google.maps.Size(0, -45)
-		});
-		let marker = new google.maps.Marker({
-			map: this.map,
-			position: <LatLngLiteral>{ lat: this.latitude, lng: this.longitude },
-			visible: false
-		});
-		infoWindow.open(this.map, marker);
 	}
 
 	clearMarkers() {
@@ -131,17 +118,14 @@ export class MapComponent {
 		this.directionsDisplay = new google.maps.DirectionsRenderer();
 		this.directionsDisplay.setMap(this.map);
 		this.directionsDisplay.setPanel(document.getElementById('directionsPanel'));
-		console.log('map loaded!', {
-			map: m,
-			this: this
-		});
 	}
 
 	openDirectionsExternally() {
 	  let saddr = 'My Location';
-	  if (this.directionsOrigin) {
+	  if (this.directionsOrigin && this.directionsOrigin.value) {
 		  saddr = this.directionsOrigin.value;
 	  }
+
 	  window.open('https://www.google.com/maps?saddr=' + saddr + '&daddr=' + this.address);
 	}
 
@@ -150,7 +134,7 @@ export class MapComponent {
 		let latlng = <LatLngLiteral>{ lat: this.latitude, lng: this.longitude };
 		this.map.setCenter(latlng);
 		this.map.setZoom(this.zoom);
-		this.addInfoWindow();
+		setTimeout(() => this.infoWindowOpen = true, 100);
 	}
 
 	showDirectionsSteps(result: any) {

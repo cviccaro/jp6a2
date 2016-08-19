@@ -3,7 +3,7 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
 import { HTTP_PROVIDERS } from '@angular/http';
 import {MdIconRegistry} from '@angular2-material/icon';
 
-import { Config, NavbarComponent } from './shared/index';
+import { Config, NavbarComponent, ScrollService } from './shared/index';
 
 /**
  * This class represents the main application component. Within the @Routes annotation is the configuration of the
@@ -17,7 +17,7 @@ import { Config, NavbarComponent } from './shared/index';
   directives: [ROUTER_DIRECTIVES, NavbarComponent]
 })
 export class AppComponent {
-  constructor() {
+  constructor(public scrollService: ScrollService) {
     console.log('Environment config', Config);
   }
 }
