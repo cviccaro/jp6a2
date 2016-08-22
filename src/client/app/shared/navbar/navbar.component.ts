@@ -17,6 +17,7 @@ export class NavbarComponent implements OnInit {
 
 	ngOnInit() {
 		this.navbarService.register(this.el);
+		this.navbarService.startListening();
 	}
 
 	@HostListener('document:scroll')

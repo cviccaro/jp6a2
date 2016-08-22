@@ -27,11 +27,14 @@ export class NavbarService {
 			this.lastScrollPos = window.pageYOffset;
 
 			if (scrollY > this.elemBottom && this.lastDirection === direction) {
-				if (direction === 'up' && !this.$elem.hasClass('snapped') && !this.animatingShow) {
-					this.snapIn();
-				} else if (direction === 'down' && this.$elem.hasClass('snapped') && !this.animatingHide) {
-					this.snapOut();
+				if (!this.$elem.hasClass('snapped') && !this.animatingShow) {
+				    this.snapIn();
 				}
+				// if (direction === 'up' && !this.$elem.hasClass('snapped') && !this.animatingShow) {
+				// 	this.snapIn();
+				// } else if (direction === 'down' && this.$elem.hasClass('snapped') && !this.animatingHide) {
+				// 	this.snapOut();
+				// }
 			} else if (scrollY <= this.elemTop && this.$elem.hasClass('snapped')) {
 				this.unsnap();
 			}

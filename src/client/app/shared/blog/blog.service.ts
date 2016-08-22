@@ -35,7 +35,7 @@ export class BlogService {
 		params.set('take', take.toString());
 
 		if (site_name) {
-			params.set('site', site_name);
+			params.set('division', site_name);
 		}
 
 		return this.http.get(Config.API + '/blogs/recent', { search: params })

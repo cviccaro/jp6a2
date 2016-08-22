@@ -12,7 +12,8 @@ export const HomeRoutes: RouterConfig = [
 		component: HomeComponent,
 		children: [
 			{ path: 'blogs', component: BlogsComponent, terminal: true, data: { returnTo: '/home' } },
-			{ path: ':selector', component: DummyComponent, terminal: true }
+			{ path: ':selector', component: DummyComponent, terminal: true },
+			{ path: '', component: DummyComponent, terminal: true }
 		]
 	}
 ];

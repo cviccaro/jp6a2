@@ -2,17 +2,17 @@
 	<md-toolbar id="filters" class="overlay-toolbar grid transparent" layout="column" layout-gt-md="row" layout-align="start center">
 		<h4 class="light text-uppercase">Filter By:</h4>
 		<div class="filters-buttonset" layout="row" flex jp-icon-buttonset>
-			<jp-icon-button class="horizontal publishing blue">
+			<jp-icon-button class="horizontal publishing blue" (click)="filterByDivision('publishing', $event)" [class.active]="divisionFilter === 'publishing'">
 				<jp-icon-button-text>Publishing</jp-icon-button-text>
 				<jp-icon></jp-icon>
 				<jp-icon-hover></jp-icon-hover>
 			</jp-icon-button>
-			<jp-icon-button class="horizontal creative yellow">
+			<jp-icon-button class="horizontal creative yellow" (click)="filterByDivision('creative', $event)" [class.active]="divisionFilter === 'creative'">
 				<jp-icon-button-text>Creative</jp-icon-button-text>
 				<jp-icon></jp-icon>
 				<jp-icon-hover></jp-icon-hover>
 			</jp-icon-button>
-			<jp-icon-button class="horizontal interactive fuchsia">
+			<jp-icon-button class="horizontal interactive fuchsia" (click)="filterByDivision('interactive', $event)" [class.active]="divisionFilter === 'interactive'">
 				<jp-icon-button-text>Interactive</jp-icon-button-text>
 				<jp-icon></jp-icon>
 				<jp-icon-hover></jp-icon-hover>
@@ -35,7 +35,10 @@
 		</jp-post>
     <!-- </md-content> -->
   </div>
-	<div class="infinite-scroll-finished full-width" [hidden]="finished">
+  <div class="button-container" [hidden]="finished">
+  	<button md-button class="load-more inverted-button" (click)="more()">Load More</button>
+  </div>
+	<div class="infinite-scroll-finished full-width" [hidden]="!finished">
 		<md-icon>receipt</md-icon><div>End of Content</div>
 	</div>
 </jp-content-overlay>

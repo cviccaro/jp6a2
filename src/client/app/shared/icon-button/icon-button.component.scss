@@ -62,7 +62,8 @@
    		}
     }
 
-    &:hover {
+    &:hover,
+    &.active {
     	cursor: pointer;
     	jp-icon {
     		opacity: 0;
@@ -275,7 +276,8 @@
             }
         }
 
-        &:hover {
+        &:hover,
+        &.active {
            jp-icon-button-text { color: #fff; }
         }
     }

@@ -18,6 +18,7 @@ export class DummyComponent implements OnInit {
 			 	let selector = params['selector'];
 			 	let el = document.getElementById(selector);
 			 	if (el) {
+			 		console.log('scroll wuth delay ', this.delay);
 			 		setTimeout(() => this.scrollToEl(el), this.delay);
 			 	}
 			 }

@@ -27,17 +27,17 @@ export class ContentOverlayComponent implements OnInit, AfterViewInit {
 
 	constructor(
 		public el: ElementRef,
-		private _router: Router,
-		private _route: ActivatedRoute,
-		private _scrollService: ScrollService
-		private _navbarService: NavbarService,
+		public router: Router,
+		public route: ActivatedRoute,
+		public scrollService: ScrollService,
+		public navbarService: NavbarService
 	) {
 		//
 	}
 
 	ngOnInit() {
 		console.info('ContentOverlayComponent initalized', this);
-		this._route.data.subscribe(params => {
+		this.route.data.subscribe(params => {
 			if (params.hasOwnProperty('returnTo')) {
 				this.returnTo = params['returnTo'];
 			}
@@ -53,18 +53,18 @@ export class ContentOverlayComponent implements OnInit, AfterViewInit {
 		document.body.classList.remove('scroll-disabled');
 		document.body.style.top = '';
 
-		window.scrollTo(0, this._scrollService.getLastScrollPos());
+		window.scrollTo(0, this.scrollService.getLastScrollPos());
 
 		this.isActive = false;
 		this.isHidden = true;
 
-		this._navbarService.snapOut();
-		this._navbarService.startListening();
+		this.navbarService.snapOut();
+		this.navbarService.startListening();
 
 		setTimeout(() => {
 			if (this.returnTo !== undefined && this.returnTo !== null) {
 				console.log('Returning to ', this.returnTo);
-				this._router.navigate([this.returnTo]);
+				this.router.navigate([this.returnTo]);
 			}
 		},500);
 	}
@@ -75,12 +75,12 @@ export class ContentOverlayComponent implements OnInit, AfterViewInit {
 			this.isActive = true;
 			this.isHidden = false;
 
-			this._navbarService.snapIn();
-			this._navbarService.stopListening();
+			this.navbarService.snapIn();
+			this.navbarService.stopListening();
 
 			jQuery(document.body)
 				.addClass('scroll-disabled')
-				.css('top', -this._scrollService.getLastScrollPos());
+				.css('top', -this.scrollService.getLastScrollPos());
 		}, 1);
 	}
 }
