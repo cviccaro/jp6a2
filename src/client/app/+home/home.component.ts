@@ -75,42 +75,21 @@ export class HomeComponent implements OnInit {
    * @param {NameListService} nameListService - The injected NameListService.
    */
   constructor(
-    public cache: CacheService,
-    public workService: WorkService,
-    public staffService: StaffService,
     public blogService: BlogService,
-    public clientService: ClientService
+    public cache: CacheService,
+    public clientService: ClientService,
+    public staffService: StaffService,
+    public workService: WorkService
   ) {
     this.config = this.cache.get('config');
-    this.fetchAll();
-    console.log('HomeComponent constructed', this);
   }
 
-  fetchAll() {
-    this.workService.recent(0, this.workLimit)
-      .subscribe(res => {
-        this.work = res;
-        this.workTotal = Math.round(res.total / 6);
-        console.log('fetched work: ', this.work);
-      });
-
-    this.staffService.all()
-      .subscribe(res => {
-        this.staff = res;
-        console.log('fetched staff: ', this.staff);
-      });
-
-    this.blogService.recent()
-      .subscribe(res => {
-        this.blogs = res;
-        console.log('fetch blogs: ', this.blogs);
-      });
-
-    this.clientService.featured()
-      .subscribe(res => {
-        this.clients = res;
-        console.log('fetch clients: ', this.clients);
-      });
+  ngOnInit() {
+    this.blogs = this.cache.get('blogs');
+    this.clients = this.cache.get('clients');
+    this.staff = this.cache.get('staff');
+    this.work = this.cache.get('work');
+    console.log('HomeComponent Initialized', this);
   }
 
   fetchWork(num: number) {
@@ -173,13 +152,6 @@ export class HomeComponent implements OnInit {
             jQuery(elem).css('height', '');
         }
       });
-  }
-
-  /**
-   * OnInit
-   */
-  ngOnInit() {
-    console.log('HomeComponent Initialized', this);
   }
 
   formSubmitSuccess(submission: any) {

@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class CacheService {
+    constructor() {
+        console.log('CacheService constructed');
+    }
     private _cache: { [key: string] : any } = {};
 
     public get cache() { return this._cache; }

@@ -4,6 +4,7 @@ import { AboutRoutes } from './+about/index';
 import { HomeRoutes } from './+home/index';
 
 import { ConfigGuard } from './shared/index';
+import {HomeGuard} from "./+home/home.guard";
 
 const routes: RouterConfig = [
   ...HomeRoutes,
@@ -12,5 +13,6 @@ const routes: RouterConfig = [
 
 export const APP_ROUTER_PROVIDERS = [
   provideRouter(routes),
-  ConfigGuard
+  ConfigGuard,
+  HomeGuard
 ];
