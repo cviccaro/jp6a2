@@ -15,8 +15,8 @@ export class BlogService {
 	        .map((res) => res.json());
 	}
 
-	get(identifier: string) {
-		return this.http.get(Config.API + '/blogs/' + identifier)
+	find(uri: string) {
+		return this.http.get(Config.API + '/blogs/uri/' + uri)
 			.map((res) => res.json());
 	}
 
@@ -24,7 +24,7 @@ export class BlogService {
 		let params = new URLSearchParams();
 		params.set('max', max.toString());
 
-		return this.http.get(Config.API + '/blog-related/' + id, { search: params })
+		return this.http.get(Config.API + '/blogs/related/' + id, { search: params })
 			.map((res) => res.json());
 	}
 

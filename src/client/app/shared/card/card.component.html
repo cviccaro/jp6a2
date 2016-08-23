@@ -1,6 +1,10 @@
 <div class="jp-card-content" layout="column">
-	<div class="card-img">
-		<a [href]="url" layout-align="center center" md-ink-ripple [title]="cardTitle" jpHoverDynamics>
+	<div class="card-img" [ngSwitch]="routerLink !== null">
+		<a *ngSwitchCase="true" [routerLink]="routerLink" layout-align="center center" md-ink-ripple [title]="cardTitle" jpHoverDynamics>
+			<div *ngIf="overlay" md-ink-ripple class="overlay" [style.background-image]="'url('+overlay+')'"></div>
+			<img [src]="image" [title]="cardTitle" />
+		</a>
+		<a *ngSwitchDefault [href]="url" layout-align="center center" md-ink-ripple [title]="cardTitle" jpHoverDynamics>
 			<div *ngIf="overlay" md-ink-ripple class="overlay" [style.background-image]="'url('+overlay+')'"></div>
 			<img [src]="image" [title]="cardTitle" />
 		</a>

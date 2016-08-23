@@ -17,6 +17,7 @@ export class ScrollService {
 	getLastScrollPos() {
 		return this._lastScrollPos;
 	}
+
 	scrollToElementAnimated(el: HTMLElement, duration: number = 1000, delay: number = 0, offset: number = 0) {
 		setTimeout(() => {
 			jQuery('html, body').animate({

@@ -1,0 +1,41 @@
+<jp-content-overlay id="blog-single" layout="column" jp-infinite-scroll-container #container class="full-width">
+	<div class="blog-splash" [jpBackground]="'assets/images/blog-splash-placeholder.jpg'"></div>
+	<div class="layout-tworows-sidebar container" *ngIf="ready">
+	    <div class="top-row">
+	    	<div class="left">
+          <h1 class="section-title text-uppercase">{{blog.title | capitalize}}</h1>
+	    		<div class="blog-body md-body-1" [innerHTML]="blog.body"></div>
+	    		<div *ngIf="blog.author" class="blog-author-pane" layout="row">
+	    			<img class="blog-author-photo" src="assets/images/staff-photo-placeholder.jpg" />
+	    			<div class="blog-author-inner-pane">
+	    				<h3 class="pane-title text-uppercase">About The Author</h3>
+	    				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In neque leo, ullamcorper vel arcu ac, euismod mattis ex. Morbi sollicitudin pellentesque faucibus. Sed id rhoncus nisl. Nulla facilisi. Nulla id mollis orci, at gravida orci. Duis erat felis, porttitor eu fringilla hendrerit, dapibus vitae purus.</p>
+					</div>
+	    		</div>
+	    	</div>
+	    	<div class="right">
+	    		<img class="blog-author-photo" src="assets/images/staff-photo-placeholder.jpg" />
+	    		<div *ngIf="blog.author" class="blog-author"><span [innerHTML]="blog.author"></span></div>
+	    		<div class="blog-created"><span [innerHTML]="blog.created_at | amDateFormat: 'MMMM d, YYYY'"></span></div>
+	    		<div class="blog-category"><span>in <a href="#">{{blog.divisions? (blog.divisions[0].name | capitalize) : ''}}</a></span></div>
+	    	</div>
+	    </div>
+	    <div class="bottom-row">
+	        <h2 class="text-uppercase">Related Articles</h2>
+	        <div class="content">
+	            <jp-post 
+	            		class="cell"
+	                *ngFor="#post of related" 
+	                [title]="post.title" 
+	                [image]="post.image.url" 
+	                [text]="post.summary" 
+	                [longText]="post.body" 
+	                [date]="post.created_at" 
+	                [tag]="post.divisions[0].name" 
+	                [author]="post.author" 
+	                [routerLink]="['/blogs/' + post.uri]">
+	            </jp-post>
+	        </div>
+	    </div>
+	</div>
+</jp-content-overlay>

@@ -1,4 +1,5 @@
 import {Component, Input} from '@angular/core';
+import {NgSwitch, NgSwitchCase, NgSwitchDefault} from '@angular/common';
 import {HoverDynamicsDirective} from '../hover-dynamics/index';
 
 @Component({
@@ -6,7 +7,7 @@ import {HoverDynamicsDirective} from '../hover-dynamics/index';
 	moduleId: module.id,
 	templateUrl: './card.component.html',
 	styleUrls: ['./card.component.css'],
-	directives: [HoverDynamicsDirective]
+	directives: [HoverDynamicsDirective, NgSwitch, NgSwitchCase, NgSwitchDefault]
 })
 export class CardComponent {
 	@Input() cardTitle: string;
@@ -14,4 +15,5 @@ export class CardComponent {
 	@Input() image: any;
 	@Input() overlay: any;
 	@Input() url = '#';
+	@Input() routerLink: any;
 }

@@ -53,7 +53,7 @@ li {
 }
 
 input {
-  border: 1px solid #106cc8;
+  border: 1px solid $blue;
   font-size: 14px;
   height: 40px;
   outline: none;
@@ -64,6 +64,10 @@ button,
 button[md-button],
 button[md-raised-button] {
   font-family: $source-sans-pro;
+  position: relative;
+  .md-ripple-foreground {
+    max-height: 100%;
+  }
 }
 
 button {
@@ -131,6 +135,47 @@ button:hover {
 
 .filler {
   flex: 1 1 auto;
+}
+
+.layout-sidebar {
+  display: flex;
+  flex-direction: row;
+  .left {
+    flex-basis: 75%;
+    width: 75%;
+    flex-shrink: 0;
+  }
+  .right {
+    flex-basis: 20%;
+    flex-shrink: 0;
+    width: 20%;
+  }
+}
+
+.layout-tworows-sidebar {
+  display: flex;
+  flex-direction: column;
+  .top-row {
+    display: flex;
+    flex-direction: row;
+    .left {
+      width: 75%;
+      flex-basis: 75%;
+    }
+
+    .right {
+      width: 20%;
+      flex-basis: 20%;
+      text-align: right;
+    }
+  }
+  .bottom-row {
+    display: flex;
+    flex-direction: column;
+    .content {
+      flex-direction: row;
+    }
+  }
 }
 
 .icon-buttons {

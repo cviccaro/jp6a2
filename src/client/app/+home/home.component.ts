@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { MD_BUTTON_DIRECTIVES } from '@angular2-material/button';
 import { MD_RIPPLE_DIRECTIVES } from '@angular2-material/core';
 import { MD_GRID_LIST_DIRECTIVES } from '@angular2-material/grid-list/grid-list';
@@ -21,7 +21,8 @@ import {
   SocialIconsComponent,
   ClientService,
   MapComponent,
-  PagerComponent
+  PagerComponent,
+  ScrollService
 } from '../shared/index';
 
 import { ContactFormComponent } from './contact-form/index';
@@ -68,18 +69,16 @@ export class HomeComponent implements OnInit {
   workTotal = 0;
   year = new Date().getFullYear();
 
-  /**
-   * Creates an instance of the HomeComponent with the injected
-   * NameListService.
-   *
-   * @param {NameListService} nameListService - The injected NameListService.
-   */
+  @ViewChild('start') public contentStartEl: ElementRef;
+  @ViewChild('projects') public projectsEl: ElementRef;
+
   constructor(
     public blogService: BlogService,
     public cache: CacheService,
     public clientService: ClientService,
     public staffService: StaffService,
-    public workService: WorkService
+    public workService: WorkService,
+    public scrollService: ScrollService
   ) {
     this.config = this.cache.get('config');
   }
@@ -89,7 +88,8 @@ export class HomeComponent implements OnInit {
     this.clients = this.cache.get('clients');
     this.staff = this.cache.get('staff');
     this.work = this.cache.get('work');
-    console.log('HomeComponent Initialized', this);
+
+    console.log('HomeComponent initialized.', this);
   }
 
   fetchWork(num: number) {
@@ -101,7 +101,7 @@ export class HomeComponent implements OnInit {
       .subscribe((res) => {
         // Prepare to animate out current work
         let changed = false;
-        let elem: HTMLElement = <HTMLElement>document.getElementById('work').children[0].children[1];
+        let elem: HTMLElement = this.projectsEl.nativeElement;
         let offsetX = window.innerWidth - elem.offsetLeft;
 
         dynamics.css(elem,{
@@ -156,5 +156,9 @@ export class HomeComponent implements OnInit {
 
   formSubmitSuccess(submission: any) {
     console.log('submitted contact form!', submission);
+  }
+
+  scrollToFold() {
+    this.scrollService.scrollToElementAnimated(this.contentStartEl.nativeElement, 1000, 0, 60);
   }
 }

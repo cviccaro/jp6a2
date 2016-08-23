@@ -22,21 +22,22 @@
 	    	<jp-icon-button-text>Interactive</jp-icon-button-text>
 	    </jp-icon-button>
     </div>
-    <button class="scroll-down text-uppercase" md-button>
+    <button class="scroll-down text-uppercase" md-button (click)="scrollToFold()">
     	<span>Scroll</span>&nbsp;&nbsp;&nbsp;<img src="assets/images/scroll-down.png" alt="Scroll Down" title="Scroll Down" class="ng-scope" />&nbsp;&nbsp;&nbsp;<span>Down</span>
-	</button>
+		</button>
 </jp-splash>
 
 <jp-navbar></jp-navbar>
 
-<section id="projects" class="content-start flex-col">
+<section id="projects" class="content-start flex-col" #start>
 	<div class="container">
 		<h2 class="section-title text-right text-uppercase" [class.wow]="wowEnabled" [class.slideInRight]="wowEnabled">Our Projects</h2>
-		<div class="content" md-swipe-left="vm.prevWork()" md-swipe-right="vm.nextWork()" *ngIf="work">
+		<div class="content" md-swipe-left="vm.prevWork()" md-swipe-right="vm.nextWork()" *ngIf="work" #projects>
 	    	<jp-card *ngFor="let item of work.projects" 
 	    		[cardTitle]="item.title" 
 	    		[subTitle]="item.client?.name" 
 	    		[image]="item.image.url"
+	    		[routerLink]="['/projects/' + item.uri]"
 	    		class="cell">
     		</jp-card>
 		</div>
@@ -83,7 +84,7 @@
 	    	[date]="blog.created_at" 
 	    	[tag]="blog.divisions[0].name" 
 	    	[author]="blog.author" 
-	    	[routerLink]="['./Blog', {identifier: blog.identifier}]">
+	    	[routerLink]="['/blogs/' + blog.uri]">
 		</jp-post>
 	    <button md-button class="inverted-button boxy-button" [routerLink]="['/blogs']">Load More Blogs</button>
 	  </div>

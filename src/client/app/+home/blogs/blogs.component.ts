@@ -24,14 +24,10 @@ export class BlogsComponent implements OnInit {
 	}
 
 	getBlogs() {
-		this.fetchBlogs()
+		this._fetchBlogs()
 			.subscribe(res => {
 				this.blogs = res;
 			});
-	}
-
-	fetchBlogs(skip: number = 0) {
-		return this.blogService.recent(skip, this.perPage, this.divisionFilter);
 	}
 
 	filterByDivision(division: string) {
@@ -45,12 +41,16 @@ export class BlogsComponent implements OnInit {
 	more() {
 		this.index += this.perPage;
 
-		this.fetchBlogs(this.index)
+		this._fetchBlogs(this.index)
 			.subscribe(res => {
 				this.blogs.blogs = this.blogs.blogs.concat(res.blogs);
-				console.log('Fetched blogs: ', this.blogs);
+				this.finished = !(res.remaining > 0);
 			});
 
 		return false;
+	}
+
+	private _fetchBlogs(skip: number = 0) {
+		return this.blogService.recent(skip, this.perPage, this.divisionFilter);
 	}
 }

@@ -1,5 +1,5 @@
 <jp-content-overlay id="blogs" layout="column" [title]="'Our Blog'" jp-infinite-scroll-container #container>
-	<md-toolbar id="filters" class="overlay-toolbar grid transparent" layout="column" layout-gt-md="row" layout-align="start center">
+	<md-toolbar id="filters" class="overlay-toolbar transparent">
 		<h4 class="light text-uppercase">Filter By:</h4>
 		<div class="filters-buttonset" layout="row" flex jp-icon-buttonset>
 			<jp-icon-button class="horizontal publishing blue" (click)="filterByDivision('publishing', $event)" [class.active]="divisionFilter === 'publishing'">

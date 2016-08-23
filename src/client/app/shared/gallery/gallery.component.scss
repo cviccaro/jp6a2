@@ -1,0 +1,28 @@
+:host {
+	width: 100%;
+	display: block;
+	.images-wrapper {
+		position: relative;
+	}
+	.gallery-item {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 100%;
+		width: 100%;
+		&.active {
+			display: block;
+		}
+		&.hidden {
+			display: none;
+		}
+		background-size: cover;
+		background-position: top center;
+	}
+	.gallery-spacer {
+		img {
+			visibility: hidden;
+		}
+	}
+}

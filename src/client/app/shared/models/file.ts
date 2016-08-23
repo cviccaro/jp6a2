@@ -199,3 +199,7 @@ export class ManagedImage extends ManagedFile implements OnDestroy {
         if (this._dimensionSub) this._dimensionSub.unsubscribe();
     }
 }
+
+export class ManagedImageSlide extends ManagedImage {
+    active = false;
+}

@@ -84,7 +84,7 @@ export class NavbarService {
 
 		this.showTimer = setTimeout(() => {
 		    this.$elem
-				.on(this.transitionEvents, function(e) {
+				.on(this.transitionEvents, function(e: Event) {
 					if (e.target === this) {
 						that.$elem.unbind(that.transitionEvents);
 						that.animatingShow = false;
@@ -106,7 +106,7 @@ export class NavbarService {
 			this.$elem.removeClass('snap-in snap-in-active snapped').addClass('snap-out');
 			setTimeout(() => {
 				this.$elem.on(transitionEvents,
-					function(e) {
+					function(e: Event) {
 						if (e.target === this) {
 							that.$elem.unbind(transitionEvents);
 							that.animatingHide = false;
