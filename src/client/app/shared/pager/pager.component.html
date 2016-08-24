@@ -1,12 +1,16 @@
 <ul class="jp-pager pagination" [class.minimal]="pagerType == 'minimal'" [class.nav]="pagerType == 'nav'" [ngSwitch]="pagerType">
     <template [ngSwitchCase]="'minimal'">
-        <li *ngFor="let i of getRange(totalPages); let index = index" class="pager-index" [class.active]="currentPage-1 == index" [class.pager-first]="index === 0" [class.pager-last]="index === getRange(totalPages).length">
-            <a href="javascript:void(0)" (click)="getResults(index+1)">{{index + 1}}</a>
+        <li *ngFor="let i of getRange(totalPages); let index = index" 
+        class="pager-index" 
+        [class.active]="currentPage-1 == index" 
+        [class.pager-first]="index === 0" 
+        [class.pager-last]="index === getRange(totalPages).length">
+            <a (click)="getResults(index+1)">{{index + 1}}</a>
         </li>
     </template>
     <template [ngSwitchCase]="'nav'">
         <li [hidden]="currentPage === 1" class="pager-prev">
-            <a href="javascript:void(0)" (click)="getResults(currentPage-1)" md-ink-ripple title="Previous">
+            <a (click)="getResults(currentPage-1)" md-ink-ripple title="Previous">
                 <span>&lsaquo; Prev</span>
                 <div class="icon-container">
                     <img src="assets/images/chevron_left.png" class="icon" />
@@ -18,7 +22,7 @@
             Page {{currentPage}} of {{totalPages}}
         </li>
         <li [hidden]="currentPage === totalPages" class="pager-next">
-            <a href="javascript:void(0)" (click)="getResults(currentPage+1)" md-ink-ripple title="Next">
+            <a (click)="getResults(currentPage+1)" md-ink-ripple title="Next">
                 <span>Next &rsaquo;</span>
                 <div class="icon-container" ng-if="pagerType == 'nav'">
                     <img src="assets/images/chevron_right.png" class="icon" />
@@ -29,17 +33,17 @@
     </template>
     <template ngSwitchDefault>
         <li *ngFor="let i of getRange(totalPages); let index = index" class="pager-index" [class.active]="currentPage-1 == index" [class.pager-first]="index === 0" [class.pager-last]="index === getRange(totalPages).length">
-            <a href="javascript:void(0)" (click)="getResults(index+1)">{{index + 1}}</a>
+            <a (click)="getResults(index+1)">{{index + 1}}</a>
         </li>
     </template>
 </ul>
 <div *ngIf="includeNav" class="jp-pager-nav-container" hide-xs hide-sm>
 	<div class="jp-pager-nav grid-wide">
-		<button md-button [hidden]="currentPage <= 1" class="jp-pager-nav-btn jp-pager-nav-btn-prev" (click)="getResults(currentPage-1)" aria-label="Previous Page" title="Previous Page">
-			<i md-icon class="material-icons">chevron_left</i>
+		<button md-button [hidden]="currentPage <= 1" class="jp-pager-nav-btn jp-pager-nav-btn-prev" (click)="getResults(currentPage-1)" title="Previous Page">
+			<md-icon>chevron_left</md-icon>
 		</button>
-		<button md-button [hidden]="currentPage === totalPages" class="jp-pager-nav-btn jp-pager-nav-btn-next" (click)="getResults(currentPage+1)" aria-label="Next Page" title="Next Page">
-			<i md-icon class="material-icons">chevron_right</i>
+		<button md-button [hidden]="currentPage === totalPages" class="jp-pager-nav-btn jp-pager-nav-btn-next" (click)="getResults(currentPage+1)" title="Next Page">
+			<md-icon>chevron_right</md-icon>
 		</button>
 	</div>
 </div>

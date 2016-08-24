@@ -4,7 +4,7 @@
 	    <div class="top-row">
 	    	<div class="left">
           <h1 class="section-title text-uppercase">{{blog.title | capitalize}}</h1>
-	    		<div class="blog-body md-body-1" [innerHTML]="blog.body"></div>
+	    		<div class="blog-body" [innerHTML]="blog.body"></div>
 	    		<div *ngIf="blog.author" class="blog-author-pane" layout="row">
 	    			<img class="blog-author-photo" src="assets/images/staff-photo-placeholder.jpg" />
 	    			<div class="blog-author-inner-pane">
@@ -25,7 +25,7 @@
 	        <div class="content">
 	            <jp-post 
 	            		class="cell"
-	                *ngFor="#post of related" 
+	                *ngFor="let post of related" 
 	                [title]="post.title" 
 	                [image]="post.image.url" 
 	                [text]="post.summary" 

@@ -14,6 +14,6 @@ export class CardComponent {
 	@Input() subTitle: string;
 	@Input() image: any;
 	@Input() overlay: any;
-	@Input() url = '#';
-	@Input() routerLink: any;
+	@Input() href = '#';
+	@Input() routerLink: any = null;
 }

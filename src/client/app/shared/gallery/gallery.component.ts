@@ -46,7 +46,7 @@ export class GalleryComponent implements OnInit, AfterViewInit {
 		const offsetX = window.innerWidth;
 
 		// Get DOM elements using elem property set by link()
-		let $currentImage: = jQuery(this.items.toArray()[this.current - 1].el.nativeElement);
+		let $currentImage = jQuery(this.items.toArray()[this.current - 1].el.nativeElement);
 		let $nextImage = jQuery(this.items.toArray()[num - 1].el.nativeElement);
 
 		// Set active property on item animating-out to false by extending

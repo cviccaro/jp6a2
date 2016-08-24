@@ -10,7 +10,7 @@ export class HomeGuard implements CanActivate, OnDestroy {
     blogs: null,
     clients: null,
     staff: null,
-    work: null
+    projects: null
   };
 
   subs: Subscription[];
@@ -33,7 +33,7 @@ export class HomeGuard implements CanActivate, OnDestroy {
         this.staffService.all()
           .subscribe(res => this.fetchComplete('staff', res, observer)),
         this.workService.recent(0, 6)
-          .subscribe(res => this.fetchComplete('work', res, observer))
+          .subscribe(res => this.fetchComplete('projects', res, observer))
       ];
     });
   }

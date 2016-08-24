@@ -87,7 +87,7 @@ export class HomeComponent implements OnInit {
     this.blogs = this.cache.get('blogs');
     this.clients = this.cache.get('clients');
     this.staff = this.cache.get('staff');
-    this.work = this.cache.get('work');
+    this.work = this.cache.get('projects');
 
     console.log('HomeComponent initialized.', this);
   }

@@ -1,12 +1,12 @@
-<div layout="column" [class.slideInUp]="animateIn" [class.animated]="animateIn" [hidden]="animateIn && !animating">
+<div [class.slideInUp]="animateIn" [class.animated]="animateIn" [hidden]="animateIn && !animating">
 	<div class="img-container">
-		<a [routerLink]="routerLink" [title]="title" md-ink-ripple jpHoverDynamics layout="column" layout-align="center center">
+		<a [routerLink]="routerLink" [title]="title" md-ink-ripple jpHoverDynamics>
 			<img *ngIf="image" [title]="title" [src]="image" />
 			<img *ngIf="!image" [title]="title" [src]="'assets/images/placeholder.png'" />
 		</a>
 	</div>
 	<div class="post-attributes" layout="row">
-		<span>{{date | amDateFormat: 'MMMM d, YYYY'}}&nbsp;&nbsp;-&nbsp;&nbsp;In&nbsp;{{tag | capitalize}}<span ngShow="author">&nbsp;&nbsp;-&nbsp;&nbsp;by <a href="#">{{author | capitalize}}</a></span></span>
+		<span>{{date | amDateFormat: 'MMMM d, YYYY'}}&nbsp;&nbsp;-&nbsp;&nbsp;In&nbsp;{{tag | capitalize}}<span ngShow="author">&nbsp;&nbsp;-&nbsp;&nbsp;by {{author | capitalize}}</span></span>
 	</div>
 	<h3 class="post-title"><a [routerLink]="routerLink" [title]="title" md-ink-ripple>{{ title | capitalize }}</a></h3>
 	<div [ngSwitch]="text.length > 0">

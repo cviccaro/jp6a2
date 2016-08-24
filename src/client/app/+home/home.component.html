@@ -6,17 +6,17 @@
     <div class="splash-body" [innerHTML]="config.main_site_splash_body"></div>
     <h4 class="learn-more text-uppercase">Click To Learn More</h4>
     <div class="flex-row icon-buttons">
-	    <jp-icon-button class="col-md-3 blue publishing">
+	    <jp-icon-button class="col-md-3 blue publishing" href="https://publishing.jpedev.com">
 	    	<jp-icon></jp-icon>
 	    	<jp-icon-hover></jp-icon-hover>
 	    	<jp-icon-button-text>Publishing</jp-icon-button-text>
 	    </jp-icon-button>
-	    <jp-icon-button class="col-md-3 yellow creative">
+	    <jp-icon-button class="col-md-3 yellow creative" href="https://creative.jpedev.com">
 	    	<jp-icon></jp-icon>
 	    	<jp-icon-hover></jp-icon-hover>
 	    	<jp-icon-button-text>Creative</jp-icon-button-text>
 	    </jp-icon-button>
-	    <jp-icon-button class="col-md-3 fuchsia interactive">
+	    <jp-icon-button class="col-md-3 fuchsia interactive" href="https://interactive.jpedev.com">
 	    	<jp-icon></jp-icon>
 	    	<jp-icon-hover></jp-icon-hover>
 	    	<jp-icon-button-text>Interactive</jp-icon-button-text>
@@ -50,6 +50,7 @@
 		<h2 class="section-title text-uppercase" [class.wow]="wowEnabled" [class.slideInLeft]="wowEnabled">Our Leadership</h2>
 		<div class="content" *ngIf="staff">
 		    <jp-card *ngFor="let person of staff" 
+		    [href]="'mailto:'+ person.email"
 		    class="cell"
 				[cardTitle]="person.first_name + ' ' + person.last_name" 
 				[subTitle]="person.title" 
