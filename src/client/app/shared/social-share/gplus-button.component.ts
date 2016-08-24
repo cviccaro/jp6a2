@@ -3,12 +3,12 @@ import { Observable } from 'rxjs/Rx';
 
 @Component({
 	moduleId: module.id,
-	selector: 'jp-linkedin-button',
+	selector: 'jp-gplus-button',
 	template: '',
 	styles: [ ':host { display: inline-block; height: 25px; width: 60px; overflow: hidden; }' ],
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class LinkedInButtonComponent implements OnInit, OnChanges {
+export class GooglePlusButtonComponent implements OnInit, OnChanges {
 	@Input() url: string;
 	@Input() text: string = 'Tweet';
 
@@ -28,9 +28,13 @@ export class LinkedInButtonComponent implements OnInit, OnChanges {
 		if (this.el.nativeElement.children.length > 0) {
      	return this.renderShareButton();
 		}
+		let cfg = this.renderer.createElement(this.el.nativeElement, 'script');
+		cfg.innerHTML = 'window.___gcfg = { lang: "en-US", parsetags: "explicit" }';
 
 		let script = this.renderer.createElement(this.el.nativeElement, 'script');
-    script.src = '//platform.linkedin.com/in.js';
+    script.src = '//apis.google.com/js/platform.js';
+    script.async = true;
+    script.defer = true;
 
     this.renderer.listen(script, 'load', () => {
       this.renderShareButton().subscribe((res: any) => {
@@ -41,13 +45,14 @@ export class LinkedInButtonComponent implements OnInit, OnChanges {
 
 	renderShareButton() {
 		return Observable.create((observer: any) => {
-			let button = this.renderer.createElement(this.el.nativeElement, 'script');
+			let button = this.renderer.createElement(this.el.nativeElement, 'div');
+			button.className = 'g-plus';
+			button.dataset.action = 'share';
 
-			button.type = 'IN/Share';
-			button.dataset.url = this.url;
-			button.dataset.counter = 'right';
-			
-			observer.next(button);
+			//let gapi = (window as any).gapi;
+			//gapi.plus.render(button, {width: '300', theme: 'light'});
+
+			observer.next('');
 			observer.complete();
 		});
 	}

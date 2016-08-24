@@ -29,6 +29,7 @@ import {
   TweetButtonComponent,
   SocialShareComponent,
   LinkedInButtonComponent,
+  GooglePlusButtonComponent,
   APP_SERVICES,
   CapitalizePipe
 } from './index';
@@ -68,6 +69,7 @@ import {
     TextareaAutoexpandDirective,
     LinkedInButtonComponent,
     TweetButtonComponent,
+    GooglePlusButtonComponent,
     SocialShareComponent,
     CapitalizePipe
   ],
@@ -88,6 +90,7 @@ import {
     SplashComponent,
     TextareaAutoexpandDirective,
     LinkedInButtonComponent,
+    GooglePlusButtonComponent,
     TweetButtonComponent,
     CapitalizePipe
   ]
