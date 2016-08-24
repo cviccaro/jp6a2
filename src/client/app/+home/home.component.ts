@@ -1,8 +1,4 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
-import { MD_BUTTON_DIRECTIVES } from '@angular2-material/button';
-import { MD_RIPPLE_DIRECTIVES } from '@angular2-material/core';
-import { MD_GRID_LIST_DIRECTIVES } from '@angular2-material/grid-list/grid-list';
-import { ROUTER_DIRECTIVES } from '@angular/router';
 
 import {
   IconButtonComponent,
@@ -15,7 +11,6 @@ import {
   StaffService,
   CardComponent,
   BackgroundDirective,
-  GlassSquareComponent,
   BlogService,
   PostComponent,
   SocialIconsComponent,
@@ -39,17 +34,12 @@ declare var dynamics: any;
   templateUrl: 'home.component.html',
   styleUrls: ['home.component.css'],
   directives: [
-    ROUTER_DIRECTIVES,
     SplashComponent,
     LogoComponent,
     IconButtonComponent,
     NavbarComponent,
     CardComponent,
     BackgroundDirective,
-    GlassSquareComponent,
-    MD_RIPPLE_DIRECTIVES,
-    MD_GRID_LIST_DIRECTIVES,
-    MD_BUTTON_DIRECTIVES,
     PostComponent,
     SocialIconsComponent,
     ContactFormComponent,

@@ -1,13 +1,13 @@
 import {Component, Output, EventEmitter} from '@angular/core';
 import {REACTIVE_FORM_DIRECTIVES, FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {MD_INPUT_DIRECTIVES} from '@angular2-material/input';
-import {MD_BUTTON_DIRECTIVES} from '@angular2-material/button';
+// import {MD_INPUT_DIRECTIVES} from '@angular2-material/input';
+// import {MD_BUTTON_DIRECTIVES} from '@angular2-material/button';
 import {FormSubmission, TextareaAutoexpandDirective, EmailValidator} from '../../shared/index';
 
 @Component({
 	selector: 'jp-contact-form',
 	moduleId: module.id,
-	directives: [MD_INPUT_DIRECTIVES, REACTIVE_FORM_DIRECTIVES, MD_BUTTON_DIRECTIVES, TextareaAutoexpandDirective],
+	directives: [REACTIVE_FORM_DIRECTIVES, TextareaAutoexpandDirective],
 	templateUrl: './contact-form.component.html',
 	styleUrls: ['./contact-form.component.css']
 })

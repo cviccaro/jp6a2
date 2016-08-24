@@ -1,4 +1,4 @@
-import { RouterConfig } from '@angular/router';
+import { Route } from '@angular/router';
 
 import { HomeComponent, ScrollToComponent } from './index';
 
@@ -9,7 +9,7 @@ import { ProjectComponent } from './project/index';
 import {ConfigGuard} from '../shared/config/config.guard';
 import {HomeGuard} from './home.guard';
 
-export const HomeRoutes: RouterConfig = [
+export const HomeRoutes: Route[] = [
 	{
 		path: '',
 		canActivate: [ ConfigGuard, HomeGuard ],

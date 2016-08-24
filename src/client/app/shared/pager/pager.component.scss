@@ -277,7 +277,7 @@
   .jp-pager-nav-container {
     position: absolute;
     top: 47%;
-    width: 1300px;
+    width: 1100px;
     text-align: center;
     margin-left: -80px;
     .jp-pager-nav {
@@ -298,6 +298,8 @@
     text-align: center;
     md-icon {
       font-size: 3.4em;
+      position: relative;
+      left: -10px;
       color: $almost_black;
       @include transition(color $transition_duration $transition_ease);
     }

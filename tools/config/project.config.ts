@@ -57,9 +57,6 @@ export class ProjectConfig extends SeedConfig {
     };
 
     this.SYSTEM_CONFIG_DEV.paths['angular2-google-maps/core'] = 'node_modules/angular2-google-maps/core/core.umd.js';
-
-    console.log(this);
-
   }
 
 }

@@ -3,8 +3,8 @@
 	<div class="layout-tworows-sidebar container" *ngIf="ready">
 	    <div class="top-row">
 	    	<div class="left">
-          <h1 class="section-title text-uppercase">{{blog.title | capitalize}}</h1>
-	    		<div class="blog-body" [innerHTML]="blog.body"></div>
+          <h1 class="section-title text-uppercase" #title>{{ blog.title }}</h1>
+	    		<div class="blog-body" [innerHTML]="trust(blog.body)"></div>
 	    		<div *ngIf="blog.author" class="blog-author-pane" layout="row">
 	    			<img class="blog-author-photo" src="assets/images/staff-photo-placeholder.jpg" />
 	    			<div class="blog-author-inner-pane">
@@ -16,8 +16,9 @@
 	    	<div class="right">
 	    		<img class="blog-author-photo" src="assets/images/staff-photo-placeholder.jpg" />
 	    		<div *ngIf="blog.author" class="blog-author"><span [innerHTML]="blog.author"></span></div>
-	    		<div class="blog-created"><span [innerHTML]="blog.created_at | amDateFormat: 'MMMM d, YYYY'"></span></div>
+	    		<div class="blog-created"><span>{{ blog.created_at | amDateFormat: 'MMMM d, YYYY' }}</span></div>
 	    		<div class="blog-category"><span>in <a href="#">{{blog.divisions? (blog.divisions[0].name | capitalize) : ''}}</a></span></div>
+	    		<jp-social-share [url]="shareUrl"></jp-social-share>
 	    	</div>
 	    </div>
 	    <div class="bottom-row">

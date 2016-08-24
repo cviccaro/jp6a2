@@ -7,7 +7,7 @@ import { MD_ICON_DIRECTIVES } from '@angular2-material/icon';
 	moduleId: module.id,
 	templateUrl: './pager.component.html',
 	styleUrls: ['./pager.component.css'],
-	directives: [ MD_BUTTON_DIRECTIVES, MD_ICON_DIRECTIVES ]
+	//directives: [ MD_BUTTON_DIRECTIVES, MD_ICON_DIRECTIVES ]
 })
 export class PagerComponent {
 	@Input() currentPage: number;

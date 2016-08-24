@@ -21,19 +21,18 @@ declare var jQuery: any;
 	templateUrl: './map.component.html',
 	styleUrls: ['./map.component.css'],
 	directives: [
-		GOOGLE_MAPS_DIRECTIVES,
-		MapControlComponent,
-		MD_BUTTON_DIRECTIVES,
-		MD_INPUT_DIRECTIVES,
-		MD_TOOLBAR_DIRECTIVES,
-		MD_ICON_DIRECTIVES
+		// GOOGLE_MAPS_DIRECTIVES,
+		// MapControlComponent,
+		// MD_BUTTON_DIRECTIVES,
+		// MD_INPUT_DIRECTIVES,
+		// MD_TOOLBAR_DIRECTIVES,
+		// MD_ICON_DIRECTIVES
 	],
-	providers: [GOOGLE_MAPS_PROVIDERS, GoogleMapsAPIWrapper, GeolocateService]
+	//providers: [GOOGLE_MAPS_PROVIDERS, GoogleMapsAPIWrapper, GeolocateService]
 })
 export class MapComponent {
 	address = '108 Commerce Blvd, Lawrence, PA 15055';
 	addressFormatted = 'JP Enterprises<br />108 Commerce Blvd.<br />Lawrence, PA 15055';
-	control = {};
 	directionsDisplay: any;
 	directionsOrigin = new FormControl();
 	directionsMarkerStart: any;
@@ -46,15 +45,6 @@ export class MapComponent {
 	map: any = null;
 	mapShowing = false;
 	markerArray: any[] = [];
-	options = {
-	  draggable: true,
-	  scrollwheel: true,
-	  disableDefaultUI: false,
-	  mapTypeControl: true,
-	  scaleControl: true,
-	  streetViewControl: true,
-	  zoomControl: true
-	};
 	title = 'JP Enterprises';
 	zoom = 15;
 

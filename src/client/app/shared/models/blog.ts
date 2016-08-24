@@ -20,4 +20,6 @@ export class Blog {
 
 	created_at: any = null;
 	updated_at: any = null;
+
+	uri: string;
 }

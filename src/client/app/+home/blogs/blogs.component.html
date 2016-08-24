@@ -29,7 +29,7 @@
 			[date]="blog.created_at" 
 			[tag]="blog.divisions[0].name" 
 			[author]="blog.author" 
-			[routerLink]="['../Blog', {'identifier': blog.identifier}]"
+			[routerLink]="['/blogs/' + blog.uri]"
 			[animateIn]="blog.animateIn"
 			class="cell">
 		</jp-post>

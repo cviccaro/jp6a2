@@ -1,4 +1,4 @@
-/**
+ /**
  * This barrel file provides the exports for the shared resources (services, components).
  */
 export * from './background/index';
@@ -9,7 +9,6 @@ export * from './client/index';
 export * from './content-overlay/index';
 export * from './config/index';
 export * from './gallery/index';
-export * from './glass-square/index';
 export * from './hover-dynamics/index';
 export * from './icon-button/index';
 export * from './logo/index';
@@ -21,6 +20,7 @@ export * from './pipes/index';
 export * from './post/index';
 export * from './scroll/index';
 export * from './social-icons/index';
+export * from './social-share/index';
 export * from './splash/index';
 export * from './staff/index';
 export * from './textarea-autoexpand/index';
@@ -31,6 +31,7 @@ import {BlogService} from './blog/blog.service';
 import {CacheService} from './cache/cache.service';
 import {ClientService} from './client/client.service';
 import {ConfigService} from './config/config.service';
+import {GeolocateService} from './map/geolocate.service';
 import {NavbarService} from './navbar/navbar.service';
 import {ScrollService} from './scroll/scroll.service';
 import {StaffService} from './staff/staff.service';
@@ -44,5 +45,6 @@ export const APP_SERVICES = [
   StaffService,
   ClientService,
   ScrollService,
-  NavbarService
+  NavbarService,
+  GeolocateService
 ];

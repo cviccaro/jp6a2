@@ -1,0 +1,17 @@
+<div class="social-share">
+    <ul>
+        <li>
+        	<iframe [src]="fbUrl" width="88" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+      	</li>
+      	<li>
+      		<jp-tweet-button [url]="url"></jp-tweet-button>
+      	</li>
+        <li>
+          <jp-linkedin-button [url]="url"></jp-linkedin-button>
+        </li>
+        <li><g:plus action="share"></g:plus></li>
+<!-- 	    		        <li><div linkedin class="linkedinShare" data-url="/blogs/{{blog.blog.uri}}" data-title="{{blog.blog.title}}" data-summary="{{blog.blog.title}} ({{blog.blog.created_at | date}})" data-shares='blog.linkedinshares'>{{blog.linkedinshares}}</div></li>
+        <li><div gplus class="g-plus" data-size="tall" data-annotation="bubble" data-href="/blogs/{{blog.blog.uri}}" data-action='share'></div></li>
+        <li><div pintrest data-href="/blogs/{{blog.blog.uri}}" data-description="{{blog.blog.title}} ({{blog.blog.created_at | date}})" data-img='assets/images/blog-splash-placeholder.jpg' data-pin-do='buttonPin' data-pin-config='beside'></div></li> -->
+    </ul>
+</div>

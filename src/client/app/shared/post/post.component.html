@@ -1,16 +1,19 @@
 <div [class.slideInUp]="animateIn" [class.animated]="animateIn" [hidden]="animateIn && !animating">
 	<div class="img-container">
-		<a [routerLink]="routerLink" [title]="title" md-ink-ripple jpHoverDynamics>
+		<a [routerLink]="routerLink" [title]="title" jpHoverDynamics>
 			<img *ngIf="image" [title]="title" [src]="image" />
 			<img *ngIf="!image" [title]="title" [src]="'assets/images/placeholder.png'" />
 		</a>
 	</div>
-	<div class="post-attributes" layout="row">
-		<span>{{date | amDateFormat: 'MMMM d, YYYY'}}&nbsp;&nbsp;-&nbsp;&nbsp;In&nbsp;{{tag | capitalize}}<span ngShow="author">&nbsp;&nbsp;-&nbsp;&nbsp;by {{author | capitalize}}</span></span>
+	<div class="post-attributes">
+		<span>
+			{{date | amDateFormat: 'MMMM d, YYYY'}}&nbsp;&nbsp;-&nbsp;&nbsp;In&nbsp;{{tag | capitalize}}
+			<span [hidden]="!author">&nbsp;&nbsp;-&nbsp;&nbsp;by {{author | capitalize}}</span>
+		</span>
 	</div>
 	<h3 class="post-title"><a [routerLink]="routerLink" [title]="title" md-ink-ripple>{{ title | capitalize }}</a></h3>
 	<div [ngSwitch]="text.length > 0">
-		<p class="md-body-1 post-body" *ngSwitchCase="true" [innerHTML]="text"></p>
-		<p class="md-body-1 post-body" *ngSwitchCase="false" [innerHTML]="longText | trimmed:true:280:' ...'"></p>
+		<p class="post-body" *ngSwitchCase="true" [innerHTML]="text"></p>
+		<p class="post-body" *ngSwitchCase="false" [innerHTML]="longText | trimmed:true:280:' ...'"></p>
 	</div>
 </div>

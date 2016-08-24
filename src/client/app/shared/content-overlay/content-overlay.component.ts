@@ -12,7 +12,7 @@ declare var jQuery: any;
 	moduleId: module.id,
 	selector: 'jp-content-overlay',
 	styleUrls: ['./content-overlay.component.css'],
-	directives: [MD_BUTTON_DIRECTIVES, MD_ICON_DIRECTIVES, MD_TOOLBAR_DIRECTIVES],
+	//directives: [MD_BUTTON_DIRECTIVES, MD_ICON_DIRECTIVES, MD_TOOLBAR_DIRECTIVES],
 	templateUrl: './content-overlay.component.html'
 })
 

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MD_TOOLBAR_DIRECTIVES } from '@angular2-material/toolbar';
-import { MD_BUTTON_DIRECTIVES } from '@angular2-material/button';
+// import { MD_TOOLBAR_DIRECTIVES } from '@angular2-material/toolbar';
+// import { MD_BUTTON_DIRECTIVES } from '@angular2-material/button';
 import { ContentOverlayComponent, IconButtonComponent, PostComponent, BlogService } from '../../shared/index';
 
 @Component({
@@ -8,7 +8,7 @@ import { ContentOverlayComponent, IconButtonComponent, PostComponent, BlogServic
 	selector: 'jp-blogs',
 	templateUrl: './blogs.component.html',
 	styleUrls: [ './blogs.component.css' ],
-	directives: [ ContentOverlayComponent, MD_TOOLBAR_DIRECTIVES, IconButtonComponent, PostComponent, MD_BUTTON_DIRECTIVES ]
+	directives: [ ContentOverlayComponent, IconButtonComponent, PostComponent ]
 })
 export class BlogsComponent implements OnInit {
 	blogs: any;
