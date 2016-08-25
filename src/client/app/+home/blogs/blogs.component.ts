@@ -1,21 +1,22 @@
-import { Component, OnInit } from '@angular/core';
-// import { MD_TOOLBAR_DIRECTIVES } from '@angular2-material/toolbar';
-// import { MD_BUTTON_DIRECTIVES } from '@angular2-material/button';
-import { ContentOverlayComponent, IconButtonComponent, PostComponent, BlogService } from '../../shared/index';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { BlogService } from '../../shared/index';
+
+import { Subscription } from 'rxjs/Rx';
 
 @Component({
 	moduleId: module.id,
 	selector: 'jp-blogs',
 	templateUrl: './blogs.component.html',
-	styleUrls: [ './blogs.component.css' ],
-	directives: [ ContentOverlayComponent, IconButtonComponent, PostComponent ]
+	styleUrls: [ './blogs.component.css' ]
 })
-export class BlogsComponent implements OnInit {
+export class BlogsComponent implements OnInit, OnDestroy {
 	blogs: any;
 	perPage = 12;
 	index = 0;
 	finished = false;
 	divisionFilter: string = null;
+
+	private subs: Subscription[] = [];
 
 	constructor(public blogService: BlogService) { }
 
@@ -25,10 +26,12 @@ export class BlogsComponent implements OnInit {
 	}
 
 	getBlogs() {
-		this._fetchBlogs()
-			.subscribe(res => {
-				this.blogs = res;
-			});
+		this.subs.push(
+			this._fetchBlogs()
+				.subscribe(res => {
+					this.blogs = res;
+				})
+		);
 	}
 
 	filterByDivision(division: string) {
@@ -42,13 +45,21 @@ export class BlogsComponent implements OnInit {
 	more() {
 		this.index += this.perPage;
 
-		this._fetchBlogs(this.index)
-			.subscribe(res => {
-				this.blogs.blogs = this.blogs.blogs.concat(res.blogs);
-				this.finished = !(res.remaining > 0);
-			});
+		this.subs.push(
+				this._fetchBlogs(this.index)
+					.subscribe(res => {
+						this.blogs.blogs = this.blogs.blogs.concat(res.blogs);
+						this.finished = !(res.remaining > 0);
+					})
+		);
 
 		return false;
+	}
+
+	ngOnDestroy() {
+		this.subs.forEach(sub => {
+			if (sub) sub.unsubscribe();
+		});
 	}
 
 	private _fetchBlogs(skip: number = 0) {

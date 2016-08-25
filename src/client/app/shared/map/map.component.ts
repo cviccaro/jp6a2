@@ -1,8 +1,9 @@
-import {Component} from '@angular/core';
+import {Component, OnDestroy} from '@angular/core';
 import {FormControl} from '@angular/forms';
-
 import {LatLngLiteral, GoogleMapsAPIWrapper} from 'angular2-google-maps/core';
 import {GeolocateService} from './geolocate.service';
+
+import { Subscription } from 'rxjs/Rx';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/switchMap';
@@ -16,7 +17,7 @@ declare var jQuery: any;
 	templateUrl: './map.component.html',
 	styleUrls: ['./map.component.css']
 })
-export class MapComponent {
+export class MapComponent implements OnDestroy {
 	address = '108 Commerce Blvd, Lawrence, PA 15055';
 	addressFormatted = 'JP Enterprises<br />108 Commerce Blvd.<br />Lawrence, PA 15055';
 	directionsDisplay: any;
@@ -33,6 +34,8 @@ export class MapComponent {
 	markerArray: any[] = [];
 	title = 'JP Enterprises';
 	zoom = 15;
+
+	private sub: Subscription;
 
 	constructor(private _wrapper: GoogleMapsAPIWrapper, private _geolocate: GeolocateService) {
 		this.directionsOrigin.valueChanges
@@ -74,7 +77,7 @@ export class MapComponent {
 	}
 
 	locateMe() {
-		this._geolocate.locate()
+		this.sub = this._geolocate.locate()
 			.subscribe((position) => {
 				let latlng = <LatLngLiteral>{ lat: position.coords.latitude, lng: position.coords.longitude };
 				this.getDirections(latlng);
@@ -131,5 +134,9 @@ export class MapComponent {
 		  	  stepDisplay.open(this.map, marker);
 		  	});
 		}
+	}
+
+	ngOnDestroy() {
+		if (this.sub) this.sub.unsubscribe();
 	}
 }

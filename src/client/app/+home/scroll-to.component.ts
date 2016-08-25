@@ -1,5 +1,6 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs/Rx';
 
 declare var jQuery: any;
 
@@ -7,13 +8,15 @@ declare var jQuery: any;
 	selector: 'jp-scroll-to',
 	template: ''
 })
-export class ScrollToComponent implements AfterViewInit {
+export class ScrollToComponent implements AfterViewInit, OnDestroy {
 	delay = 100;
+
+	private sub: Subscription;
 
 	constructor(public route: ActivatedRoute) { }
 
 	ngAfterViewInit() {
-		this.route.params.subscribe(params => {
+		this.sub = this.route.params.subscribe(params => {
 			if (params.hasOwnProperty('selector')) {
 				let el = document.getElementById(params['selector']);
 				let offset = -45;
@@ -34,5 +37,9 @@ export class ScrollToComponent implements AfterViewInit {
 			scrollTop: top + offset
 		});
 		if (this.delay) this.delay = 0;
+	}
+
+	ngOnDestroy() {
+		if (this.sub) this.sub.unsubscribe();
 	}
 }

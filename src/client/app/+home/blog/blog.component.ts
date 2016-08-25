@@ -1,6 +1,7 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {DomSanitizationService, SafeHtml, SafeResourceUrl} from '@angular/platform-browser';
+import { Subscription } from 'rxjs/Rx';
 
 import { Blog, BlogService } from '../../shared/index';
 
@@ -12,7 +13,7 @@ declare var jQuery: any;
 	templateUrl: './blog.component.html',
 	styleUrls: [ './blog.component.css' ],
 })
-export class BlogComponent implements OnInit {
+export class BlogComponent implements OnInit, OnDestroy {
 	first = true;
 	ready = false;
 	blog: Blog;
@@ -21,23 +22,27 @@ export class BlogComponent implements OnInit {
 
 	@ViewChild('title') public titleEl: ElementRef;
 
+	private subs: Subscription[] = [];
+
 	constructor(
 		public blogService: BlogService,
 		public route: ActivatedRoute,
 		public sanitizer: DomSanitizationService
 	) {
-		this.route.params.subscribe(params => {
-			if (!this.first) {
-				if (params.hasOwnProperty('slug')) {
-					this.fetchBlog(params['slug']);
-					setTimeout(() => {
-						jQuery('jp-content-overlay').animate({scrollTop: this.titleEl.nativeElement.offsetTop});
-					});
+		this.subs.push(
+			this.route.params.subscribe(params => {
+				if (!this.first) {
+					if (params.hasOwnProperty('slug')) {
+						this.fetchBlog(params['slug']);
+						setTimeout(() => {
+							jQuery('jp-content-overlay').animate({scrollTop: this.titleEl.nativeElement.offsetTop});
+						});
+					}
+				} else {
+					this.first = false;
 				}
-			} else {
-				this.first = false;
-			}
-		});
+			})
+		);
 	}
 
 	ngOnInit() {
@@ -57,10 +62,12 @@ export class BlogComponent implements OnInit {
 		this.shareUrl = this.buildUrl(this.blog.uri);
 		this.ready = true;
 
-		this.blogService.related(this.blog.id)
-			.subscribe(res => {
-				this.related = res;
-			});
+		this.subs.push(
+			this.blogService.related(this.blog.id)
+				.subscribe(res => {
+					this.related = res;
+				})
+		);
 	}
 
 	trust(v: string): SafeHtml {
@@ -69,5 +76,11 @@ export class BlogComponent implements OnInit {
 
 	buildUrl(uri: string) {
 		return `${window.location.protocol}//${window.location.hostname}/blogs/${uri}`;
+	}
+
+	ngOnDestroy() {
+		this.subs.forEach(sub => {
+			if (sub) sub.unsubscribe();
+		});
 	}
 }

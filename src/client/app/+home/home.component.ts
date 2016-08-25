@@ -1,5 +1,4 @@
-import { Component, OnInit, ElementRef, ViewChild, HostListener } from '@angular/core';
-
+import { Component, OnInit, OnDestroy, ElementRef, ViewChild, HostListener } from '@angular/core';
 import {
   IconButtonComponent,
   NavbarComponent,
@@ -19,8 +18,9 @@ import {
   PagerComponent,
   ScrollService
 } from '../shared/index';
-
 import { ContactFormComponent } from './contact-form/index';
+
+import { Subscription } from 'rxjs/Rx';
 
 declare var jQuery: any;
 declare var dynamics: any;
@@ -47,7 +47,8 @@ declare var dynamics: any;
     PagerComponent
   ]
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
+
   blogs: any[];
   config: IConfig;
   clientCols = 6;
@@ -62,6 +63,8 @@ export class HomeComponent implements OnInit {
 
   @ViewChild('start') public contentStartEl: ElementRef;
   @ViewChild('projects') public projectsEl: ElementRef;
+
+  private subs: Subscription[] = [];
 
   @HostListener('window:resize')
   onWindowResize() {
@@ -88,7 +91,7 @@ export class HomeComponent implements OnInit {
     this.mobileConstraints();
 
     document.getElementById('bootstrapping').remove();
-    console.log('HomeComponent initialized.', this);
+    // console.log('HomeComponent initialized.', this);
   }
 
   mobileConstraints() {
@@ -106,7 +109,7 @@ export class HomeComponent implements OnInit {
 
     this.workIndex = num;
 
-    this.workService.recent((num-1) * this.workLimit, this.workLimit)
+    let sub = this.workService.recent((num-1) * this.workLimit, this.workLimit)
       .subscribe((res) => {
         // Prepare to animate out current work
         let changed = false;
@@ -161,6 +164,8 @@ export class HomeComponent implements OnInit {
             jQuery(elem).css('height', '');
         }
       });
+
+      this.subs.push(sub);
   }
 
   formSubmitSuccess(submission: any) {
@@ -169,5 +174,11 @@ export class HomeComponent implements OnInit {
 
   scrollToFold() {
     this.scrollService.scrollToElementAnimated(this.contentStartEl.nativeElement, 1000, 0, 60);
+  }
+
+  ngOnDestroy() {
+    this.subs.forEach(sub => {
+      if (sub) sub.unsubscribe();
+    });
   }
 }

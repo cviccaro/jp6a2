@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {DomSanitizationService, SafeHtml} from '@angular/platform-browser';
+import { Subscription } from 'rxjs/Rx';
 
 import { ContentOverlayComponent, Project, WorkService, GalleryComponent } from '../../shared/index';
 
@@ -11,9 +12,11 @@ import { ContentOverlayComponent, Project, WorkService, GalleryComponent } from 
 	styleUrls: [ './project.component.css' ],
 	directives: [ ContentOverlayComponent, GalleryComponent ]
 })
-export class ProjectComponent implements OnInit {
+export class ProjectComponent implements OnInit, OnDestroy {
 	ready = false;
 	project: Project;
+
+	private sub: Subscription;
 
 	constructor(
 		public workService: WorkService,
@@ -24,7 +27,7 @@ export class ProjectComponent implements OnInit {
 	ngOnInit() {
 		const slug = this.route.snapshot.params['slug'];
 
-		this.workService.find(slug)
+		this.sub = this.workService.find(slug)
 			.subscribe(res => {
 				this.project = res;
 				this.ready = true;
@@ -35,5 +38,9 @@ export class ProjectComponent implements OnInit {
 
 	trust(v: string): SafeHtml {
 		return this.sanitizer.bypassSecurityTrustHtml(v);
+	}
+
+	ngOnDestroy() {
+		if (this.sub) this.sub.unsubscribe();
 	}
 }
