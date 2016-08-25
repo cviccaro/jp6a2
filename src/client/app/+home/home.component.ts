@@ -87,7 +87,8 @@ export class HomeComponent implements OnInit {
 
     this.mobileConstraints();
 
-    //console.log('HomeComponent initialized.', this);
+    document.getElementById('bootstrapping').remove();
+    console.log('HomeComponent initialized.', this);
   }
 
   mobileConstraints() {

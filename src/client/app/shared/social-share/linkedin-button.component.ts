@@ -1,6 +1,8 @@
 import { Component, OnInit, OnChanges, ElementRef, ViewChild, Renderer, Input, ChangeDetectionStrategy } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 
+var first = true;
+
 @Component({
 	moduleId: module.id,
 	selector: 'jp-linkedin-button',
@@ -9,8 +11,10 @@ import { Observable } from 'rxjs/Rx';
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LinkedInButtonComponent implements OnInit, OnChanges {
+	button: any;
+	rendering = false;
+
 	@Input() url: string;
-	@Input() text: string = 'Tweet';
 
 	@ViewChild('btn') public btnEl: ElementRef;
 
@@ -25,29 +29,36 @@ export class LinkedInButtonComponent implements OnInit, OnChanges {
 	}
 
 	loadWidget() {
-		if (this.el.nativeElement.children.length > 0) {
-     	return this.renderShareButton();
+		if (first) {
+			let script = this.renderer.createElement(this.el.nativeElement, 'script');
+	    script.src = '//platform.linkedin.com/in.js';
+	    first = false;
+
+	    this.renderer.listen(script, 'load', () => this.renderWidget());
+		} else {
+			this.renderWidget();
 		}
+	}
 
-		let script = this.renderer.createElement(this.el.nativeElement, 'script');
-    script.src = '//platform.linkedin.com/in.js';
+	renderWidget() {
+		if (this.rendering || this.button) return;
 
-    this.renderer.listen(script, 'load', () => {
-      this.renderShareButton().subscribe((res: any) => {
-      	//
-      });
-  	});
+		this.rendering = true;
+
+		this.renderShareButton().subscribe((res: any) => {
+			this.rendering = false;
+		});
 	}
 
 	renderShareButton() {
 		return Observable.create((observer: any) => {
-			let button = this.renderer.createElement(this.el.nativeElement, 'script');
+			this.button = this.renderer.createElement(this.el.nativeElement, 'script');
 
-			button.type = 'IN/Share';
-			button.dataset.url = this.url;
-			button.dataset.counter = 'right';
+			this.button.type = 'IN/Share';
+			this.button.dataset.url = this.url;
+			this.button.dataset.counter = 'right';
 
-			observer.next(button);
+			observer.next(this.button);
 			observer.complete();
 		});
 	}
