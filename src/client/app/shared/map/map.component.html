@@ -2,7 +2,7 @@
     <button md-button md-fab class="md-icon-button md-mini locate-me" title="Locate me" (click)="locateMe()">
       <md-icon>location_on</md-icon>
     </button>
-    <label class="locate-me-label" hide-xs>Locate Me</label>
+    <label class="locate-me-label hide-mobile">Locate Me</label>
     <div class="small map-toolbar-input-container">
       <label class="address-label">Need Directions?</label>
       <md-input class="map-toolbar-input" type="text" [formControl]="directionsOrigin" placeholder="Enter your address..." size="60"></md-input>
@@ -11,7 +11,7 @@
   <sebm-google-map id="map" [latitude]="latitude" [longitude]="longitude" [zoom]="zoom" [hidden]="!mapShowing" class="fadeIn animated">
     <jp-map-control (mapLoaded)="mapLoaded($event)"></jp-map-control>
     <div id="directionsPanel" [hidden]="!directionsShowing">
-      <div class="directions-toolbar" layout="row" flex>
+      <div class="directions-toolbar">
         <button md-button (click)="openDirectionsExternally()" title="View on Google" class="open-in-google">
           <md-icon>directions</md-icon>&nbsp;&nbsp;Print and Share on Google Maps
         </button>

@@ -1,24 +1,13 @@
-import {Component, Input, OnInit, ElementRef} from '@angular/core';
-import { NgSwitch, NgSwitchCase, NgSwitchDefault } from '@angular/common';
+import {Component, Input, ElementRef} from '@angular/core';
 
 @Component({
 	selector: 'jp-social-icons',
 	moduleId: module.id,
 	templateUrl: './social-icons.component.html',
-	styleUrls: ['./social-icons.component.css'],
-	directives: [NgSwitch, NgSwitchCase, NgSwitchDefault]
+	styleUrls: ['./social-icons.component.css']
 })
-export class SocialIconsComponent implements OnInit {
-	@Input() jpSocialIconsVertical = false;
-
-	layout = 'row';
+export class SocialIconsComponent {
+	@Input() layout = 'horizontal';
 
 	constructor(private _el: ElementRef) { }
-
-	ngOnInit() {
-		if (this.jpSocialIconsVertical) {
-			this.layout = 'column';
-		}
-		this._el.nativeElement.children[0].setAttribute('layout', this.layout);
-	}
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit, ElementRef, HostListener } from '@angular/core';
-import { ROUTER_DIRECTIVES } from '@angular/router';
-// import { MD_BUTTON_DIRECTIVES } from '@angular2-material/button';
 import { NavbarService } from './navbar.service';
+import { Config } from '../config/env.config';
+
 /**
  * This class represents the navigation bar component.
  */
@@ -9,8 +9,7 @@ import { NavbarService } from './navbar.service';
   moduleId: module.id,
   selector: 'jp-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css'],
-  directives: [ROUTER_DIRECTIVES]
+  styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
 	constructor(public navbarService: NavbarService, public el: ElementRef) { }

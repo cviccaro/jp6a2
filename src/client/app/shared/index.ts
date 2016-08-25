@@ -32,6 +32,7 @@ import {CacheService} from './cache/cache.service';
 import {ClientService} from './client/client.service';
 import {ConfigService} from './config/config.service';
 import {GeolocateService} from './map/geolocate.service';
+import {MobileMenuService} from './navbar/mobile-menu/mobile-menu.service';
 import {NavbarService} from './navbar/navbar.service';
 import {ScrollService} from './scroll/scroll.service';
 import {StaffService} from './staff/staff.service';
@@ -46,5 +47,6 @@ export const APP_SERVICES = [
   ClientService,
   ScrollService,
   NavbarService,
-  GeolocateService
+  GeolocateService,
+  MobileMenuService
 ];

@@ -27,9 +27,12 @@ import {
   SplashComponent,
   TextareaAutoexpandDirective,
   TweetButtonComponent,
+  SocialIconsComponent,
   SocialShareComponent,
   LinkedInButtonComponent,
   GooglePlusButtonComponent,
+  MobileMenuComponent,
+  MobileMenuTriggerComponent,
   APP_SERVICES,
   CapitalizePipe
 } from './index';
@@ -66,11 +69,14 @@ import {
     PagerComponent,
     PostComponent,
     SplashComponent,
+    SocialIconsComponent,
     TextareaAutoexpandDirective,
     LinkedInButtonComponent,
     TweetButtonComponent,
     GooglePlusButtonComponent,
     SocialShareComponent,
+    MobileMenuComponent,
+    MobileMenuTriggerComponent,
     CapitalizePipe
   ],
   exports: [
@@ -86,12 +92,15 @@ import {
     NavbarComponent,
     PagerComponent,
     PostComponent,
-    SocialShareComponent,
     SplashComponent,
+    SocialIconsComponent,
     TextareaAutoexpandDirective,
+    SocialShareComponent,
     LinkedInButtonComponent,
     GooglePlusButtonComponent,
     TweetButtonComponent,
+    MobileMenuComponent,
+    MobileMenuTriggerComponent,
     CapitalizePipe
   ]
 })

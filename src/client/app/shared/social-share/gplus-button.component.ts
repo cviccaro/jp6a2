@@ -29,7 +29,7 @@ export class GooglePlusButtonComponent implements OnInit, OnChanges {
      	return this.renderShareButton();
 		}
 		let cfg = this.renderer.createElement(this.el.nativeElement, 'script');
-		cfg.innerHTML = 'window.___gcfg = { lang: "en-US", parsetags: "explicit" }';
+		cfg.innerHTML = '(function() { window.___gcfg = { lang: "en-US", parsetags: "explicit" } })()';
 
 		let script = this.renderer.createElement(this.el.nativeElement, 'script');
     script.src = '//apis.google.com/js/platform.js';
@@ -48,9 +48,10 @@ export class GooglePlusButtonComponent implements OnInit, OnChanges {
 			let button = this.renderer.createElement(this.el.nativeElement, 'div');
 			button.className = 'g-plus';
 			button.dataset.action = 'share';
+			button.dataset.href = 'http://www.google.com';
 
-			//let gapi = (window as any).gapi;
-			//gapi.plus.render(button, {width: '300', theme: 'light'});
+			let gapi = (window as any).gapi;
+			gapi.plus.render(button, {width: '300', theme: 'light'});
 
 			observer.next('');
 			observer.complete();

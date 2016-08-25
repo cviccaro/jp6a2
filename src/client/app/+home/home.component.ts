@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild, HostListener } from '@angular/core';
 
 import {
   IconButtonComponent,
@@ -50,6 +50,7 @@ declare var dynamics: any;
 export class HomeComponent implements OnInit {
   blogs: any[];
   config: IConfig;
+  clientCols = 6;
   clients: any[];
   staff: any[];
   wowEnabled = true;
@@ -61,6 +62,11 @@ export class HomeComponent implements OnInit {
 
   @ViewChild('start') public contentStartEl: ElementRef;
   @ViewChild('projects') public projectsEl: ElementRef;
+
+  @HostListener('window:resize')
+  onWindowResize() {
+    this.mobileConstraints();
+  }
 
   constructor(
     public blogService: BlogService,
@@ -79,7 +85,19 @@ export class HomeComponent implements OnInit {
     this.staff = this.cache.get('staff');
     this.work = this.cache.get('projects');
 
+    this.mobileConstraints();
+
     console.log('HomeComponent initialized.', this);
+  }
+
+  mobileConstraints() {
+    if (window.innerWidth < 960) {
+      this.workLimit = 1;
+      this.clientCols = 3;
+    } else {
+      this.workLimit = 6;
+      this.clientCols = 6;
+    }
   }
 
   fetchWork(num: number) {

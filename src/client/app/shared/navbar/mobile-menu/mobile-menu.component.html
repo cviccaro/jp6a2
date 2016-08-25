@@ -1,0 +1,35 @@
+<div class="mobile-menu-container" [hidden]="!isActive()">
+	<div class="mobile-menu-inner">
+		<img class="logo" src="assets/images/logo-colored.png" />
+		<button md-icon-button class="mobile-menu-close" (click)="closeMenu()">
+			<md-icon>close</md-icon>
+		</button>
+		<div class="menu-links">
+			<h2 class="mobile-menu-title">Navigation</h2>
+			<a md-button [routerLink]="['./Index', {selector: 'work'}]" class="md-primary" title="Work" aria-label="Work">Work</a>
+			<a md-button [routerLink]="['./Index', {selector: 'staff'}]" class="md-primary" title="Leadership" aria-label="Leadership">Leadership</a>
+			<a md-button [routerLink]="['./Index', {selector: 'clients'}]" class="md-primary" title="Clients" aria-label="Clients">Clients</a>
+			<a md-button [routerLink]="['./Index', {selector: 'blog'}]" class="md-primary" title="Blog" aria-label="Blog">Blog</a>
+			<a md-button [routerLink]="['./Index', {selector: 'contact'}]" class="md-primary" title="Contact" aria-label="Contact">Contact</a>
+		</div>
+		<div class="menu-links expertise">
+			<h2 class="mobile-menu-title">Expertise</h2>
+			<jp-icon-button class="blue publishing colored horizontal" href="https://publishing.jpedev.com">
+				<jp-icon></jp-icon>
+				<jp-icon-button-text>Publishing</jp-icon-button-text>
+			</jp-icon-button>
+			<jp-icon-button class="yellow creative colored horizontal" href="https://creative.jpedev.com">
+				<jp-icon></jp-icon>
+				<jp-icon-button-text>Creative</jp-icon-button-text>
+			</jp-icon-button>
+			<jp-icon-button class="fuchsia interactive colored horizontal" href="https://interactive.jpedev.com">
+				<jp-icon></jp-icon>
+				<jp-icon-button-text>Interactive</jp-icon-button-text>
+			</jp-icon-button>
+		</div>
+		<div layout="column" class="menu-links social-links">
+			<h2 class="mobile-menu-title">Social Media</h2>
+			<jp-social-icons layout="vertical"></jp-social-icons>
+		</div>
+	</div>
+</div>

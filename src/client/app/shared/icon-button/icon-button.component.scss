@@ -19,7 +19,7 @@
 		justify-content: center;
 		will-change: background;
 		height: 143px;
-		@include transition(background-color $transition_duration $transition_ease);
+		@include transition(background-color $transition_duration linear);
     }
 
     jp-icon-button-text {
@@ -51,11 +51,15 @@
 		right: 0;
 		bottom: 0;
 		will-change: opacity;
-		@include transition(opacity $transition_duration);
+    }
+    jp-icon {
+        @include transition(opacity 200ms linear);
+        z-index: 9;
     }
 
     jp-icon-hover {
-    	opacity: 0;
+    	opacity: 1;
+        z-index: 8;
     }
 
     &.col-md-3 {
@@ -178,8 +182,9 @@
         }
         &.publishing {
             .inner {
-                jp-icon {
-
+                jp-icon,
+                jp-icon-hover {
+                    height: 24px;
                 }
                 jp-icon-hover {
                     background-position: 0px -24px;
@@ -199,6 +204,10 @@
         }
         &.interactive {
             .inner {
+                jp-icon,
+                jp-icon-hover {
+                    height: 24px;
+                }
                 jp-icon {
                     background-position: -47px 0;
                 }
@@ -283,6 +292,40 @@
         &:hover,
         &.active {
            jp-icon-button-text { color: #fff; }
+        }
+
+
+        &.colored {
+            &.publishing {
+                .inner {
+                    jp-icon {
+                        width: 18px;
+                        background-position: 0px -40px;
+                    }
+                }
+            }
+            &.creative {
+                .inner {
+                    jp-icon {
+                        width: 18px;
+                        background-position: -18px -40px;
+                    }
+                }
+            }
+            &.interactive {
+                .inner {
+                    jp-icon {
+                        width: 18px;
+                        background-position: -36px -41px;
+                    }
+                }
+            }
+            &:hover,
+            &.active {
+                jp-icon {
+                    opacity: 1;
+                }
+            }
         }
     }
 }

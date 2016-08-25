@@ -3,3 +3,4 @@
  */
 export * from './navbar.component';
 export * from './navbar.service';
+export * from './mobile-menu/index';

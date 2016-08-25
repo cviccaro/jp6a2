@@ -37,7 +37,7 @@
         </li>
     </template>
 </ul>
-<div *ngIf="includeNav" class="jp-pager-nav-container" hide-xs hide-sm>
+<div *ngIf="includeNav" class="jp-pager-nav-container hide-mobile">
 	<div class="jp-pager-nav grid-wide">
 		<button md-button [hidden]="currentPage <= 1" class="jp-pager-nav-btn jp-pager-nav-btn-prev" (click)="getResults(currentPage-1)" title="Previous Page">
 			<md-icon>chevron_left</md-icon>

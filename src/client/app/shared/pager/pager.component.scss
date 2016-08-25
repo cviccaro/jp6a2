@@ -11,6 +11,7 @@
   	margin: 0 auto;
   	&, li {
   		list-style: none;
+      flex-shrink: 0;
   	}
   	&.minimal {
       width: 100%;
@@ -299,7 +300,7 @@
     md-icon {
       font-size: 3.4em;
       position: relative;
-      left: -10px;
+      left: -12px;
       color: $almost_black;
       @include transition(color $transition_duration $transition_ease);
     }

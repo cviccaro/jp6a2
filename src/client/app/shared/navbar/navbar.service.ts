@@ -20,6 +20,8 @@ export class NavbarService {
 	transitionEvents = 'transitionend webkitTransitionEnd MSTransitionEnd oTransitionEnd mozTransitionEnd';
 
 	onScroll() {
+		if (!this.listening) return;
+
 		if (this.$elem && this.listening && window.pageYOffset > 0) {
 			let scrollY = window.pageYOffset;
 			let direction = (scrollY < this.lastScrollPos) ? 'up' : 'down';
@@ -49,12 +51,12 @@ export class NavbarService {
 	}
 
 	killTimers() {
-		// if (this.hideTimer) {
-		// 	clearTimeout(this.hideTimer);
-		// }
-		// if (this.showTimer) {
-		// 	clearTimeout(this.showTimer);
-		// }
+		if (this.hideTimer) {
+			clearTimeout(this.hideTimer);
+		}
+		if (this.showTimer) {
+			clearTimeout(this.showTimer);
+		}
 	}
 
 	register(el: ElementRef) {

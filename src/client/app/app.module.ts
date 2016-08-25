@@ -9,6 +9,8 @@ import { HomeModule } from './+home/home.module';
 import { AppComponent } from './app.component';
 import { ConfigGuard } from './shared/index';
 import { routes } from './app.routes';
+import { Config } from './shared/config/env.config';
+import { provideLazyMapsAPILoaderConfig } from 'angular2-google-maps/core';
 
 @NgModule({
 	imports: [ BrowserModule, HttpModule, RouterModule.forRoot(routes), HomeModule, SharedModule.forRoot()],
@@ -19,6 +21,7 @@ import { routes } from './app.routes';
 	  	provide: APP_BASE_HREF,
 	  	useValue: '<%= APP_BASE %>'
 		},
+		provideLazyMapsAPILoaderConfig({apiKey: Config.GoogleMapsAPIKey}),
 		ConfigGuard
 	]
 })

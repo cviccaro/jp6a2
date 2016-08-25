@@ -33,7 +33,7 @@
 	<div class="container">
 		<h2 class="section-title text-right text-uppercase" [class.wow]="wowEnabled" [class.slideInRight]="wowEnabled">Our Projects</h2>
 		<div class="content" md-swipe-left="vm.prevWork()" md-swipe-right="vm.nextWork()" *ngIf="work" #projects>
-	    	<jp-card *ngFor="let item of work.projects" 
+	    	<jp-card *ngFor="let item of work.projects | slice: 0 : workLimit" 
 	    		[cardTitle]="item.title" 
 	    		[subTitle]="item.client?.name" 
 	    		[image]="item.image.url"
@@ -41,7 +41,7 @@
 	    		class="cell">
     		</jp-card>
 		</div>
-		<jp-pager class="wide" [currentPage]="workIndex" [totalPages]="workTotal" [pagerType]="'minimal'" (pageChanged)="fetchWork($event)" [includeNav]="true"></jp-pager>
+		<jp-pager class="wide" [currentPage]="workIndex" [totalPages]="3" [pagerType]="'minimal'" (pageChanged)="fetchWork($event)" [includeNav]="true"></jp-pager>
 	</div>
 </section>
 
@@ -64,7 +64,7 @@
 <section id="clients" [jpBackground]="'assets/images/banner-clients.jpg'" background-parallax>
 	<div class="container">
 		<h2 class="section-title text-right text-uppercase" [class.wow]="wowEnabled" [class.slideInRight]="wowEnabled">Our Clients</h2>
-		<md-grid-list cols="6" gutterSize="8px" rowHeight="1:1" *ngIf="clients">
+		<md-grid-list [cols]="clientCols" gutterSize="8px" rowHeight="1:1" *ngIf="clients">
 		  <md-grid-tile *ngFor="let client of clients">
 		  	<img [alt]="client" [title]="client.name" [src]="client.image.url" />
 		  </md-grid-tile>

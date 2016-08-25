@@ -5,7 +5,7 @@ import { MD_ICON_DIRECTIVES } from '@angular2-material/icon';
 import { MD_TOOLBAR_DIRECTIVES } from '@angular2-material/toolbar';
 import {NavbarService} from '../navbar/navbar.service';
 import {ScrollService} from '../scroll/scroll.service';
-
+import { Config } from '../config/env.config';
 declare var jQuery: any;
 
 @Component({
@@ -58,8 +58,12 @@ export class ContentOverlayComponent implements OnInit, AfterViewInit {
 		this.isActive = false;
 		this.isHidden = true;
 
-		this.navbarService.snapOut();
-		this.navbarService.startListening();
+		if (window.innerWidth >= Config.desktopWidth) {
+			this.navbarService.snapOut();
+			this.navbarService.startListening();
+		} else {
+			this.navbarService.unsnap();
+		}
 
 		setTimeout(() => {
 			if (this.returnTo !== undefined && this.returnTo !== null) {
