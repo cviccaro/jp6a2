@@ -12,7 +12,7 @@ export class MapControlComponent {
 		this._wrapper.getNativeMap().then((m) => {
 			this.mapLoaded.emit(m);
 		}).catch((e) => {
-			console.log('Error getting map: ', e);
+			console.error('Error getting map: ', e);
 		});
 	}
 }

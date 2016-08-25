@@ -1,4 +1,4 @@
-import {Component, AfterViewInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {MobileMenuService} from './mobile-menu.service';
 
 @Component({
@@ -12,14 +12,8 @@ import {MobileMenuService} from './mobile-menu.service';
 	`
 })
 
-export class MobileMenuTriggerComponent implements AfterViewInit {
-	constructor(private _service: MobileMenuService) {
-		//
-	}
-
-	ngAfterViewInit() {
-		console.log('MobileMenuTriggerComponent View Initialized.', this);
-	}
+export class MobileMenuTriggerComponent {
+	constructor(private _service: MobileMenuService) { }
 
 	openMenu() {
 		this._service.open();

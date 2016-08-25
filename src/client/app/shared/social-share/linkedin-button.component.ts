@@ -46,7 +46,7 @@ export class LinkedInButtonComponent implements OnInit, OnChanges {
 			button.type = 'IN/Share';
 			button.dataset.url = this.url;
 			button.dataset.counter = 'right';
-			
+
 			observer.next(button);
 			observer.complete();
 		});

@@ -1,6 +1,5 @@
 import { Component, OnInit, ElementRef, HostListener } from '@angular/core';
 import { NavbarService } from './navbar.service';
-import { Config } from '../config/env.config';
 
 /**
  * This class represents the navigation bar component.

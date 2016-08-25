@@ -87,7 +87,7 @@ export class HomeComponent implements OnInit {
 
     this.mobileConstraints();
 
-    console.log('HomeComponent initialized.', this);
+    //console.log('HomeComponent initialized.', this);
   }
 
   mobileConstraints() {
@@ -163,7 +163,7 @@ export class HomeComponent implements OnInit {
   }
 
   formSubmitSuccess(submission: any) {
-    console.log('submitted contact form!', submission);
+    //console.log('submitted contact form!', submission);
   }
 
   scrollToFold() {

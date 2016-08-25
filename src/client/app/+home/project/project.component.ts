@@ -28,7 +28,7 @@ export class ProjectComponent implements OnInit {
 			.subscribe(res => {
 				this.project = res;
 				this.ready = true;
-				console.log('response from server for project with slug ' + slug, res);
+				//console.log('response from server for project with slug ' + slug, res);
 			});
 	}
 

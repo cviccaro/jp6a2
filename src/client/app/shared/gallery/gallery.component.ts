@@ -32,13 +32,11 @@ export class GalleryComponent implements OnInit, AfterViewInit {
 	}
 
 	ngAfterViewInit() {
-		console.log('GalleryComponent View Initialized. ', this);
+		//console.log('GalleryComponent View Initialized. ', this);
 		setTimeout(() => this.ready = true, 250);
 	}
 
 	switch(num: number) {
-		console.log('switch to ' + num);
-
 		const prevNum = this.current - 1;
 
 		// Determine direction of animation, amount of pixels to animate

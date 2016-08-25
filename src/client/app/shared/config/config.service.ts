@@ -9,11 +9,6 @@ import {Observer, Observable} from 'rxjs/Rx';
 export class ConfigService {
   constructor(public http: Http) { }
 
-  private _fetch() {
-    return this.http.get(Config.API + '/settings')
-      .map(res => res.json());
-  }
-
   get(): Observable<any> {
     return Observable.create((observer: Observer<any>) => {
       this._fetch()
@@ -26,5 +21,10 @@ export class ConfigService {
           observer.next(config);
         });
     });
+  }
+
+  private _fetch() {
+    return this.http.get(Config.API + '/settings')
+      .map(res => res.json());
   }
 }

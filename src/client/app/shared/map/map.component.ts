@@ -1,12 +1,7 @@
 import {Component} from '@angular/core';
 import {FormControl} from '@angular/forms';
-import {MD_BUTTON_DIRECTIVES} from '@angular2-material/button';
-import {MD_INPUT_DIRECTIVES} from '@angular2-material/input';
-import {MD_TOOLBAR_DIRECTIVES} from '@angular2-material/toolbar';
-import {MD_ICON_DIRECTIVES} from '@angular2-material/icon';
 
-import {GOOGLE_MAPS_DIRECTIVES, GOOGLE_MAPS_PROVIDERS, LatLngLiteral, GoogleMapsAPIWrapper} from 'angular2-google-maps/core';
-import {MapControlComponent} from './map-control.component';
+import {LatLngLiteral, GoogleMapsAPIWrapper} from 'angular2-google-maps/core';
 import {GeolocateService} from './geolocate.service';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
@@ -19,16 +14,7 @@ declare var jQuery: any;
 	selector: 'jp-map',
 	moduleId: module.id,
 	templateUrl: './map.component.html',
-	styleUrls: ['./map.component.css'],
-	directives: [
-		// GOOGLE_MAPS_DIRECTIVES,
-		// MapControlComponent,
-		// MD_BUTTON_DIRECTIVES,
-		// MD_INPUT_DIRECTIVES,
-		// MD_TOOLBAR_DIRECTIVES,
-		// MD_ICON_DIRECTIVES
-	],
-	//providers: [GOOGLE_MAPS_PROVIDERS, GoogleMapsAPIWrapper, GeolocateService]
+	styleUrls: ['./map.component.css']
 })
 export class MapComponent {
 	address = '108 Commerce Blvd, Lawrence, PA 15055';

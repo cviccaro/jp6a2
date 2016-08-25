@@ -17,7 +17,6 @@ export class BlogComponent implements OnInit {
 	ready = false;
 	blog: Blog;
 	related: Blog[];
-	
 	shareUrl: SafeResourceUrl;
 
 	@ViewChild('title') public titleEl: ElementRef;
@@ -50,7 +49,7 @@ export class BlogComponent implements OnInit {
 				this.blog = res;
 				this.shareUrl = this.buildUrl(this.blog.uri);
 				this.ready = true;
-				console.log('response from server for blog with slug ' + slug, res);
+				//console.log('response from server for blog with slug ' + slug, res);
 
 				this.blogService.related(this.blog.id)
 					.subscribe(res => {

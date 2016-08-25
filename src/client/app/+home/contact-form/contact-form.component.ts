@@ -30,7 +30,7 @@ export class ContactFormComponent {
 	}
 	submit() {
 		this.model = this.contactForm.value;
-		console.log('submit form', this.model);
+		//console.log('submit form', this.model);
 		this.formSubmitSuccess.emit(this.model);
 	}
 }

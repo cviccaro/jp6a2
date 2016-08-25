@@ -15,7 +15,6 @@ export class ScrollIfDirective implements OnInit {
 
 	ngOnInit() {
 		setTimeout(() => this.delay = 0, 1500);
-		console.log(this.route.snapshot);
 		// this.route.params.subscribe(params => {
 		// 	console.log(params['selector'], this.jpScrollIf);
 		//   if (params.hasOwnProperty('selector') && params['selector'] === this.jpScrollIf) {

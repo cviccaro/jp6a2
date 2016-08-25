@@ -40,7 +40,6 @@ export class ProjectConfig extends SeedConfig {
 
     this.SYSTEM_CONFIG_DEV.packageConfigPaths.push('/node_modules/@angular2-material/*/package.json');
     this.SYSTEM_BUILDER_CONFIG.packageConfigPaths.push(join(this.PROJECT_ROOT, 'node_modules', '@angular2-material', '*', 'package.json'));
-    this.SYSTEM_BUILDER_CONFIG.packageConfigPaths.push(join(this.PROJECT_ROOT, 'node_modules', 'angular2-google-maps', 'package.json'));
 
     this.SYSTEM_BUILDER_CONFIG.packages['moment'] = {
         main: 'min/moment-with-locales.min.js',
@@ -54,10 +53,11 @@ export class ProjectConfig extends SeedConfig {
 
     this.SYSTEM_BUILDER_CONFIG.packages['angular2-google-maps/core'] = {
       defaultExtension: 'js',
-      main: 'core.umd.js' // you can also use core.umd.js here, if you want faster loads
+      main: 'core.umd.js'
     };
 
     this.SYSTEM_CONFIG_DEV.paths['angular2-google-maps/core'] = 'node_modules/angular2-google-maps/core/core.umd.js';
+    this.SYSTEM_BUILDER_CONFIG.paths['angular2-google-maps/core'] = 'node_modules/angular2-google-maps/core/core.umd.js';
   }
 
 }

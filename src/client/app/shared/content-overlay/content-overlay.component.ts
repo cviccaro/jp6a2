@@ -1,8 +1,5 @@
 import {Component, OnInit, Input, ElementRef, AfterViewInit, HostBinding} from '@angular/core';
 import {Router, ActivatedRoute} from '@angular/router';
-import { MD_BUTTON_DIRECTIVES } from '@angular2-material/button';
-import { MD_ICON_DIRECTIVES } from '@angular2-material/icon';
-import { MD_TOOLBAR_DIRECTIVES } from '@angular2-material/toolbar';
 import {NavbarService} from '../navbar/navbar.service';
 import {ScrollService} from '../scroll/scroll.service';
 import { Config } from '../config/env.config';
@@ -12,7 +9,6 @@ declare var jQuery: any;
 	moduleId: module.id,
 	selector: 'jp-content-overlay',
 	styleUrls: ['./content-overlay.component.css'],
-	//directives: [MD_BUTTON_DIRECTIVES, MD_ICON_DIRECTIVES, MD_TOOLBAR_DIRECTIVES],
 	templateUrl: './content-overlay.component.html'
 })
 
@@ -36,7 +32,6 @@ export class ContentOverlayComponent implements OnInit, AfterViewInit {
 	}
 
 	ngOnInit() {
-		console.info('ContentOverlayComponent initalized', this);
 		this.route.data.subscribe(params => {
 			if (params.hasOwnProperty('returnTo')) {
 				this.returnTo = params['returnTo'];
@@ -49,7 +44,6 @@ export class ContentOverlayComponent implements OnInit, AfterViewInit {
 	}
 
 	close() {
-		console.log('close', this);
 		document.body.classList.remove('scroll-disabled');
 		document.body.style.top = '';
 
@@ -67,14 +61,12 @@ export class ContentOverlayComponent implements OnInit, AfterViewInit {
 
 		setTimeout(() => {
 			if (this.returnTo !== undefined && this.returnTo !== null) {
-				console.log('Returning to ', this.returnTo);
 				this.router.navigate([this.returnTo]);
 			}
 		},500);
 	}
 
 	open() {
-		console.log('open!');
 		setTimeout(() => {
 			this.isActive = true;
 			this.isHidden = false;
