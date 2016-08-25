@@ -5,6 +5,22 @@
 		list-style: none;
 		li {
 			display: block;
+
+			jp-gplus-button {
+				margin-left: auto;
+			}
+		}
+	}
+
+	&.horizontal {
+		ul {
+			display: flex;
+			flex-direction: row;
+			justify-content: flex-start;
+			align-items: center;
+			li {
+				margin: 0 8px;
+			}
 		}
 	}
 }

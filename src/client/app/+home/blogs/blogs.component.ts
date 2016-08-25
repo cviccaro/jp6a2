@@ -20,6 +20,7 @@ export class BlogsComponent implements OnInit {
 	constructor(public blogService: BlogService) { }
 
 	ngOnInit() {
+		document.title = 'JP Enterprises | Blogs';
 		this.getBlogs();
 	}
 

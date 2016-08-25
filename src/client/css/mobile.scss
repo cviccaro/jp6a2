@@ -19,6 +19,10 @@
         display: none;
     }
 
+    .mobile {
+        display: block;
+    }
+
     form.jp-form.ng-submitted {
         md-input-container {
             .ng-untouched + ng-messages {
@@ -40,6 +44,9 @@
     }
 
     jp-navbar {
+        .container {
+            width: 100%;
+        }
         md-toolbar {
             padding-left: 15px;
             padding-right: 15px;

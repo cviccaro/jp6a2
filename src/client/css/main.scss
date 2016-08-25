@@ -134,6 +134,7 @@ button {
     display: block;
   }
 }
+
 .wide,
 .grid-wide {
   width: 960px;
@@ -189,6 +190,11 @@ button {
       flex-direction: row;
     }
   }
+}
+
+.mobile,
+jp-mobile-menu-trigger {
+  display: none;
 }
 
 .icon-buttons {

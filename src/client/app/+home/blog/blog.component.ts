@@ -30,7 +30,9 @@ export class BlogComponent implements OnInit {
 			if (!this.first) {
 				if (params.hasOwnProperty('slug')) {
 					this.fetchBlog(params['slug']);
-					jQuery('jp-content-overlay').animate({scrollTop: this.titleEl.nativeElement.offsetTop});
+					setTimeout(() => {
+						jQuery('jp-content-overlay').animate({scrollTop: this.titleEl.nativeElement.offsetTop});
+					});
 				}
 			} else {
 				this.first = false;
@@ -45,16 +47,19 @@ export class BlogComponent implements OnInit {
 
 	fetchBlog(slug: string) {
 		this.blogService.find(slug)
-			.subscribe(res => {
-				this.blog = res;
-				this.shareUrl = this.buildUrl(this.blog.uri);
-				this.ready = true;
-				//console.log('response from server for blog with slug ' + slug, res);
+			.subscribe(res => this.handleResponse(res));
+	}
 
-				this.blogService.related(this.blog.id)
-					.subscribe(res => {
-						this.related = res;
-					});
+	handleResponse(res: any) {
+		this.blog = res;
+		document.title = `JP Enterprises | Blog | ${this.blog.title}`;
+
+		this.shareUrl = this.buildUrl(this.blog.uri);
+		this.ready = true;
+
+		this.blogService.related(this.blog.id)
+			.subscribe(res => {
+				this.related = res;
 			});
 	}
 

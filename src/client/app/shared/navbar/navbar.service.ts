@@ -130,6 +130,7 @@ export class NavbarService {
 	}
 
 	unsnap() {
+		this.snapped = false;
 		this.$elem.removeClass('snapped snap-in snap-in-active snap-out snap-out-active');
 	}
 }

@@ -1,8 +1,10 @@
-import {Component, OnInit, Input, ElementRef, AfterViewInit, HostBinding} from '@angular/core';
+import {Component, OnInit, Input, ElementRef, AfterViewInit, HostBinding, OnDestroy} from '@angular/core';
 import {Router, ActivatedRoute} from '@angular/router';
 import {NavbarService} from '../navbar/navbar.service';
 import {ScrollService} from '../scroll/scroll.service';
 import { Config } from '../config/env.config';
+import { Subscription } from 'rxjs/Rx';
+
 declare var jQuery: any;
 
 @Component({
@@ -12,8 +14,9 @@ declare var jQuery: any;
 	templateUrl: './content-overlay.component.html'
 })
 
-export class ContentOverlayComponent implements OnInit, AfterViewInit {
+export class ContentOverlayComponent implements OnInit, AfterViewInit, OnDestroy {
 	returnTo: string;
+	sub: Subscription;
 
 	@Input() title: string;
 
@@ -32,7 +35,7 @@ export class ContentOverlayComponent implements OnInit, AfterViewInit {
 	}
 
 	ngOnInit() {
-		this.route.data.subscribe(params => {
+		this.sub = this.route.data.subscribe(params => {
 			if (params.hasOwnProperty('returnTo')) {
 				this.returnTo = params['returnTo'];
 			}
@@ -78,5 +81,14 @@ export class ContentOverlayComponent implements OnInit, AfterViewInit {
 				.addClass('scroll-disabled')
 				.css('top', -this.scrollService.getLastScrollPos());
 		}, 1);
+	}
+
+	ngOnDestroy() {
+		if (this.sub) this.sub.unsubscribe();
+		document.body.classList.remove('scroll-disabled');
+		document.body.style.top = '';
+
+		this.navbarService.unsnap();
+		this.navbarService.startListening();
 	}
 }

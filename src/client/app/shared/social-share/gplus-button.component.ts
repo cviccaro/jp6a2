@@ -1,18 +1,16 @@
-import { Component, OnInit, OnChanges, ElementRef, ViewChild, Renderer, Input, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, OnChanges, ElementRef, Renderer, Input, ChangeDetectionStrategy } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 
 @Component({
 	moduleId: module.id,
 	selector: 'jp-gplus-button',
 	template: '',
-	styles: [ ':host { display: inline-block; height: 25px; width: 60px; overflow: hidden; }' ],
+	styles: [ ':host { display: block; height: 25px; width: 64px; overflow: hidden; }' ],
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GooglePlusButtonComponent implements OnInit, OnChanges {
 	@Input() url: string;
 	@Input() text: string = 'Tweet';
-
-	@ViewChild('btn') public btnEl: ElementRef;
 
 	constructor(public el: ElementRef, public renderer: Renderer) {	}
 
@@ -46,12 +44,12 @@ export class GooglePlusButtonComponent implements OnInit, OnChanges {
 	renderShareButton() {
 		return Observable.create((observer: any) => {
 			let button = this.renderer.createElement(this.el.nativeElement, 'div');
-			button.className = 'g-plus';
+			button.className = 'g-plusone';
 			button.dataset.action = 'share';
-			button.dataset.href = 'http://www.google.com';
+			//button.dataset.href = 'http://www.google.com';
 
 			let gapi = (window as any).gapi;
-			gapi.plus.render(button, {width: '300', theme: 'light'});
+			gapi.plusone.go(this.el.nativeElement);
 
 			observer.next('');
 			observer.complete();

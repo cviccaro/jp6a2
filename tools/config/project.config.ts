@@ -12,7 +12,7 @@ export class ProjectConfig extends SeedConfig {
 
   constructor() {
     super();
-    this.APP_TITLE = 'JP Enterprises Angular2';
+    this.APP_TITLE = 'JP Enterprises';
 
     this.ENABLE_SCSS = true;
 
