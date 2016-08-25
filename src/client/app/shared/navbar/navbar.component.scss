@@ -9,6 +9,8 @@
   box-sizing: border-box;
   border-bottom: 1px solid $grey_300;
   background-color: $white;
+  will-change: transform;
+
   .container {
     display: flex;
     flex-direction: row;
@@ -48,7 +50,7 @@
   &.snap-in {
     transform: translateY(-100%);
     &.snap-in-active {
-      @include transition(all $transition_duration $transition_ease);
+      @include transition(all 150ms linear);
       transform: translateY(0%);
     }
   }
@@ -58,7 +60,7 @@
     left: 0;
     right: 0;
     transform: translateY(0%);
-    @include transition(all $transition_duration $transition_ease);
+    @include transition(all 150ms linear);
     &.snap-out-active {
       transform: translateY(-100%);
     }

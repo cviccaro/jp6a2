@@ -88,7 +88,7 @@ export class ContentOverlayComponent implements OnInit, AfterViewInit, OnDestroy
 		document.body.classList.remove('scroll-disabled');
 		document.body.style.top = '';
 
-		this.navbarService.unsnap();
+		this.navbarService.snapOut();
 		this.navbarService.startListening();
 	}
 }
