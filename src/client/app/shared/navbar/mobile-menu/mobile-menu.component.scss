@@ -6,6 +6,7 @@
 	md-toolbar .mobile-menu-container {
 		&[hidden] {
 			//display: none;
+			visibility: hidden;
 			top: 100%;
 		}
 		display: block;
