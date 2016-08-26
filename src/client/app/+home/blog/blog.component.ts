@@ -18,6 +18,7 @@ export class BlogComponent implements OnInit, OnDestroy {
 	ready = false;
 	blog: Blog;
 	related: Blog[];
+	blogBodySafe: SafeHtml;
 	shareUrl: SafeResourceUrl;
 
 	@ViewChild('title') public titleEl: ElementRef;
@@ -58,6 +59,7 @@ export class BlogComponent implements OnInit, OnDestroy {
 
 	handleResponse(res: any) {
 		this.blog = res;
+		this.blogBodySafe = this.trust(this.blog.body);
 		document.title = `JP Enterprises | Blog | ${this.blog.title}`;
 
 		this.shareUrl = this.buildUrl(this.blog.uri);
