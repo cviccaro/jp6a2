@@ -90,7 +90,8 @@ export class HomeComponent implements OnInit, OnDestroy {
 
     this.mobileConstraints();
 
-    document.getElementById('bootstrapping').remove();
+    let bootstrapping = document.getElementById('bootstrapping');
+    bootstrapping.parentNode.removeChild(bootstrapping);
     // console.log('HomeComponent initialized.', this);
   }
 
@@ -137,7 +138,9 @@ export class HomeComponent implements OnInit, OnDestroy {
         function animateStep() {
             let matrix: string[] = jQuery(elem).css('transform').split(',');
 
-            if (!changed && Math.abs(+matrix[4]) >= (offsetX - 1)) {
+            let x = (matrix[12] === undefined) ? +matrix[4] : +matrix[12];
+
+            if (!changed && Math.abs(x) >= (offsetX - 1)) {
                 // ...set a flag...
                 changed = true;
 
