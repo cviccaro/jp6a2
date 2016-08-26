@@ -31,6 +31,7 @@ export class BlogComponent implements OnInit, OnDestroy {
 	) {
 		this.subs.push(
 			this.route.params.subscribe(params => {
+				if (typeof console !== 'undefined') console.log('route params changed', params);
 				if (!this.first) {
 					if (params.hasOwnProperty('slug')) {
 						this.fetchBlog(params['slug']);

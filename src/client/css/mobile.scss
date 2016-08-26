@@ -201,14 +201,14 @@
         padding-top: 40px;
     }
 
-    .two-col {
-        .left-col, .right-col, .flex-32 {
+    .layout-tworows-sidebar {
+        .left, .right {
             width: 100%;
             flex: none;
             display: block;
         }
 
-        .right-col {
+        .right {
             margin: 0 !important;
         }
     }
