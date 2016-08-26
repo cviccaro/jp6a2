@@ -202,9 +202,13 @@
     }
 
     .layout-tworows-sidebar {
+        .top-row {
+            //flex-direction: column;
+        }
         .left, .right {
             width: 100%;
             flex: none;
+            clear: none;
             display: block;
         }
 
