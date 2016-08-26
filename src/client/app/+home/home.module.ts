@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
 import { ToasterContainerComponent, ToasterService } from 'angular2-toaster/angular2-toaster';
@@ -27,7 +27,6 @@ import { MdToolbarModule } from '@angular2-material/toolbar';
 		CommonModule,
 		SharedModule,
 		RouterModule,
-		FormsModule,
 		ReactiveFormsModule,
 		MdCoreModule,
 		MdButtonModule,

@@ -1,14 +1,16 @@
-<jp-content-overlay id="project-single" layout="column" jp-infinite-scroll-container #container>
+<jp-content-overlay class="full-width" id="project-single" layout="column" jp-infinite-scroll-container #container>
 	<div class="gallery-wrapper">
 		<jp-gallery *ngIf="ready && project.images" [images]="project.images"></jp-gallery>
 	</div>
-	<div class="layout-sidebar" *ngIf="ready">
-		<div class="left">
-			<h1 class="section-title text-uppercase">{{ project.title }}</h1>
-			<div class="body" [innerHTML]="trust(project.description)"></div>
-		</div>
-		<div class="right">
-			<img *ngIf="project.client.image" [src]="project.client.image.url" [title]="project.client.image.description" [alt]="project.client.name" />
+	<div class="container">
+		<div class="layout-sidebar" *ngIf="ready">
+			<div class="left">
+				<h1 class="section-title text-uppercase">{{ project.title }}</h1>
+				<div class="body" [innerHTML]="trust(project.description)"></div>
+			</div>
+			<div class="right">
+				<img *ngIf="project.client.image" [src]="project.client.image.url" [title]="project.client.image.description" [alt]="project.client.name" />
+			</div>
 		</div>
 	</div>
 </jp-content-overlay>

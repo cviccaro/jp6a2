@@ -8,7 +8,7 @@ export class StaffService {
 	constructor(public http: Http) { }
 
 	public all() {
-        return this.http.get(Config.API + '/staff')
+        return this.http.get(Config.API + '/staff/active')
             .map((res) => res.json());
 	}
 }

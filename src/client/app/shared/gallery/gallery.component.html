@@ -10,4 +10,4 @@
 		[class.hidden]="!image.active">
 	</div>
 </div>
-<jp-pager *ngIf="ready" pagerType="minimal" [totalPages]="images.length" [currentPage]="current" (pageChanged)="switch($event)"></jp-pager>
+<jp-pager *ngIf="ready" pagerType="minimal" [totalPages]="images.length" [currentPage]="current" (pageChanged)="switch($event)" includeNav="true"></jp-pager>

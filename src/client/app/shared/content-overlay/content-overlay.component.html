@@ -3,10 +3,10 @@
 		<h2 *ngIf="title" class="section-title text-uppercase" [innerHTML]="title"></h2>
 		<span class="filler"></span>
 		<button md-button class="inverted-button overlay-close" (click)="close()">
-			Close Window
+			Close Window&nbsp;&nbsp;<md-icon class="small">close</md-icon>
 		</button>
 		<button md-button class="md-icon-button overlay-close-mobile" (click)="close()">
-			<i md-icon class="material-icons">close</i>
+			<md-icon>close</md-icon>
 		</button>
 	</md-toolbar>
 	<ng-content></ng-content>
