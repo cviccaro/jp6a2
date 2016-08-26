@@ -6,12 +6,12 @@
     "url": "https://github.com/mgechev/angular2-seed"
   },
   "scripts": {
-    "build.dev": "gulp build.dev --color",
+    "build.dev": "gulp build.dev --color --config-env dev",
     "build.dev.watch": "gulp build.dev.watch --color",
     "build.e2e": "gulp build.e2e --color",
-    "build.prod": "gulp build.prod --color",
+    "build.prod": "gulp build.prod --color --config-env prod",
     "build.test": "gulp build.test --color",
-    "build.test.watch": "gulp build.test.watch --color",
+    "test.watch": "gulp test.watch --color",
     "generate.manifest": "gulp generate.manifest --color",
     "e2e": "protractor",
     "e2e.live": "protractor --elementExplorer",
@@ -21,9 +21,9 @@
     "postinstall": "typings install && gulp check.versions && npm prune && gulp webdriver",
     "reinstall": "npm cache clean && npm install",
     "serve.coverage": "remap-istanbul -b src/ -i coverage/coverage-final.json -o coverage -t html && npm run gulp -- serve.coverage --color",
-    "serve.dev": "gulp serve.dev --color",
+    "serve.dev": "gulp serve.dev --color --config-env dev",
     "serve.e2e": "gulp serve.e2e --color",
-    "serve.prod": "gulp serve.prod --color",
+    "serve.prod": "gulp serve.prod --color --config-env prod",
     "start": "gulp serve.dev --color",
     "tasks.list": "gulp --tasks-simple --color",
     "test": "gulp test --color",
@@ -152,6 +152,6 @@
     "jquery": "^3.1.0",
     "rxjs": "5.0.0-beta.6",
     "systemjs": "0.19.27",
-    "zone.js": "^0.6.12"
+    "zone.js": "^0.6.13"
   }
 }

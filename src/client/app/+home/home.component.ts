@@ -3,7 +3,6 @@ import {
   IconButtonComponent,
   NavbarComponent,
   CacheService,
-  IConfig,
   SplashComponent,
   LogoComponent,
   WorkService,
@@ -16,7 +15,8 @@ import {
   ClientService,
   MapComponent,
   PagerComponent,
-  ScrollService
+  ScrollService,
+  EnvConfig
 } from '../shared/index';
 import { ContactFormComponent } from './contact-form/index';
 
@@ -50,7 +50,7 @@ declare var dynamics: any;
 export class HomeComponent implements OnInit, OnDestroy {
 
   blogs: any[];
-  config: IConfig;
+  config: EnvConfig;
   clientCols = 6;
   clients: any[];
   staff: any[];
