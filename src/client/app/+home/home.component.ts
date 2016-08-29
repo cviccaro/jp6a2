@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, ElementRef, ViewChild, HostListener } from '@angular/core';
+import { Component, OnInit, AfterViewInit, OnDestroy, ElementRef, ViewChild, HostListener } from '@angular/core';
 import {
   IconButtonComponent,
   NavbarComponent,
@@ -47,7 +47,7 @@ declare var dynamics: any;
     PagerComponent
   ]
 })
-export class HomeComponent implements OnInit, OnDestroy {
+export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
   blogs: any[];
   config: EnvConfig;
@@ -89,10 +89,18 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.work = this.cache.get('projects');
 
     this.mobileConstraints();
-
-    let bootstrapping = document.getElementById('bootstrapping');
-    bootstrapping.parentNode.removeChild(bootstrapping);
     // console.log('HomeComponent initialized.', this);
+  }
+
+  ngAfterViewInit() {
+    let int = setInterval(() => {
+      let bootstrapping = document.getElementById('bootstrapping');
+      let style = window.getComputedStyle(bootstrapping);
+      if (+style.opacity === 0) {
+        bootstrapping.parentNode.removeChild(bootstrapping);
+        clearInterval(int);
+      }
+    }, 1000);
   }
 
   mobileConstraints() {

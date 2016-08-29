@@ -387,10 +387,9 @@ body.scroll-disabled {
  */
 jp-app:empty + #bootstrapping {
   opacity: 1;
-  z-index: 100;
+  // z-index: 100;
 }
 #bootstrapping {
-  z-index: -1;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -404,7 +403,9 @@ jp-app:empty + #bootstrapping {
   will-change: opacity;
   background: #fff;
   text-align: center;
+  z-index: 100;
   @include transition(opacity $transition_duration $transition_ease);
+  transition-delay: 1000ms;
 
   .uil-ripple-css,
   .uil-ring-css {
@@ -412,6 +413,7 @@ jp-app:empty + #bootstrapping {
   }
   &.bootstrapped {
     opacity: 0;
+    z-index: -1;
   }
   p {
     margin: -52px auto 0;
