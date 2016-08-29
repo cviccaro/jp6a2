@@ -72,8 +72,15 @@
     right: 0;
   }
 }
-// @media screen and (max-width: 960px) {
-//   :host {
-//     @include box-shadow(0px -1px 5px 0px rgba(0,0,0,0.25));
-//   }
-// }
+@media screen and (max-width: 960px) {
+  :host {
+    // @include box-shadow(0px -1px 5px 0px rgba(0,0,0,0.25));
+    .container {
+        width: 100%!important;
+    }
+    md-toolbar {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+  }
+}

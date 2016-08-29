@@ -1,4 +1,4 @@
-@media screen and (max-width: 960px) {
+@media screen and (max-width: $mobile-max-width) {
     body {
         -webkit-user-select: none;
         -webkit-text-size-adjust: none;
@@ -23,6 +23,10 @@
         display: block;
     }
 
+    .subheader {
+        padding-top: 40px;
+    }
+
     form.jp-form.ng-submitted {
         md-input-container {
             .ng-untouched + ng-messages {
@@ -31,33 +35,19 @@
         }
     }
 
-    jp-home>jp-splash {
-        display: none !important;
+    jp-home {
+        & > jp-splash {
+            display: none !important;
+        }
     }
 
     img {
         max-width: 100%;
     }
 
-    jp-mobile-menu-trigger {
-        display: block;
-    }
-
-    jp-navbar {
-        .container {
-            width: 100%;
-        }
-        md-toolbar {
-            padding-left: 15px;
-            padding-right: 15px;
-        }
-    }
-
-    jp-post {
-        margin-bottom: 2em;
-    }
-
     nav {
+        min-height: $nav_height;
+
         .mobile-menu-trigger {
             margin-left: 3em;
         }
@@ -81,18 +71,16 @@
                 }
             }
         }
-    }
 
-    nav + section {
-        padding-top: 3em;
-    }
-
-    section, .section-padding,.layout-tworows-sidebar {
-        padding: 4em 0;
-
-        .section-title {
-            font-size: 32px;
+        & + section {
+            padding-top: calc($nav_height + 3em);
         }
+    }
+
+    section, 
+    .section-padding,
+    .layout-tworows-sidebar {
+        padding: 4em 0;
 
         .top-row {
             .left,.right {
@@ -105,57 +93,7 @@
     }
 
     .section-title {
-        font-size: 32px;
-    }
-
-    .blog-single {
-        md-content {
-            display: block;
-        }
-
-        .flex-100, .flex-20, .flex-75, .social-share {
-            width: 100%;
-            max-width: 100%;
-            flex: 1 1 100%;
-        }
-
-        .blog-author, .blog-category, .blog-created, .blog-category {
-            display: none;
-        }
-
-        .social-share {
-            min-height: 43px;
-
-            ul {
-                li {
-                    display: inline-block;
-                    margin-top: 0;
-                    margin-bottom: 0;
-                }
-
-                margin: 0;
-                padding: 0;
-            }
-        }
-
-        .right-col {
-            .blog-author-photo {
-                display: none;
-            }
-        }
-    }
-
-    .flex-16 {
-        max-width: calc(100% / 3);
-        flex: 1 1 calc(100% / 3);
-    }
-
-    .flex-32, .flex-30, .flex-33,
-    section#blogs .isotope-container jp-post {
-        width: 100%;
-        flex: 1 1 100%;
-        max-width: 100%;
-        margin-right: 0;
+        font-size: 28px!important;
     }
 
     .grid, .grid-wide {
@@ -197,10 +135,6 @@
         -webkit-overflow-scrolling: touch;
     }
 
-    .subheader {
-        padding-top: 40px;
-    }
-
     .layout-tworows-sidebar {
         .top-row {
             //flex-direction: column;
@@ -217,71 +151,15 @@
         }
     }
 
-    #content-overlay {
-        padding-top: 4.1888em;
-        .overlay-toolbar {
-            width: 100%;
-            margin-bottom: 0;
-        }
-        .overlay-close {
-            display: none;
-        }
-
-        .overlay-close-mobile {
-            display: block;
-        }
-        & > .container {
-            padding-right: 15px;
-            padding-left: 15px;
-        }
-
-        #filters {
-            margin: 50px 0;
-            
-            & > h4 {
-                margin-bottom: 0.5em;
-            }
-
-            .filters-buttonset {
-                max-width: 100%;
-                width: 100%;
-                height: 41px;
-            }
-
-            h4 {
-                width: 100%;
-                text-align: center;
-            }
-
-            md-toolbar-row {
-                flex-direction: column;
-            }
-
-            jp-icon-button {
-                .icon-container {
-                    display: none;
-                }
-
-                .title-container {
-                    width: 100%;
-                    text-align: center;
-                }
-
-                jp-icon-button-text {
-                    font-size: 12px;
-                    margin: 0 auto;
-                    text-align: center;
-                }
-            }
-        }
-    }
-
     #projects {
         jp-pager {
             margin: 0;
 
             ul.jp-pager {
                 display: flex;
+            }
+            .jp-pager-nav-container {
+                display: none;
             }
         }
     }

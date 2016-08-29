@@ -5,10 +5,15 @@
 	<div class="container">
 		<div class="layout-sidebar" *ngIf="ready">
 			<div class="left">
-				<h1 class="section-title text-uppercase">{{ project.title }}</h1>
+				<h1 class="section-title text-uppercase">
+					{{ project.title }}
+					<div class="mobile client-logo">
+						<img *ngIf="project.client.image" [src]="project.client.image.url" [title]="project.client.image.description" [alt]="project.client.name" />
+					</div>
+				</h1>
 				<div class="body" [innerHTML]="trust(project.description)"></div>
 			</div>
-			<div class="right">
+			<div class="right hide-mobile">
 				<img *ngIf="project.client.image" [src]="project.client.image.url" [title]="project.client.image.description" [alt]="project.client.name" />
 			</div>
 		</div>

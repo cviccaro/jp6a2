@@ -12,16 +12,6 @@
 
 		@include transition(border-color $transition_duration $transition_ease);
 
-		// @media screen and (min-width: 960px) {
-		// 	width: 340px;
-		// 	height: 206px;
-		// 	min-height: 206px;
-		// 	img {
-		// 		max-width: 340px;
-		// 		max-height: 206px;
-		// 	}
-		// }
-		
 		img {
 			margin: 0 auto;
 			max-width: 100%;
@@ -89,5 +79,11 @@
 	}
 	& + & + & ~ & {
 		margin-top: 30px;
+	}
+}
+
+@media screen and (max-width: $mobile-max-width) {
+	jp-post {
+	    margin-bottom: 2em;
 	}
 }

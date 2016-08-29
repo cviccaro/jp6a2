@@ -16,3 +16,32 @@
 		}
 	}
 }
+
+@media screen and (max-width: $mobile-max-width) {
+	:host {
+			jp-pager {
+			    ul.jp-pager {
+			        display: none!important;
+		      }
+			}
+
+			.layout-sidebar {
+				.left {
+					width: 100%;
+					flex-basis: 100%;
+					flex-direction: column;
+
+					.section-title {
+						display: flex;
+						flex-direction: row;
+						.client-logo {
+							margin-left: 24px;
+						}
+					}
+				}
+				.right {
+					display: none;
+				}
+			}
+	}
+}

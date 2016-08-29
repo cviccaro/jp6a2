@@ -38,3 +38,18 @@
 		margin: 24px 0;
 	}
 }
+
+@media screen and (max-width: $mobile-max-width) {
+	:host {
+		.blog-author-pane {
+		    flex-direction: column!important;
+		    text-align: center;
+		    img {
+		        align-self: center;
+		    }
+		    .blog-author-inner-pane {
+		        margin-top: 24px;
+		    }
+		}
+	}
+}

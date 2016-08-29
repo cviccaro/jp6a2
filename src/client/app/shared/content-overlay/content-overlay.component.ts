@@ -58,8 +58,6 @@ export class ContentOverlayComponent implements OnInit, AfterViewInit, OnDestroy
 		if (window.innerWidth >= Config.desktopWidth) {
 			this.navbarService.snapOut();
 			this.navbarService.startListening();
-		} else {
-			this.navbarService.unsnap();
 		}
 
 		setTimeout(() => {
@@ -85,10 +83,13 @@ export class ContentOverlayComponent implements OnInit, AfterViewInit, OnDestroy
 
 	ngOnDestroy() {
 		if (this.sub) this.sub.unsubscribe();
+
 		document.body.classList.remove('scroll-disabled');
 		document.body.style.top = '';
 
-		this.navbarService.snapOut();
-		this.navbarService.startListening();
+		if (window.innerWidth >= Config.desktopWidth) {
+			this.navbarService.snapOut();
+			this.navbarService.startListening();
+		}
 	}
 }

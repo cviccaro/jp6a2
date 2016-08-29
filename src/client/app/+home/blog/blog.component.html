@@ -6,7 +6,7 @@
 	    	<div class="left">
           <h1 class="section-title text-uppercase" #title>{{ blog.title }}</h1>
 	    		<div class="blog-body" [innerHTML]="blogBodySafe"></div>
-	    		<div *ngIf="blog.author" class="blog-author-pane" layout="row">
+	    		<div *ngIf="blog.author" class="blog-author-pane">
 	    			<img class="blog-author-photo" src="assets/images/staff-photo-placeholder.jpg" />
 	    			<div class="blog-author-inner-pane">
 	    				<h3 class="pane-title text-uppercase">About The Author</h3>
