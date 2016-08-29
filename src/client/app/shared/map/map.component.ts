@@ -109,7 +109,16 @@ export class MapComponent implements OnDestroy {
 	}
 
 	setupMap() {
-		window.dispatchEvent(new Event('resize'));
+		if (document.createEvent) { // W3C
+        let ev = document.createEvent('Event');
+        ev.initEvent('resize', true, true);
+        window.dispatchEvent(ev);
+    } else { // IE
+        let element: any = document.documentElement;
+        let doc: any = document;
+        let event = doc.createEventObject();
+        element.fireEvent('onresize', event);
+    }
 		let latlng = <LatLngLiteral>{ lat: this.latitude, lng: this.longitude };
 		this.map.setCenter(latlng);
 		this.map.setZoom(this.zoom);
