@@ -38,6 +38,7 @@ import {NavbarService} from './navbar/navbar.service';
 import {ScrollService} from './scroll/scroll.service';
 import {StaffService} from './staff/staff.service';
 import {WorkService} from './work/work.service';
+import {ApiHttp} from './xhr/xhr.http';
 import {XhrService} from './xhr/xhr.service';
 
 export const APP_SERVICES = [
@@ -51,5 +52,6 @@ export const APP_SERVICES = [
   NavbarService,
   GeolocateService,
   MobileMenuService,
+  ApiHttp,
   XhrService
 ];
