@@ -16,6 +16,8 @@
 		.blog-author-inner-pane {
 			display: flex;
 			flex-direction: column;
+			max-width: 85%;
+			flex-basis: 85%;
 			.pane-title {
 				margin-top: 0;
 				font-size: 20px;
@@ -49,6 +51,8 @@
 		    }
 		    .blog-author-inner-pane {
 		        margin-top: 24px;
+		        max-width: 100%;
+		        flex-basis: 100%;
 		    }
 		}
 	}
