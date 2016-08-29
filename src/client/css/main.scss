@@ -127,6 +127,10 @@ md-icon.small {
 /** 
  * Layout
  */
+nav {
+  min-height: $nav_height;
+}
+
 .wide,
 .grid-wide {
   width: 960px;

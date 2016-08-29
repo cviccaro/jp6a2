@@ -26,6 +26,7 @@ export * from './staff/index';
 export * from './textarea-autoexpand/index';
 export * from './validators/index';
 export * from './work/index';
+export * from './xhr/index';
 
 import {BlogService} from './blog/blog.service';
 import {CacheService} from './cache/cache.service';
@@ -37,6 +38,7 @@ import {NavbarService} from './navbar/navbar.service';
 import {ScrollService} from './scroll/scroll.service';
 import {StaffService} from './staff/staff.service';
 import {WorkService} from './work/work.service';
+import {XhrService} from './xhr/xhr.service';
 
 export const APP_SERVICES = [
   BlogService,
@@ -48,5 +50,6 @@ export const APP_SERVICES = [
   ScrollService,
   NavbarService,
   GeolocateService,
-  MobileMenuService
+  MobileMenuService,
+  XhrService
 ];

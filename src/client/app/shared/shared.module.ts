@@ -7,6 +7,7 @@ import { MdCoreModule } from '@angular2-material/core';
 import { MdButtonModule } from '@angular2-material/button';
 import { MdInputModule } from '@angular2-material/input';
 import { MdIconModule } from '@angular2-material/icon';
+import { MdProgressBarModule } from '@angular2-material/progress-bar';
 import { MdToolbarModule } from '@angular2-material/toolbar';
 import { MomentModule } from 'angular2-moment';
 import {AgmCoreModule, GOOGLE_MAPS_PROVIDERS, GoogleMapsAPIWrapper} from 'angular2-google-maps/core';
@@ -52,6 +53,7 @@ import {
     MdIconModule,
     MdButtonModule,
     MdToolbarModule,
+    MdProgressBarModule,
     MomentModule
   ],
   declarations: [

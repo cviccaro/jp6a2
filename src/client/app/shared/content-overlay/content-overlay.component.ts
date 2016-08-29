@@ -52,13 +52,13 @@ export class ContentOverlayComponent implements OnInit, AfterViewInit, OnDestroy
 
 		window.scrollTo(0, this.scrollService.getLastScrollPos());
 
-		this.isActive = false;
-		this.isHidden = true;
-
 		if (window.innerWidth >= Config.desktopWidth) {
 			this.navbarService.snapOut();
 			this.navbarService.startListening();
 		}
+
+		this.isActive = false;
+		this.isHidden = true;
 
 		setTimeout(() => {
 			if (this.returnTo !== undefined && this.returnTo !== null) {
@@ -87,7 +87,8 @@ export class ContentOverlayComponent implements OnInit, AfterViewInit, OnDestroy
 		document.body.classList.remove('scroll-disabled');
 		document.body.style.top = '';
 
-		if (window.innerWidth >= Config.desktopWidth) {
+		if (window.innerWidth >= Config.desktopWidth && !this.navbarService.animatingHide) {
+			console.log('calling navbar hide from ngondestroy of contentoverlaycomponent');
 			this.navbarService.snapOut();
 			this.navbarService.startListening();
 		}

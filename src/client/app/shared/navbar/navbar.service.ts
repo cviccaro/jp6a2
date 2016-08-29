@@ -17,6 +17,7 @@ export class NavbarService {
 	snapped = false;
 	showTimer: any;
 	hideTimer: any;
+	unsnapTimer: any;
 	transitionEvents = 'transitionend webkitTransitionEnd MSTransitionEnd oTransitionEnd mozTransitionEnd';
 
 	onScroll() {
@@ -111,12 +112,13 @@ export class NavbarService {
 					function(e: Event) {
 						if (e.target === this) {
 							that.$elem.unbind(transitionEvents);
-							that.animatingHide = false;
 							that.snapped = true;
+							setTimeout(() => that.unsnap());
+							setTimeout(() => this.animatingHide = false, 500);
 						}
 					}
 				)
-					.addClass('snap-out-active');
+				.addClass('snap-out-active');
 			});
 		}, 250);
 	}

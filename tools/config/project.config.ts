@@ -91,10 +91,10 @@ export class ProjectConfig extends SeedConfig {
     //   main: 'menu.js',
     //   defaultExtension: 'js'
     // };
-    // this.SYSTEM_BUILDER_CONFIG.packages['@angular2-material/progress-bar'] = {
-    //   main: 'progress-bar.js',
-    //   defaultExtension: 'js'
-    // };
+    this.SYSTEM_BUILDER_CONFIG.packages['@angular2-material/progress-bar'] = {
+      main: 'progress-bar.js',
+      defaultExtension: 'js'
+    };
     // this.SYSTEM_BUILDER_CONFIG.packages['@angular2-material/progress-circle'] = {
     //   main: 'progress-circle.js',
     //   defaultExtension: 'js'

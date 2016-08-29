@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import {DomSanitizationService, SafeHtml} from '@angular/platform-browser';
 import { Subscription } from 'rxjs/Rx';
 
-import { ContentOverlayComponent, Project, WorkService, GalleryComponent } from '../../shared/index';
+import { ContentOverlayComponent, Project, WorkService, GalleryComponent, CacheService } from '../../shared/index';
 
 @Component({
 	moduleId: module.id,
@@ -19,21 +19,31 @@ export class ProjectComponent implements OnInit, OnDestroy {
 	private sub: Subscription;
 
 	constructor(
+		public cache: CacheService,
 		public workService: WorkService,
 		public route: ActivatedRoute,
 		public sanitizer: DomSanitizationService
 	) { }
 
 	ngOnInit() {
-		const slug = this.route.snapshot.params['slug'];
+		if (this.cache.has('project')) {
+			this.project = this.cache.get('project');
+			this.fetchComplete();
+		} else {
+			const slug = this.route.snapshot.params['slug'];
 
-		this.sub = this.workService.find(slug)
-			.subscribe(res => {
-				this.project = res;
-				this.ready = true;
+			this.sub = this.workService.find(slug)
+				.subscribe(res => {
+					this.project = res;
+					this.fetchComplete();
+				});
+		}
+	}
 
-				document.title = `JP Enterprises | Project | ${this.project.title}`;
-			});
+	fetchComplete() {
+		this.ready = true;
+
+		document.title = `JP Enterprises | Project | ${this.project.title}`;
 	}
 
 	trust(v: string): SafeHtml {
