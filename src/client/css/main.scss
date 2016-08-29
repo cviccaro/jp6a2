@@ -185,7 +185,8 @@ md-icon.small {
 }
 
 .mobile,
-jp-mobile-menu-trigger {
+jp-mobile-menu-trigger,
+jp-mobile-menu {
   display: none;
 }
 
@@ -349,7 +350,6 @@ section.theme-dark {
 /**
  * Content Overlay
  */
-
 jp-content-overlay
 {
   z-index: 999!important;
