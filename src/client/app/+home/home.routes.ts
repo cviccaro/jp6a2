@@ -8,6 +8,7 @@ import { ProjectComponent } from './project/index';
 
 import {ConfigGuard} from '../shared/config/config.guard';
 import {HomeGuard} from './home.guard';
+import {BlogsGuard} from './blogs/blogs.guard';
 import {BlogGuard} from './blog/blog.guard';
 import {ProjectGuard} from './project/project.guard';
 
@@ -17,7 +18,7 @@ export const HomeRoutes: Route[] = [
 		canActivate: [ ConfigGuard, HomeGuard ],
 		component: HomeComponent,
 		children: [
-			{ path: 'blogs', component: BlogsComponent, terminal: true, data: { returnTo: '/home' } },
+			{ path: 'blogs', component: BlogsComponent, terminal: true, data: { returnTo: '/home' }, canActivate: [ BlogsGuard ] },
 			{ path: 'blogs/:slug', component: BlogComponent, terminal: true, data: { returnTo: '/home'}, canActivate: [ BlogGuard ]},
 			{ path: 'projects/:slug', component: ProjectComponent, terminal: true, data: { returnTo: '/home'}, canActivate: [ ProjectGuard ]},
 			{ path: ':selector', component: ScrollToComponent, terminal: true },

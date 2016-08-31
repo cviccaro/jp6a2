@@ -14,6 +14,7 @@ import { ProjectComponent } from './project/project.component';
 // import { CapitalizePipe } from '../shared/index';
 import { HomeGuard } from './home.guard';
 import { BlogGuard } from './blog/blog.guard';
+import { BlogsGuard } from './blogs/blogs.guard';
 import { ProjectGuard } from './project/project.guard';
 
 import { MomentModule } from 'angular2-moment';
@@ -48,6 +49,6 @@ import { MdToolbarModule } from '@angular2-material/toolbar';
 		ToasterContainerComponent
 	],
 	exports: [ HomeComponent, BlogComponent, BlogsComponent, ContactFormComponent, ProjectComponent, ScrollToComponent ],
-	providers: [ HomeGuard, BlogGuard, ProjectGuard, ToasterService ]
+	providers: [ HomeGuard, BlogGuard, BlogsGuard, ProjectGuard, ToasterService ]
 })
 export class HomeModule { }

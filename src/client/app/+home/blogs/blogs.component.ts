@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { BlogService } from '../../shared/index';
+import { BlogService, CacheService } from '../../shared/index';
 
 import { Subscription } from 'rxjs/Rx';
 
@@ -18,11 +18,12 @@ export class BlogsComponent implements OnInit, OnDestroy {
 
 	private subs: Subscription[] = [];
 
-	constructor(public blogService: BlogService) { }
+	constructor(public blogService: BlogService, public cache: CacheService) { }
 
 	ngOnInit() {
+		this.blogs = this.cache.get('blogs');
+
 		document.title = 'JP Enterprises | Blogs';
-		this.getBlogs();
 	}
 
 	getBlogs() {
