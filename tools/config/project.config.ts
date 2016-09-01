@@ -51,6 +51,11 @@ export class ProjectConfig extends SeedConfig {
       defaultExtension: 'js'
     };
 
+    this.SYSTEM_BUILDER_CONFIG.packages['angular2-modal'] = {
+      main: 'index.js',
+      defaultExtension: 'js'
+    };
+
     this.SYSTEM_BUILDER_CONFIG.packages['@angular2-material/core'] = {
       main: 'core.js',
       defaultExtension: 'js'

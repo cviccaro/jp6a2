@@ -143,7 +143,7 @@
     "@angular2-material/toolbar": "^v2.0.0-alpha.7-4",
     "@angular2-material/tooltip": "^v2.0.0-alpha.7-4",
     "angular2-google-maps": "^0.13.0",
-    "angular2-modal": "^2.0.0-beta.12",
+    "angular2-modal": "2.0.0-beta.9",
     "angular2-moment": "1.0.0-beta.1",
     "core-js": "^2.4.0",
     "dynamics.js": "^1.1.1",

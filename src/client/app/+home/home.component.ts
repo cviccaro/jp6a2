@@ -187,7 +187,9 @@ export class HomeComponent implements OnInit, AfterViewInit, RegistersSubscriber
       this.contactForm.postToServer()
         .subscribe((res: any) => {
           console.log('HomeComponent sees response from contact form post as ', res);
-          this.modal.alert()
+          let modal: any = this.modal.alert();
+
+          modal
             .size('sm')
             .showClose(true)
             .title('Thanks!')
