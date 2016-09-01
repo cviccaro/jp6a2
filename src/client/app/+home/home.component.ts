@@ -1,4 +1,6 @@
 import { Component, OnInit, AfterViewInit, OnDestroy, ElementRef, ViewChild, HostListener } from '@angular/core';
+import { Subscription } from 'rxjs/Rx';
+import { ToasterService } from 'angular2-toaster/angular2-toaster';
 import {
   IconButtonComponent,
   NavbarComponent,
@@ -17,10 +19,10 @@ import {
   PagerComponent,
   ScrollService,
   EnvConfig,
-  ContactFormComponent
+  ContactFormComponent,
+  FormSubmission,
+  RegistersSubscribers
 } from '../shared/index';
-
-import { Subscription } from 'rxjs/Rx';
 
 declare var jQuery: any;
 declare var dynamics: any;
@@ -47,8 +49,7 @@ declare var dynamics: any;
     PagerComponent
   ]
 })
-export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
-
+export class HomeComponent implements OnInit, AfterViewInit, RegistersSubscribers, OnDestroy {
   blogs: any[];
   config: EnvConfig;
   clientCols = 6;
@@ -61,10 +62,11 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   workTotal = 0;
   year = new Date().getFullYear();
 
+  _subscriptions: Subscription[] = [];
+
   @ViewChild('start') public contentStartEl: ElementRef;
   @ViewChild('projects') public projectsEl: ElementRef;
-
-  private subs: Subscription[] = [];
+  @ViewChild(ContactFormComponent) public contactForm: ContactFormComponent;
 
   @HostListener('window:resize')
   onWindowResize() {
@@ -77,7 +79,8 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     public clientService: ClientService,
     public staffService: StaffService,
     public workService: WorkService,
-    public scrollService: ScrollService
+    public scrollService: ScrollService,
+    public toaster: ToasterService
   ) {
     this.config = this.cache.get('config');
   }
@@ -176,19 +179,31 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
         }
       });
 
-      this.subs.push(sub);
+      this.registerSubscriber(sub);
   }
 
-  formSubmitSuccess(submission: any) {
-    //console.log('submitted contact form!', submission);
+  formSubmitSuccess(submission: FormSubmission) {
+    console.log('submitted contact form!', submission);
+
+    this.registerSubscriber(
+      this.contactForm.postToServer()
+        .subscribe((res: any) => {
+          console.log('HomeComponent sees response from contact form post as ', res);
+          this.toaster.pop('success', 'Thanks!', 'Your form submission has been sent.');
+        })
+    );
   }
 
   scrollToFold() {
     this.scrollService.scrollToElementAnimated(this.contentStartEl.nativeElement, 1000, 0, 60);
   }
 
+  registerSubscriber(sub: Subscription) {
+    this._subscriptions.push(sub);
+  }
+
   ngOnDestroy() {
-    this.subs.forEach(sub => {
+    this._subscriptions.forEach(sub => {
       if (sub) sub.unsubscribe();
     });
   }
