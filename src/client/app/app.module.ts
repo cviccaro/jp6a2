@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { APP_BASE_HREF } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Title } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { SharedModule } from './shared/shared.module';
 import { HomeModule } from './+home/home.module';
@@ -22,7 +22,8 @@ import { provideLazyMapsAPILoaderConfig, AgmCoreModule } from 'angular2-google-m
 	  	useValue: '<%= APP_BASE %>'
 		},
 		provideLazyMapsAPILoaderConfig({apiKey: Config.GoogleMapsAPIKey}),
-		ConfigGuard
+		ConfigGuard,
+		Title
 	]
 })
 export class AppModule { }

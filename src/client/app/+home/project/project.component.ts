@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import {DomSanitizationService, SafeHtml} from '@angular/platform-browser';
+import { DomSanitizationService, SafeHtml, Title } from '@angular/platform-browser';
 import { Subscription } from 'rxjs/Rx';
 
 import { ContentOverlayComponent, Project, WorkService, GalleryComponent, CacheService } from '../../shared/index';
@@ -22,7 +22,8 @@ export class ProjectComponent implements OnInit, OnDestroy {
 		public cache: CacheService,
 		public workService: WorkService,
 		public route: ActivatedRoute,
-		public sanitizer: DomSanitizationService
+		public sanitizer: DomSanitizationService,
+		public title: Title
 	) { }
 
 	ngOnInit() {
@@ -43,7 +44,7 @@ export class ProjectComponent implements OnInit, OnDestroy {
 	fetchComplete() {
 		this.ready = true;
 
-		document.title = `JP Enterprises | Project | ${this.project.title}`;
+		this.title.setTitle(`JP Enterprises | Project | ${this.project.title}`);
 	}
 
 	trust(v: string): SafeHtml {

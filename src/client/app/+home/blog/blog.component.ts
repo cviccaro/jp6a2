@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import {DomSanitizationService, SafeHtml, SafeResourceUrl} from '@angular/platform-browser';
+import {DomSanitizationService, SafeHtml, SafeResourceUrl, Title} from '@angular/platform-browser';
 import { Subscription } from 'rxjs/Rx';
 
 import { Blog, BlogService, CacheService } from '../../shared/index';
@@ -29,7 +29,8 @@ export class BlogComponent implements OnInit, OnDestroy {
 		public cache: CacheService,
 		public blogService: BlogService,
 		public route: ActivatedRoute,
-		public sanitizer: DomSanitizationService
+		public sanitizer: DomSanitizationService,
+		public title: Title
 	) {
 		this.subs.push(
 			this.route.params.subscribe(params => {
@@ -69,7 +70,7 @@ export class BlogComponent implements OnInit, OnDestroy {
 		this.shareUrl = this.buildUrl(this.blog.uri);
 		this.ready = true;
 
-		document.title = `JP Enterprises | Blog | ${this.blog.title}`;
+		this.title.setTitle(`JP Enterprises | Blog | ${this.blog.title}`);
 
 		if (fetchRelated) {
 			this.subs.push(

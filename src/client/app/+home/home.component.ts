@@ -16,9 +16,9 @@ import {
   MapComponent,
   PagerComponent,
   ScrollService,
-  EnvConfig
+  EnvConfig,
+  ContactFormComponent
 } from '../shared/index';
-import { ContactFormComponent } from './contact-form/index';
 
 import { Subscription } from 'rxjs/Rx';
 
