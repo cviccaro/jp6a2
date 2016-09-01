@@ -1,6 +1,6 @@
 import { Component, OnInit, AfterViewInit, OnDestroy, ElementRef, ViewChild, HostListener } from '@angular/core';
 import { Subscription } from 'rxjs/Rx';
-import { ToasterService } from 'angular2-toaster/angular2-toaster';
+import { Modal } from 'angular2-modal';
 import {
   IconButtonComponent,
   NavbarComponent,
@@ -80,7 +80,7 @@ export class HomeComponent implements OnInit, AfterViewInit, RegistersSubscriber
     public staffService: StaffService,
     public workService: WorkService,
     public scrollService: ScrollService,
-    public toaster: ToasterService
+    public modal: Modal
   ) {
     this.config = this.cache.get('config');
   }
@@ -183,13 +183,17 @@ export class HomeComponent implements OnInit, AfterViewInit, RegistersSubscriber
   }
 
   formSubmitSuccess(submission: FormSubmission) {
-    console.log('submitted contact form!', submission);
-
     this.registerSubscriber(
       this.contactForm.postToServer()
         .subscribe((res: any) => {
           console.log('HomeComponent sees response from contact form post as ', res);
-          this.toaster.pop('success', 'Thanks!', 'Your form submission has been sent.');
+          this.modal.alert()
+            .size('sm')
+            .showClose(true)
+            .title('Thanks!')
+            .dialogClass('modal-dialog success')
+            .body('<p>Your form submission has been sent.  We will reply as soon as possible.</p>')
+            .open();
         })
     );
   }

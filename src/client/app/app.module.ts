@@ -11,9 +11,20 @@ import { ConfigGuard } from './shared/index';
 import { routes } from './app.routes';
 import { Config } from './shared/config/env.config';
 import { provideLazyMapsAPILoaderConfig, AgmCoreModule } from 'angular2-google-maps/core';
+import { ModalModule } from 'angular2-modal';
+import { BootstrapModalModule } from 'angular2-modal/plugins/bootstrap/index';
 
 @NgModule({
-	imports: [ BrowserModule, HttpModule, RouterModule.forRoot(routes), HomeModule, AgmCoreModule.forRoot(), SharedModule.forRoot()],
+	imports: [
+		BrowserModule,
+		HttpModule,
+		RouterModule.forRoot(routes),
+		HomeModule,
+		AgmCoreModule.forRoot(),
+		SharedModule.forRoot(),
+		ModalModule.forRoot(),
+		BootstrapModalModule
+	],
 	declarations: [ AppComponent ],
 	bootstrap: [ AppComponent ],
 	providers: [

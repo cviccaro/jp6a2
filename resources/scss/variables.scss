@@ -72,18 +72,28 @@ $green_700: material-color('green', '700');
 $green_800: material-color('green', '800');
 $green_900: material-color('green', '900');
 
+$light-green-50: material-color('light-green', '50');
+$light-green-100: material-color('light-green', '100');
+$light-green-200: material-color('light-green', '200');
+$light-green-300: material-color('light-green', '300');
+$light-green-400: material-color('light-green', '400');
+$light-green-500: material-color('light-green', '500');
+$light-green-600: material-color('light-green', '600');
+$light-green-700: material-color('light-green', '700');
+$light-green-800: material-color('light-green', '800');
+$light-green-900: material-color('light-green', '900');
+
 $red_500: material-color('red', '500');
 $red_900: material-color('red', '900');
 $yellow_500: material-color('yellow', '500');
 $bluegrey_100: material-color('blue-grey', '100');
 $bluegrey_600: material-color('blue-grey', '600');
-$lightgreen_600: material-color('light-green', '600');
 
 /**
  * Colors
  */
 $primary: $bluegrey_600;
-$secondary: $lightgreen_600;
+$secondary: $light-green-600;
 $accent: $blue_700;
 $danger: $red_500;
 $warn: $yellow_500;

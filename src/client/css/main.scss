@@ -352,6 +352,31 @@ section.theme-dark {
 }
 
 /**
+ * Dialogs
+ */
+.modal-dialog.success {
+  .modal-header {
+    .close {
+      font-size: 28px;
+      color: #fff;
+    }
+  }
+  .modal-content {
+    background: $light-green-600;
+    color: #fff;
+  }
+  .modal-footer {
+    .btn.btn-primary {
+      background: #fff;
+      color: $text-color;
+      border: 1px solid $light-green-800;
+      width: 33%;
+      border-radius: 0px;
+    }
+  }
+}
+
+/**
  * Content Overlay
  */
 jp-content-overlay

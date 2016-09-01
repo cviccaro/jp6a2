@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
-import { ToasterContainerComponent, ToasterService } from 'angular2-toaster/angular2-toaster';
 import { MomentModule } from 'angular2-moment';
 import { MdCoreModule } from '@angular2-material/core';
 import { MdButtonModule } from '@angular2-material/button';
@@ -42,10 +41,9 @@ import { ProjectGuard } from './project/project.guard';
 		BlogComponent,
 		BlogsComponent,
 		ProjectComponent,
-		ScrollToComponent,
-		ToasterContainerComponent
+		ScrollToComponent
 	],
 	exports: [ HomeComponent, BlogComponent, BlogsComponent, ProjectComponent, ScrollToComponent ],
-	providers: [ HomeGuard, BlogGuard, BlogsGuard, ProjectGuard, ToasterService ]
+	providers: [ HomeGuard, BlogGuard, BlogsGuard, ProjectGuard ]
 })
 export class HomeModule { }
