@@ -24,7 +24,7 @@ export class ProjectConfig extends SeedConfig {
       ...this.NPM_DEPENDENCIES,
       { src: 'jquery/dist/jquery.min.js', inject: 'libs' },
       { src: 'dynamics.js/lib/dynamics.min.js', inject: 'libs' },
-      { src: 'hammerjs/hammer.min.js', inject: 'libs' }
+     // { src: 'hammerjs/hammer.min.js', inject: 'libs' }
       // {src: 'lodash/lodash.min.js', inject: 'libs'},
     ];
 
@@ -41,6 +41,11 @@ export class ProjectConfig extends SeedConfig {
 
     this.SYSTEM_CONFIG_DEV.packageConfigPaths.push('/node_modules/@angular2-material/*/package.json');
     this.SYSTEM_BUILDER_CONFIG.packageConfigPaths.push(join(this.PROJECT_ROOT, 'node_modules', '@angular2-material', '*', 'package.json'));
+
+    this.SYSTEM_BUILDER_CONFIG.packages['hammerjs'] = {
+      main: 'hammer.min.js',
+      defaultExtension: 'js'
+    };
 
     this.SYSTEM_BUILDER_CONFIG.packages['moment'] = {
       main: 'min/moment-with-locales.min.js',
