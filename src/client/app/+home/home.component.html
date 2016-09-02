@@ -70,7 +70,7 @@
 		<h2 class="section-title text-right text-uppercase" [class.wow]="wowEnabled" [class.slideInRight]="wowEnabled">Our Clients</h2>
 		<md-grid-list [cols]="clientCols" gutterSize="8px" rowHeight="1:1" *ngIf="clients">
 		  <md-grid-tile *ngFor="let client of clients">
-		  	<img [alt]="client" [title]="client.name" [src]="client.image.url" />
+		  	<img [alt]="client" [title]="client.name" [src]="client.image?.url" />
 		  </md-grid-tile>
 		</md-grid-list>
 	</div>
@@ -88,7 +88,7 @@
 	    	[longText]="blog.body" 
 	    	[date]="blog.created_at" 
 	    	[tag]="blog.divisions[0].name" 
-	    	[author]="blog.author" 
+	    	[author]="blog.author?.full_name" 
 	    	[routerLink]="['/blogs/' + blog.uri]">
 		</jp-post>
 	    <button md-button class="inverted-button boxy-button" [routerLink]="['/blogs']">Load More Blogs</button>

@@ -28,7 +28,7 @@
 			[longText]="blog.body" 
 			[date]="blog.created_at" 
 			[tag]="blog.divisions[0].name" 
-			[author]="blog.author" 
+			[author]="blog.author?.full_name" 
 			[routerLink]="['/blogs/' + blog.uri]"
 			[animateIn]="blog.animateIn"
 			class="cell">
