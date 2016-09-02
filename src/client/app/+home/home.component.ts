@@ -200,6 +200,18 @@ export class HomeComponent implements OnInit, AfterViewInit, RegistersSubscriber
     );
   }
 
+  swipeLeftProjects(e: any) {
+    if (this.workIndex !== this.workTotal) {
+      this.fetchWork(this.workIndex + 1);
+    }
+  }
+
+  swipeRightProjects(e: any) {
+    if (this.workIndex > 0) {
+      this.fetchWork(this.workIndex - 1);
+    }
+  }
+
   scrollToFold() {
     this.scrollService.scrollToElementAnimated(this.contentStartEl.nativeElement, 1000, 0, 60);
   }

@@ -32,12 +32,14 @@
 <section id="projects" class="content-start flex-col" #start>
 	<div class="container">
 		<h2 class="section-title text-right text-uppercase" [class.wow]="wowEnabled" [class.slideInRight]="wowEnabled">Our Projects</h2>
-		<div class="content" md-swipe-left="vm.prevWork()" md-swipe-right="vm.nextWork()" *ngIf="work" #projects>
+		<div class="content" *ngIf="work" #projects>
 	    	<jp-card *ngFor="let item of work.projects | slice: 0 : workLimit" 
 	    		[cardTitle]="item.title" 
 	    		[subTitle]="item.client?.name" 
 	    		[image]="item.image.url"
 	    		[routerLink]="['/projects/' + item.uri]"
+	    		(swipeLeft)="swipeLeftProjects($event)"
+	    		(swipeRight)="swipeRightProjects($event)"
 	    		class="cell">
     		</jp-card>
 		</div>

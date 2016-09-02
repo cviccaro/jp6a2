@@ -24,6 +24,7 @@ export class ProjectConfig extends SeedConfig {
       ...this.NPM_DEPENDENCIES,
       { src: 'jquery/dist/jquery.min.js', inject: 'libs' },
       { src: 'dynamics.js/lib/dynamics.min.js', inject: 'libs' },
+      { src: 'hammerjs/hammer.min.js', inject: 'libs' }
       // {src: 'lodash/lodash.min.js', inject: 'libs'},
     ];
 
