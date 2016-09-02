@@ -1,5 +1,6 @@
 <jp-content-overlay id="blog-single" layout="column" jp-infinite-scroll-container #container class="full-width">
-	<div class="blog-splash" [jpBackground]="'assets/images/blog-splash-placeholder.jpg'"></div>
+	<div class="blog-splash" *ngIf="ready && blog.splash_image_id === null" [jpBackground]="'assets/images/blog-splash-placeholder.jpg'"></div>
+	<div class="blog-splash" *ngIf="ready && blog.splash_image_id !== null" [jpBackground]="blog.splash.url" [title]="blog.splash.description"></div>
 	<div class="mobile"><jp-social-share class="horizontal" [url]="shareUrl"></jp-social-share></div>
 	<div class="layout-tworows-sidebar container" *ngIf="ready">
 	    <div class="top-row">

@@ -16,8 +16,8 @@
 		.blog-author-inner-pane {
 			display: flex;
 			flex-direction: column;
+			flex-basis: auto!important;
 			max-width: 85%;
-			flex-basis: 85%;
 			.pane-title {
 				margin-top: 0;
 				font-size: 20px;
@@ -43,6 +43,15 @@
 
 @media screen and (max-width: $mobile-max-width) {
 	:host {
+		.layout-tworows-sidebar {
+			padding-left: 10px;
+			padding-right: 10px;
+			.bottom-row {
+				h2 {
+					margin-top: 0;
+				}
+			}
+		}
 		.blog-author-pane {
 		    flex-direction: column!important;
 		    text-align: center;
