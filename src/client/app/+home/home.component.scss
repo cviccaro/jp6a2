@@ -1,4 +1,13 @@
 :host {
   display: block;
   overflow: hidden;
+  jp-splash {
+  	height: 634px;
+  }
+  nav {
+  	position: absolute;
+  	top: 0;
+  	left: 0;
+  	right: 0;
+  }
 }

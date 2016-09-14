@@ -21,7 +21,8 @@ import {
   EnvConfig,
   ContactFormComponent,
   FormSubmission,
-  RegistersSubscribers
+  RegistersSubscribers,
+  BalloonCalloutIconComponent
 } from '../shared/index';
 
 declare var jQuery: any;
@@ -46,7 +47,8 @@ declare var dynamics: any;
     SocialIconsComponent,
     ContactFormComponent,
     MapComponent,
-    PagerComponent
+    PagerComponent,
+    BalloonCalloutIconComponent
   ]
 })
 export class HomeComponent implements OnInit, AfterViewInit, RegistersSubscribers, OnDestroy {

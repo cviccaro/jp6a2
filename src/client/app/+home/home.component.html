@@ -1,10 +1,11 @@
-<jp-splash [splashUrl]="config.main_site_background.url">
-    <div class="logo">
+<jp-navbar></jp-navbar>
+<jp-splash [splashUrl]="config.main_site_background.url" align="left">
+<!--     <div class="logo">
         <jp-logo></jp-logo>
-    </div>
+    </div> -->
     <h1 class="text-uppercase">{{ config.main_site_splash_headline }}</h1>
     <div class="splash-body" [innerHTML]="config.main_site_splash_body"></div>
-    <h4 class="learn-more text-uppercase">Click To Learn More</h4>
+   <!--  <h4 class="learn-more text-uppercase">Click To Learn More</h4>
     <div class="flex-row icon-buttons">
 	    <jp-icon-button class="col-md-3 blue publishing" href="https://publishing.jpedev.com">
 	    	<jp-icon></jp-icon>
@@ -24,14 +25,49 @@
     </div>
     <button class="scroll-down text-uppercase" md-button (click)="scrollToFold()">
     	<span>Scroll</span>&nbsp;&nbsp;&nbsp;<img src="assets/images/scroll-down.png" alt="Scroll Down" title="Scroll Down" class="ng-scope" />&nbsp;&nbsp;&nbsp;<span>Down</span>
-		</button>
+		</button> -->
 </jp-splash>
-
-<jp-navbar></jp-navbar>
-
-<section id="projects" class="content-start flex-col" #start>
+<section id="services" class="content-start flex-col theme-grey" #start>
 	<div class="container">
-		<h2 class="section-title text-right text-uppercase" [class.wow]="wowEnabled" [class.slideInRight]="wowEnabled">Our Projects</h2>
+		<h2 class="section-title text-uppercase">Our Services</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mollis a felis nec ultrices.<br />Cras ultricies, enim ut laoreet pharetra, dolor eros laoreet leo, vitae mollis dolor orci eu dolor.<br />Donec diam eros, pulvinar non auctor at, bibendum non elit.</p>
+    <div class="flex-row icon-buttons">
+	    <jp-balloon class="blue mdm" href="https://publishing.jpedev.com">
+    		<jp-icon></jp-icon>
+    		<jp-icon-hover></jp-icon-hover>
+	    	<balloon-text>MDM Solutions</balloon-text>
+	    	<balloon-callout>
+	    		<jp-balloon-callout-icon class="content-creation" text="Content Creation">
+	    			<jp-icon></jp-icon>
+		    		<jp-icon-hover></jp-icon-hover>
+	    		</jp-balloon-callout-icon>
+	    		<jp-balloon-callout-icon class="template-building" text="Template Building">
+	    			<jp-icon></jp-icon>
+		    		<jp-icon-hover></jp-icon-hover>
+	    		</jp-balloon-callout-icon>
+	    		<jp-balloon-callout-icon class="catalogs" text="Catalogs">
+	    			<jp-icon></jp-icon>
+		    		<jp-icon-hover></jp-icon-hover>
+	    		</jp-balloon-callout-icon>
+	    	</balloon-callout>
+	    </jp-balloon>
+<!-- 	    <jp-icon-button class="col-md-3 yellow creative" href="https://creative.jpedev.com">
+	    	<jp-icon></jp-icon>
+	    	<jp-icon-hover></jp-icon-hover>
+	    	<jp-icon-button-text>Creative</jp-icon-button-text>
+	    </jp-icon-button>
+	    <jp-icon-button class="col-md-3 fuchsia interactive" href="https://interactive.jpedev.com">
+	    	<jp-icon></jp-icon>
+	    	<jp-icon-hover></jp-icon-hover>
+	    	<jp-icon-button-text>Interactive</jp-icon-button-text>
+	    </jp-icon-button> -->
+    </div>
+	</div>
+</section>
+
+<section id="projects" class="flex-col">
+	<div class="container">
+		<h2 class="section-title text-right text-uppercase">Our Projects</h2>
 		<div class="content" 
 				*ngIf="work" 
 				(swipeLeft)="swipeLeftProjects($event)"
@@ -51,7 +87,7 @@
 
 <section id="staff" class="theme-dark">
 	<div class="container">
-		<h2 class="section-title text-uppercase" [class.wow]="wowEnabled" [class.slideInLeft]="wowEnabled">Our Leadership</h2>
+		<h2 class="section-title text-uppercase">Our Leadership</h2>
 		<div class="content" *ngIf="staff">
 		    <jp-card *ngFor="let person of staff" 
 		    [href]="'mailto:'+ person.email"
@@ -67,7 +103,7 @@
 
 <section id="clients" [jpBackground]="'assets/images/banner-clients.jpg'" background-parallax>
 	<div class="container">
-		<h2 class="section-title text-right text-uppercase" [class.wow]="wowEnabled" [class.slideInRight]="wowEnabled">Our Clients</h2>
+		<h2 class="section-title text-right text-uppercase">Our Clients</h2>
 		<md-grid-list [cols]="clientCols" gutterSize="8px" rowHeight="1:1" *ngIf="clients">
 		  <md-grid-tile *ngFor="let client of clients">
 		  	<img [alt]="client" [title]="client.name" [src]="client.image?.url" />
@@ -78,7 +114,7 @@
 
 <section id="blog">
 	<div class="container">
-	  <h2 class="section-title text-uppercase" [class.wow]="wowEnabled" [class.slideInLeft]="wowEnabled">Our Blog</h2>
+	  <h2 class="section-title text-uppercase">Our Blog</h2>
 	  <div class="content" *ngIf="blogs">
 	    <jp-post *ngFor="let blog of blogs.blogs" 
 	    	class="cell"
@@ -98,7 +134,7 @@
 
 <section id="contact" [jpBackground]="'assets/images/banner-lines.jpg'" class="theme-dark">
 	<div class="container">
-	  <h2 class="section-title text-uppercase text-right" [class.wow]="wowEnabled" [class.slideInRight]="wowEnabled">Contact Us</h2>
+	  <h2 class="section-title text-uppercase text-right">Contact Us</h2>
 	  <jp-contact-form (formSubmitSuccess)="formSubmitSuccess($event)"></jp-contact-form>
   </div>
 </section>
