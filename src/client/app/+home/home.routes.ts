@@ -18,11 +18,11 @@ export const HomeRoutes: Route[] = [
 		canActivate: [ ConfigGuard, HomeGuard ],
 		component: HomeComponent,
 		children: [
-			{ path: 'blogs', component: BlogsComponent, terminal: true, data: { returnTo: '/home' }, canActivate: [ BlogsGuard ] },
-			{ path: 'blogs/:slug', component: BlogComponent, terminal: true, data: { returnTo: '/home'}, canActivate: [ BlogGuard ]},
-			{ path: 'projects/:slug', component: ProjectComponent, terminal: true, data: { returnTo: '/home'}, canActivate: [ ProjectGuard ]},
-			{ path: ':selector', component: ScrollToComponent, terminal: true },
-			{ path: '', component: ScrollToComponent, terminal: true }
+			{ path: 'blogs', component: BlogsComponent, data: { returnTo: '/home' }, canActivate: [ BlogsGuard ] },
+			{ path: 'blogs/:slug', component: BlogComponent, data: { returnTo: '/home'}, canActivate: [ BlogGuard ]},
+			{ path: 'projects/:slug', component: ProjectComponent, data: { returnTo: '/home'}, canActivate: [ ProjectGuard ]},
+			{ path: ':selector', component: ScrollToComponent },
+			{ path: '', component: ScrollToComponent }
 		]
 	}
 ];

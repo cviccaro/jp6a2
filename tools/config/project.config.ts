@@ -37,7 +37,13 @@ export class ProjectConfig extends SeedConfig {
     ];
 
     /* Add to or override NPM module configurations: */
-    // this.mergeObject(this.PLUGIN_CONFIGS['browser-sync'], { ghostMode: false });
+    this.mergeObject(this.PLUGIN_CONFIGS['gulp-sass'], {
+      includePaths: [
+        './node_modules/',
+        './resources/scss/'
+      ]
+    });
+
 
     this.SYSTEM_CONFIG_DEV.packageConfigPaths.push('/node_modules/@angular2-material/*/package.json');
     this.SYSTEM_BUILDER_CONFIG.packageConfigPaths.push(join(this.PROJECT_ROOT, 'node_modules', '@angular2-material', '*', 'package.json'));

@@ -2,27 +2,16 @@ import { Component, OnInit, AfterViewInit, OnDestroy, ElementRef, ViewChild, Hos
 import { Subscription } from 'rxjs/Rx';
 import { Modal } from 'angular2-modal';
 import {
-  IconButtonComponent,
-  NavbarComponent,
   CacheService,
-  SplashComponent,
-  LogoComponent,
   WorkService,
   StaffService,
-  CardComponent,
-  BackgroundDirective,
   BlogService,
-  PostComponent,
-  SocialIconsComponent,
   ClientService,
-  MapComponent,
-  PagerComponent,
   ScrollService,
   EnvConfig,
   ContactFormComponent,
   FormSubmission,
-  RegistersSubscribers,
-  BalloonCalloutIconComponent
+  RegistersSubscribers
 } from '../shared/index';
 
 declare var jQuery: any;
@@ -35,21 +24,7 @@ declare var dynamics: any;
   moduleId: module.id,
   selector: 'jp-home',
   templateUrl: 'home.component.html',
-  styleUrls: ['home.component.css'],
-  directives: [
-    SplashComponent,
-    LogoComponent,
-    IconButtonComponent,
-    NavbarComponent,
-    CardComponent,
-    BackgroundDirective,
-    PostComponent,
-    SocialIconsComponent,
-    ContactFormComponent,
-    MapComponent,
-    PagerComponent,
-    BalloonCalloutIconComponent
-  ]
+  styleUrls: ['home.component.css']
 })
 export class HomeComponent implements OnInit, AfterViewInit, RegistersSubscribers, OnDestroy {
   blogs: any[];

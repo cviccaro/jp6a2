@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import {DomSanitizationService, SafeHtml, SafeResourceUrl, Title} from '@angular/platform-browser';
+import {DomSanitizer, SafeHtml, SafeResourceUrl, Title} from '@angular/platform-browser';
 import { Subscription } from 'rxjs/Rx';
 
 import { Blog, BlogService, CacheService } from '../../shared/index';
@@ -29,7 +29,7 @@ export class BlogComponent implements OnInit, OnDestroy {
 		public cache: CacheService,
 		public blogService: BlogService,
 		public route: ActivatedRoute,
-		public sanitizer: DomSanitizationService,
+		public sanitizer: DomSanitizer,
 		public title: Title
 	) {
 		this.subs.push(

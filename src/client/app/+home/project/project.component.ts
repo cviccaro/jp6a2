@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { DomSanitizationService, SafeHtml, Title } from '@angular/platform-browser';
+import { DomSanitizer, SafeHtml, Title } from '@angular/platform-browser';
 import { Subscription } from 'rxjs/Rx';
 
 import { ContentOverlayComponent, Project, WorkService, GalleryComponent, CacheService } from '../../shared/index';
@@ -9,8 +9,7 @@ import { ContentOverlayComponent, Project, WorkService, GalleryComponent, CacheS
 	moduleId: module.id,
 	selector: 'jp-project',
 	templateUrl: './project.component.html',
-	styleUrls: [ './project.component.css' ],
-	directives: [ ContentOverlayComponent, GalleryComponent ]
+	styleUrls: [ './project.component.css' ]
 })
 export class ProjectComponent implements OnInit, OnDestroy {
 	ready = false;
@@ -22,7 +21,7 @@ export class ProjectComponent implements OnInit, OnDestroy {
 		public cache: CacheService,
 		public workService: WorkService,
 		public route: ActivatedRoute,
-		public sanitizer: DomSanitizationService,
+		public sanitizer: DomSanitizer,
 		public title: Title
 	) { }
 

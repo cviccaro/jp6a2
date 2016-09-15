@@ -10,6 +10,7 @@
     "build.dev.watch": "gulp build.dev.watch --color",
     "build.e2e": "gulp build.e2e --color",
     "build.prod": "gulp build.prod --color --config-env prod",
+    "build.prod.exp": "gulp build.prod.exp --color --config-env prod",
     "build.test": "gulp build.test --color",
     "test.watch": "gulp test.watch --color",
     "generate.manifest": "gulp generate.manifest --color",
@@ -36,7 +37,7 @@
   "license": "MIT",
   "devDependencies": {
     "@angular/compiler-cli": "^0.6.1",
-    "@angular/platform-server": "^2.0.0-rc.7",
+    "@angular/platform-server": "^2.0.0",
     "@angular/tsc-wrapped": "^0.3.0",
     "async": "^2.0.0",
     "autoprefixer": "^6.3.7",
@@ -156,6 +157,6 @@
     "rxjs": "5.0.0-beta.12",
     "reflect-metadata": "^0.1.8",
     "systemjs": "0.19.27",
-    "zone.js": "^0.6.21"
+    "zone.js": "0.6.21"
   }
 }
