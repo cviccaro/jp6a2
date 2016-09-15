@@ -1,38 +1,15 @@
 <jp-navbar></jp-navbar>
 <jp-splash [splashUrl]="config.main_site_background.url" align="left">
-<!--     <div class="logo">
-        <jp-logo></jp-logo>
-    </div> -->
     <h1 class="text-uppercase">{{ config.main_site_splash_headline }}</h1>
     <div class="splash-body" [innerHTML]="config.main_site_splash_body"></div>
-   <!--  <h4 class="learn-more text-uppercase">Click To Learn More</h4>
-    <div class="flex-row icon-buttons">
-	    <jp-icon-button class="col-md-3 blue publishing" href="https://publishing.jpedev.com">
-	    	<jp-icon></jp-icon>
-	    	<jp-icon-hover></jp-icon-hover>
-	    	<jp-icon-button-text>Publishing</jp-icon-button-text>
-	    </jp-icon-button>
-	    <jp-icon-button class="col-md-3 yellow creative" href="https://creative.jpedev.com">
-	    	<jp-icon></jp-icon>
-	    	<jp-icon-hover></jp-icon-hover>
-	    	<jp-icon-button-text>Creative</jp-icon-button-text>
-	    </jp-icon-button>
-	    <jp-icon-button class="col-md-3 fuchsia interactive" href="https://interactive.jpedev.com">
-	    	<jp-icon></jp-icon>
-	    	<jp-icon-hover></jp-icon-hover>
-	    	<jp-icon-button-text>Interactive</jp-icon-button-text>
-	    </jp-icon-button>
-    </div>
-    <button class="scroll-down text-uppercase" md-button (click)="scrollToFold()">
-    	<span>Scroll</span>&nbsp;&nbsp;&nbsp;<img src="assets/images/scroll-down.png" alt="Scroll Down" title="Scroll Down" class="ng-scope" />&nbsp;&nbsp;&nbsp;<span>Down</span>
-		</button> -->
 </jp-splash>
 <section id="services" class="content-start flex-col theme-grey" #start>
 	<div class="container">
 		<h2 class="section-title text-uppercase">Our Services</h2>
 		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mollis a felis nec ultrices.<br />Cras ultricies, enim ut laoreet pharetra, dolor eros laoreet leo, vitae mollis dolor orci eu dolor.<br />Donec diam eros, pulvinar non auctor at, bibendum non elit.</p>
     <div class="flex-row icon-buttons">
-	    <jp-balloon class="blue mdm" href="https://publishing.jpedev.com">
+
+	    <jp-balloon class="mdm">
     		<jp-icon></jp-icon>
     		<jp-icon-hover></jp-icon-hover>
 	    	<balloon-text>MDM Solutions</balloon-text>
@@ -51,16 +28,70 @@
 	    		</jp-balloon-callout-icon>
 	    	</balloon-callout>
 	    </jp-balloon>
-<!-- 	    <jp-icon-button class="col-md-3 yellow creative" href="https://creative.jpedev.com">
-	    	<jp-icon></jp-icon>
-	    	<jp-icon-hover></jp-icon-hover>
-	    	<jp-icon-button-text>Creative</jp-icon-button-text>
-	    </jp-icon-button>
-	    <jp-icon-button class="col-md-3 fuchsia interactive" href="https://interactive.jpedev.com">
-	    	<jp-icon></jp-icon>
-	    	<jp-icon-hover></jp-icon-hover>
-	    	<jp-icon-button-text>Interactive</jp-icon-button-text>
-	    </jp-icon-button> -->
+
+	    <jp-balloon class="publishing">
+    		<jp-icon></jp-icon>
+    		<jp-icon-hover></jp-icon-hover>
+	    	<balloon-text>Publishing</balloon-text>
+	    	<balloon-callout>
+	    		<jp-balloon-callout-icon class="traditional-catalogs" text="Traditional Catalogs">
+	    			<jp-icon></jp-icon>
+		    		<jp-icon-hover></jp-icon-hover>
+	    		</jp-balloon-callout-icon>
+	    		<jp-balloon-callout-icon class="translations" text="Translations">
+	    			<jp-icon></jp-icon>
+		    		<jp-icon-hover></jp-icon-hover>
+	    		</jp-balloon-callout-icon>
+	    		<jp-balloon-callout-icon class="project-management" text="Project Management">
+	    			<jp-icon></jp-icon>
+		    		<jp-icon-hover></jp-icon-hover>
+	    		</jp-balloon-callout-icon>
+	    	</balloon-callout>
+	    </jp-balloon>
+
+	    <jp-balloon class="creative">
+    		<jp-icon></jp-icon>
+    		<jp-icon-hover></jp-icon-hover>
+	    	<balloon-text>Creative</balloon-text>
+	    	<balloon-callout>
+	    		<jp-balloon-callout-icon class="graphic-design" text="Graphic Design">
+	    			<jp-icon></jp-icon>
+		    		<jp-icon-hover></jp-icon-hover>
+	    		</jp-balloon-callout-icon>
+	    		<jp-balloon-callout-icon class="branding" text="Branding">
+	    			<jp-icon></jp-icon>
+		    		<jp-icon-hover></jp-icon-hover>
+	    		</jp-balloon-callout-icon>
+	    		<jp-balloon-callout-icon class="writing" text="Writing">
+	    			<jp-icon></jp-icon>
+		    		<jp-icon-hover></jp-icon-hover>
+	    		</jp-balloon-callout-icon>
+	    		<jp-balloon-callout-icon class="photography" text="Photography">
+	    			<jp-icon></jp-icon>
+		    		<jp-icon-hover></jp-icon-hover>
+	    		</jp-balloon-callout-icon>
+	    	</balloon-callout>
+	    </jp-balloon>
+
+	    <jp-balloon class="interactive">
+    		<jp-icon></jp-icon>
+    		<jp-icon-hover></jp-icon-hover>
+	    	<balloon-text>Interactive</balloon-text>
+	    	<balloon-callout>
+	    		<jp-balloon-callout-icon class="email-marketing" text="Email Marketing">
+	    			<jp-icon></jp-icon>
+		    		<jp-icon-hover></jp-icon-hover>
+	    		</jp-balloon-callout-icon>
+	    		<jp-balloon-callout-icon class="website-development" text="Website Development">
+	    			<jp-icon></jp-icon>
+		    		<jp-icon-hover></jp-icon-hover>
+	    		</jp-balloon-callout-icon>
+	    		<jp-balloon-callout-icon class="mobile-apps" text="Mobile Applications">
+	    			<jp-icon></jp-icon>
+		    		<jp-icon-hover></jp-icon-hover>
+	    		</jp-balloon-callout-icon>
+	    	</balloon-callout>
+	    </jp-balloon>
     </div>
 	</div>
 </section>

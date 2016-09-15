@@ -10,4 +10,13 @@
   	left: 0;
   	right: 0;
   }
+
+  section#services {
+    .container {
+      .flex-row.icon-buttons {
+        justify-content: space-between;
+        margin-top: 48px;
+      }
+    }
+  }
 }
