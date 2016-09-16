@@ -3,13 +3,13 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
-import { MomentModule } from 'angular2-moment';
-import { MdCoreModule } from '@angular2-material/core';
-import { MdButtonModule } from '@angular2-material/button';
-import { MdIconModule } from '@angular2-material/icon';
-import { MdInputModule } from '@angular2-material/input';
-import { MdGridListModule } from '@angular2-material/grid-list';
-import { MdToolbarModule } from '@angular2-material/toolbar';
+// import { MomentModule } from 'angular2-moment';
+// import { MdCoreModule } from '@angular2-material/core';
+// import { MdButtonModule } from '@angular2-material/button';
+// import { MdIconModule } from '@angular2-material/icon';
+// import { MdInputModule } from '@angular2-material/input';
+// import { MdGridListModule } from '@angular2-material/grid-list';
+// import { MdToolbarModule } from '@angular2-material/toolbar';
 
 import { SharedModule } from '../shared/shared.module';
 import { HomeComponent } from './home.component';
@@ -28,13 +28,13 @@ import { ProjectGuard } from './project/project.guard';
 		SharedModule,
 		RouterModule,
 		ReactiveFormsModule,
-		MdCoreModule,
-		MdButtonModule,
-		MdGridListModule,
-		MdIconModule,
-		MdInputModule,
-		MdToolbarModule,
-		MomentModule,
+		// MdCoreModule,
+		// MdButtonModule,
+		// MdGridListModule,
+		// MdIconModule,
+		// MdInputModule,
+		// MdToolbarModule,
+		// MomentModule
 	],
 	declarations: [
 		HomeComponent,

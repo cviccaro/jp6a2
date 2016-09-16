@@ -11,7 +11,7 @@ import { AppComponent } from './app.component';
 import { ConfigGuard, HammerConfig } from './shared/index';
 import { routes } from './app.routes';
 import { Config } from './shared/config/env.config';
-import { provideLazyMapsAPILoaderConfig, AgmCoreModule } from 'angular2-google-maps/core';
+import { AgmCoreModule } from 'angular2-google-maps/core';
 import { ModalModule } from 'angular2-modal';
 import { BootstrapModalModule } from 'angular2-modal/plugins/bootstrap/index';
 
@@ -21,7 +21,7 @@ import { BootstrapModalModule } from 'angular2-modal/plugins/bootstrap/index';
 		HttpModule,
 		RouterModule.forRoot(routes),
 		HomeModule,
-		AgmCoreModule.forRoot(),
+		AgmCoreModule.forRoot({apiKey: Config.GoogleMapsAPIKey}),
 		SharedModule.forRoot(),
 		ModalModule.forRoot(),
 		BootstrapModalModule
@@ -33,13 +33,12 @@ import { BootstrapModalModule } from 'angular2-modal/plugins/bootstrap/index';
 	  	provide: APP_BASE_HREF,
 	  	useValue: '<%= APP_BASE %>'
 		},
-		provideLazyMapsAPILoaderConfig({apiKey: Config.GoogleMapsAPIKey}),
 		ConfigGuard,
 		Title,
-		{
-			provide: HAMMER_GESTURE_CONFIG,
-			useClass: HammerConfig
-		}
+		// {
+		// 	provide: HAMMER_GESTURE_CONFIG,
+		// 	useClass: HAMMER_GESTURE_CONFIG
+		// }
 	]
 })
 export class AppModule { }

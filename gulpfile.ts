@@ -71,6 +71,7 @@ gulp.task('build.prod.exp', (done: any) =>
               'minify.bundles',
               'build.index.prod',
               done));
+
 // --------------
 // Build test.
 gulp.task('build.test', (done: any) =>

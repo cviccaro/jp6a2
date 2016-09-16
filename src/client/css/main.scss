@@ -356,6 +356,12 @@ section.theme-dark {
   }
 }
 
+.post-body {
+  img,ul,ol {
+    display: none;
+  }
+}
+
 /**
  * Dialogs
  */

@@ -24,4 +24,3 @@ platformBrowserDynamic().bootstrapModule(AppModule);
 //     .catch((err: any) =>
 //       console.log('ServiceWorker registration failed: ', err));
 // }
-// 

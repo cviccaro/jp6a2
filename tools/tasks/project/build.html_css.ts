@@ -12,7 +12,7 @@ const plugins = <any>gulpLoadPlugins();
 const cleanCss = require('gulp-clean-css');
 const gulpConcatCssConfig = Config.getPluginConfig('gulp-concat-css');
 
-const sassPrepend = '@import "variables"; @import "animations";';
+const sassPrepend = '@import "variables";';
 
 const processors = [
   autoprefixer({
