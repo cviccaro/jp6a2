@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { DomSanitizer, SafeHtml, Title } from '@angular/platform-browser';
 import { Subscription } from 'rxjs/Rx';
 
-import { ContentOverlayComponent, Project, WorkService, GalleryComponent, CacheService } from '../../shared/index';
+import { Project, WorkService, CacheService } from '../../shared/index';
 
 @Component({
 	moduleId: module.id,
