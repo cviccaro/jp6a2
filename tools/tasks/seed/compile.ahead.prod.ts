@@ -23,11 +23,9 @@ export = (done: any) => {
   // Note: dirty hack until we're able to set config easier
   copyFile('tsconfig.json', Config.TMP_DIR, join(Config.TMP_DIR, Config.BOOTSTRAP_DIR), (content: string) => {
     const parsed = JSON.parse(content);
+    parsed.files = parsed.files || [];
     parsed.files.push('main.ts');
     return JSON.stringify(parsed, null, 2);
-  });
-  copyFile('typings.d.ts', Config.TMP_DIR, join(Config.TMP_DIR, Config.BOOTSTRAP_DIR), (content: string) => {
-    return content.replace('../../typings/index.d.ts', '../../../typings/index.d.ts');
   });
   const args = argv;
   const cliOptions = new tsc.NgcCliOptions(args);
@@ -39,4 +37,3 @@ export = (done: any) => {
       process.exit(1);
     });
 };
-
