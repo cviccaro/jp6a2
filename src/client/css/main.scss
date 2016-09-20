@@ -6,6 +6,12 @@ $container-large-desktop: $desktop-width;
 .md-ripple-background {
   background-color: $blue_very_translucent;
 }
+.md-ripple-foreground {
+  top: 0!important;
+  left: 0!important;
+  right: 0!important;
+  bottom: 0!important;
+}
 
 jp-app {
   position: relative;
