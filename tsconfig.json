@@ -34,5 +34,9 @@
     "dist",
     "src"
   ],
-  "compileOnSave": false
+  "compileOnSave": false,
+  "angularCompilerOptions": {
+    "genDir": "./aot",
+    "debug": true
+  }
 }
