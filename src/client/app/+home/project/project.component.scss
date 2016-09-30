@@ -1,4 +1,4 @@
-:host {
+:host /deep/ {
 	display: block;
 	.gallery-wrapper {
 		padding-bottom: 5em;
@@ -10,15 +10,15 @@
 	}
 	jp-pager {
 		.jp-pager-nav-container {
-			width: 85%;
-			left: 7.5%;
-			margin-left: 0;
+			width: 85%!important;
+			left: 7.5%!important;
+			margin-left: 0!important;
 		}
 	}
 }
 
 @media screen and (max-width: $mobile-max-width) {
-	:host {
+	:host /deep/ {
 			jp-pager {
 			    ul.jp-pager {
 			        display: none!important;

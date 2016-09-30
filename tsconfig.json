@@ -21,12 +21,7 @@
       "./node_modules"
     ],
     "types": [
-      "core-js",
-      "express",
-      "jasmine",
-      "node",
-      "protractor",
-      "systemjs"
+      "node"
     ]
   },
   "exclude": [
@@ -34,9 +29,5 @@
     "dist",
     "src"
   ],
-  "compileOnSave": false,
-  "angularCompilerOptions": {
-    "genDir": "./aot",
-    "debug": true
-  }
+  "compileOnSave": false
 }

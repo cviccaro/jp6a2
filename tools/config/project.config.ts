@@ -24,6 +24,7 @@ export class ProjectConfig extends SeedConfig {
       ...this.NPM_DEPENDENCIES,
       { src: 'jquery/dist/jquery.min.js', inject: 'libs' },
       { src: 'dynamics.js/lib/dynamics.min.js', inject: 'libs' },
+      { src: '@angular/material/core/overlay/overlay.css', inject: true, vendor: false }
      // { src: 'hammerjs/hammer.min.js', inject: 'libs' }
       // {src: 'lodash/lodash.min.js', inject: 'libs'},
     ];
@@ -46,8 +47,8 @@ export class ProjectConfig extends SeedConfig {
     });
 
 
-    this.SYSTEM_CONFIG_DEV.packageConfigPaths.push('/node_modules/@angular2-material/*/package.json');
-    this.SYSTEM_BUILDER_CONFIG.packageConfigPaths.push(join(this.PROJECT_ROOT, 'node_modules', '@angular2-material', '*', 'package.json'));
+    this.SYSTEM_CONFIG_DEV.packageConfigPaths.push('/node_modules/@angular/material/*/package.json');
+    this.SYSTEM_BUILDER_CONFIG.packageConfigPaths.push(join(this.PROJECT_ROOT, 'node_modules', '@angular', 'material', '*', 'package.json'));
 
     this.SYSTEM_BUILDER_CONFIG.packages['hammerjs'] = {
       main: 'hammer.min.js',
@@ -69,34 +70,11 @@ export class ProjectConfig extends SeedConfig {
       defaultExtension: 'js'
     };
 
-    this.SYSTEM_BUILDER_CONFIG.packages['@angular2-material/core'] = {
-      main: 'core.js',
-      defaultExtension: 'js'
+    this.SYSTEM_BUILDER_CONFIG.packages['@angular/material'] = {
+      format: 'cjs',
+      main: 'material.umd.js',
     };
-    this.SYSTEM_BUILDER_CONFIG.packages['@angular2-material/button'] = {
-      main: 'button.js',
-      defaultExtension: 'js'
-    };
-    this.SYSTEM_BUILDER_CONFIG.packages['@angular2-material/grid-list'] = {
-      main: 'grid-list.js',
-      defaultExtension: 'js'
-    };
-    this.SYSTEM_BUILDER_CONFIG.packages['@angular2-material/icon'] = {
-      main: 'icon.js',
-      defaultExtension: 'js'
-    };
-    this.SYSTEM_BUILDER_CONFIG.packages['@angular2-material/input'] = {
-      main: 'input.js',
-      defaultExtension: 'js'
-    };
-    this.SYSTEM_BUILDER_CONFIG.packages['@angular2-material/progress-bar'] = {
-      main: 'progress-bar.js',
-      defaultExtension: 'js'
-    };
-    this.SYSTEM_BUILDER_CONFIG.packages['@angular2-material/toolbar'] = {
-      main: 'toolbar.js',
-      defaultExtension: 'js'
-    };
+
     this.SYSTEM_BUILDER_CONFIG.packages['angular2-google-maps/core'] = {
       defaultExtension: 'js',
       main: 'core.umd.js'

@@ -1,7 +1,7 @@
 $container-large-desktop: $desktop-width;
 
 @import "bootstrap-sass/assets/stylesheets/bootstrap";
-@import "@angular2-material/core/style/ripple";
+@import "@angular/material/core/ripple/ripple";
 
 .md-ripple-background {
   background-color: $blue_very_translucent;

@@ -25,8 +25,14 @@
       "jasmine",
       "node",
       "protractor",
-      "systemjs"
+      "systemjs",
+      "hammerjs"
     ]
   },
+  "exclude": [
+    "node_modules",
+    "dist",
+    "src"
+  ],
   "compileOnSave": false
 }

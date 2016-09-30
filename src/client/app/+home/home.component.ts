@@ -2,16 +2,16 @@ import { Component, OnInit, AfterViewInit, OnDestroy, ElementRef, ViewChild, Hos
 import { Subscription } from 'rxjs/Rx';
 import { Modal } from 'angular2-modal';
 import {
-  CacheService,
-  WorkService,
-  StaffService,
   BlogService,
-  ClientService,
-  ScrollService,
-  EnvConfig,
+  CacheService,
   ContactFormComponent,
+  ClientService,
+  EnvConfig,
   FormSubmission,
-  RegistersSubscribers
+  RegistersSubscribers,
+  ScrollService,
+  StaffService,
+  WorkService
 } from '../shared/index';
 
 declare var jQuery: any;
@@ -163,7 +163,6 @@ export class HomeComponent implements OnInit, AfterViewInit, RegistersSubscriber
     this.registerSubscriber(
       this.contactForm.postToServer()
         .subscribe((res: any) => {
-          console.log('HomeComponent sees response from contact form post as ', res);
           let modal: any = this.modal.alert();
 
           modal

@@ -35,3 +35,4 @@ export function templateLocals() {
     ENV_CONFIG: JSON.stringify(Object.assign(baseConfig, config))
   });
 }
+
