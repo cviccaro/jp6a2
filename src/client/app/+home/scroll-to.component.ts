@@ -18,7 +18,7 @@ export class ScrollToComponent implements AfterViewInit, OnDestroy {
 	ngAfterViewInit() {
 		this.sub = this.route.params.subscribe(params => {
 			if (params.hasOwnProperty('selector')) {
-				let el = document.getElementById(params['selector']);
+				let el = document.getElementById(params['selector'].replace('-', '_'));
 
 				if (el) {
 					setTimeout(() => this.scrollToEl(el, 0), this.delay);
