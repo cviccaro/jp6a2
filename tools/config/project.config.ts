@@ -48,7 +48,17 @@ export class ProjectConfig extends SeedConfig {
 
 
     this.SYSTEM_CONFIG_DEV.packageConfigPaths.push('/node_modules/@angular/material/*/package.json');
-    this.SYSTEM_BUILDER_CONFIG.packageConfigPaths.push(join(this.PROJECT_ROOT, 'node_modules', '@angular', 'material', '*', 'package.json'));
+    this.SYSTEM_BUILDER_CONFIG.packageConfigPaths.push(
+      join(this.PROJECT_ROOT, 'node_modules', '@angular', 'material', '*', 'package.json')
+    );
+
+    this.SYSTEM_CONFIG_DEV.paths['angular2-google-maps/core'] = 'node_modules/angular2-google-maps/core/core.umd.js';
+    this.SYSTEM_BUILDER_CONFIG.paths['angular2-google-maps/core'] = 'node_modules/angular2-google-maps/core/core.umd.js';
+
+    const bootstrapModalBundle = 'node_modules/angular2-modal/bundles/angular2-modal.bootstrap.umd.js';
+
+    this.SYSTEM_CONFIG_DEV.paths['angular2-modal/plugins/bootstrap'] = bootstrapModalBundle;
+    this.SYSTEM_BUILDER_CONFIG.paths['angular2-modal/plugins/bootstrap'] = bootstrapModalBundle;
 
     this.SYSTEM_BUILDER_CONFIG.packages['hammerjs'] = {
       main: 'hammer.min.js',
@@ -66,9 +76,14 @@ export class ProjectConfig extends SeedConfig {
     };
 
     this.SYSTEM_BUILDER_CONFIG.packages['angular2-modal'] = {
-      main: 'index.js',
+      main: 'bundles/angular2-modal.umd',
       defaultExtension: 'js'
     };
+
+    // this.SYSTEM_BUILDER_CONFIG.packages['angular2-modal/plugins/bootstrap'] = {
+    //   main: 'angular2-modal.bootstrap.js',
+    //   defaultExtension: 'js'
+    // };
 
     this.SYSTEM_BUILDER_CONFIG.packages['@angular/material'] = {
       format: 'cjs',
@@ -79,9 +94,6 @@ export class ProjectConfig extends SeedConfig {
       defaultExtension: 'js',
       main: 'core.umd.js'
     };
-
-    this.SYSTEM_CONFIG_DEV.paths['angular2-google-maps/core'] = 'node_modules/angular2-google-maps/core/core.umd.js';
-    this.SYSTEM_BUILDER_CONFIG.paths['angular2-google-maps/core'] = 'node_modules/angular2-google-maps/core/core.umd.js';
   }
 
 }
