@@ -39,6 +39,9 @@
 		font-weight: 300;
 		margin: 24px 0;
 	}
+	.container {
+		padding-top: 0;
+	}
 }
 
 @media screen and (max-width: $mobile-max-width) {

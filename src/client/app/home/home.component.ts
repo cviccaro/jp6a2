@@ -1,4 +1,5 @@
 import { Component, OnInit, AfterViewInit, OnDestroy, ElementRef, ViewChild, HostListener } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { Subscription } from 'rxjs/Rx';
 import { Modal } from 'angular2-modal';
 import {
@@ -28,7 +29,7 @@ declare var dynamics: any;
 })
 export class HomeComponent implements OnInit, AfterViewInit, RegistersSubscribers, OnDestroy {
   blogs: any[];
-  config: EnvConfig;
+  config: any;
   clientCols = 6;
   clients: any[];
   staff: any[];
@@ -57,7 +58,8 @@ export class HomeComponent implements OnInit, AfterViewInit, RegistersSubscriber
     public staffService: StaffService,
     public workService: WorkService,
     public scrollService: ScrollService,
-    public modal: Modal
+    public modal: Modal,
+    public title: Title
   ) {
     this.config = this.cache.get('config');
   }
@@ -69,6 +71,8 @@ export class HomeComponent implements OnInit, AfterViewInit, RegistersSubscriber
     this.work = this.cache.get('projects');
 
     this.mobileConstraints();
+
+    this.title.setTitle(`${this.config['main_site_title']} | Home`);
     // console.log('HomeComponent initialized.', this);
   }
 

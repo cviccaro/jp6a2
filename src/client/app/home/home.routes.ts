@@ -23,6 +23,9 @@ export const HomeRoutes: Route[] = [
 			{ path: 'projects/:slug', component: ProjectComponent, data: { returnTo: '/home'}, canActivate: [ ProjectGuard ]},
 			{ path: ':selector', component: ScrollToComponent },
 			{ path: '', component: ScrollToComponent }
-		]
+		],
+		data: {
+			title: 'Home'
+		}
 	}
 ];

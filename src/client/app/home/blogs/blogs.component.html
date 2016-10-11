@@ -2,6 +2,11 @@
 	<md-toolbar id="filters" class="overlay-toolbar transparent">
 		<h4 class="light text-uppercase">Filter By:</h4>
 		<div class="filters-buttonset" jp-icon-buttonset>
+			<jp-icon-button class="horizontal mdm black" (click)="filterByDivision('mdm', $event)" [class.active]="divisionFilter === 'mdm'">
+				<jp-icon-button-text>MDM</jp-icon-button-text>
+				<jp-icon></jp-icon>
+				<jp-icon-hover></jp-icon-hover>
+			</jp-icon-button>
 			<jp-icon-button class="horizontal publishing blue" (click)="filterByDivision('publishing', $event)" [class.active]="divisionFilter === 'publishing'">
 				<jp-icon-button-text>Publishing</jp-icon-button-text>
 				<jp-icon></jp-icon>

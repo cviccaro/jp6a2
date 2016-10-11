@@ -1,5 +1,10 @@
 import { Component, ViewContainerRef } from '@angular/core';
+import { Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 import { Overlay } from 'angular2-modal';
+
+import { CacheService } from './shared/index';
+
 /**
  * This class represents the main application component. Within the @Routes annotation is the configuration of the
  * applications routes, configuring the paths for the lazy loaded components (HomeComponent, AboutComponent).
@@ -10,7 +15,18 @@ import { Overlay } from 'angular2-modal';
   templateUrl: 'app.component.html'
 })
 export class AppComponent {
-	constructor(overlay: Overlay, vcRef: ViewContainerRef) {
+	constructor(overlay: Overlay, vcRef: ViewContainerRef, router: Router, title: Title, cache: CacheService) {
 		overlay.defaultViewContainer = vcRef;
+
+		router.events.subscribe((evt: any) => {
+			if (evt.toString().match(/^RoutesRecognized/)) {
+				const data: any = evt.state.root.children[0].data;
+				if (data.hasOwnProperty('title') && cache.has('config')) {
+					const config: any = cache.get('config');
+					const title_root = config.main_site_title;
+					title.setTitle(`${title_root} | ${data['title']}`);
+				}
+			}
+		});
 	}
 }
