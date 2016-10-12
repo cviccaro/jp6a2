@@ -42,7 +42,26 @@
 
     jp-home {
         & > jp-splash {
-            display: none !important;
+            //display: none !important;
+            height: auto!important;
+            .splash {
+                .splash-inner {
+                    width: calc(100% - 20px)!important;
+                    justify-content: center!important;
+                    h1 {
+                        font-size: 24px!important;
+                        width: 100%!important;
+                        max-width: 100%!important;
+                        text-align: center;
+                    }
+                    p {
+                        font-size: 12px!important;
+                        width: 100%!important;
+                        max-width: 100%!important;
+                        text-align: center;
+                    }
+                }
+            }
         }
     }
 
@@ -173,5 +192,93 @@
         .cell {
             width: 100%;
         }
+    }
+
+    .flex-row.icon-buttons {
+        // flex-direction: column;
+        flex-wrap: wrap;
+        jp-balloon {
+            flex-basis: 50%;
+            // width: 100%;
+            .balloon {
+                width: 110px;
+                height: 110px;
+                background-color: $blue!important;
+                margin-left: auto!important;
+                margin-right: auto!important;
+                .icon-container {
+                    width: 54px!important;
+                    height: 54px!important;
+                }
+                jp-icon {
+                    opacity: 0!important;
+                }
+                jp-icon,
+                jp-icon-hover {
+                    background-image: url('../assets/images/balloon-icons-mdm-mobile.png')!important;
+                }
+                jp-icon-hover {
+                    background-position-y: -53px!important;
+                }
+                balloon-text {
+                    font-size: 14px!important;
+                    top: calc(100% + 12px)!important;
+                    opacity: 1!important;
+                    color: $blackish!important;
+                    white-space: nowrap;
+                }
+            }
+            balloon-callout {
+                display: none!important;
+            }
+            .balloon-callout-text {
+                opacity: 0!important;
+                margin-bottom: 16px!important;
+            }
+            &.publishing {
+                .balloon {
+                    jp-icon,
+                    jp-icon-hover {
+                        background-position-x: -80px!important;
+                    }
+                }
+            }
+            &.creative {
+                .balloon {
+                    jp-icon,
+                    jp-icon-hover {
+                        background-position-x: -133px!important;
+                    }
+                }
+            }
+            &.interactive {
+                .balloon {
+                    jp-icon,
+                    jp-icon-hover {
+                        background-position-x: -181px!important;
+                    }
+                }
+            }
+            &.mdm {
+                .balloon {
+                    .icon-container {
+                        width: 80px!important;
+                    }
+                    // jp-icon-hover {
+                    //     background-position: 0px -35px!important;
+                    // }
+                }
+            }
+        }
+    }
+
+    .form-actions {
+        button {
+            width: 100%;
+        }
+    }
+
+    footer {
+        padding-bottom: 80px!important;
     }
 }

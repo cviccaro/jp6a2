@@ -11,7 +11,8 @@ import {
   RegistersSubscribers,
   ScrollService,
   StaffService,
-  WorkService
+  WorkService,
+  Config
 } from '../shared/index';
 
 declare var jQuery: any;
@@ -86,9 +87,9 @@ export class HomeComponent implements OnInit, AfterViewInit, RegistersSubscriber
   }
 
   mobileConstraints() {
-    if (window.innerWidth < 960) {
+    if (window.innerWidth < Config.desktopWidth) {
       this.workLimit = 1;
-      this.clientCols = 3;
+      this.clientCols = 2;
     } else {
       this.workLimit = 6;
       this.clientCols = 6;

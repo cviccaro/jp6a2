@@ -19,7 +19,7 @@
 	    		<img *ngIf="blog.author_id && blog.author.image_small" class="blog-author-photo" [src]="blog.author.image_small.url" />
 	    		<div *ngIf="blog.author_id" class="blog-author"><span>{{ blog.author.full_name }}</span></div>
 	    		<div class="blog-created"><span>{{ blog.created_at | amDateFormat: 'MMMM d, YYYY' }}</span></div>
-	    		<div class="blog-category" *ngIf="blog.divisions"><span>in <a href="#">{{blog.divisions[0].display_name ? blog.divisions[0].display_name : (blog.divisions[0].name | capitalize) }}</a></span></div>
+	    		<div class="blog-category" *ngIf="blog.divisions"><span>in {{blog.divisions[0].display_name ? blog.divisions[0].display_name : (blog.divisions[0].name | capitalize) }}</span></div>
 	    		<jp-social-share [url]="shareUrl"></jp-social-share>
 	    	</div>
 	    </div>
