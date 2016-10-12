@@ -1,4 +1,4 @@
-:host {
+:host /deep/ {
 	display: block;
 	.blog-splash {
 		min-height: 383px;
@@ -45,7 +45,7 @@
 }
 
 @media screen and (max-width: $mobile-max-width) {
-	:host {
+	:host /deep/ {
 		.layout-tworows-sidebar {
 			padding-left: 10px;
 			padding-right: 10px;

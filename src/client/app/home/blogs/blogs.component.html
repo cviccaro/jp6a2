@@ -32,7 +32,7 @@
 			[text]="blog.summary" 
 			[longText]="blog.body" 
 			[date]="blog.created_at" 
-			[tag]="blog.divisions[0].name" 
+			[tag]="blog.divisions[0].display_name ? blog.divisions[0].display_name : blog.divisions[0].name" 
 			[author]="blog.author?.full_name" 
 			[routerLink]="['/blogs/' + blog.uri]"
 			[animateIn]="blog.animateIn"
