@@ -7,7 +7,6 @@ import {
   CacheService,
   ContactFormComponent,
   ClientService,
-  EnvConfig,
   FormSubmission,
   RegistersSubscribers,
   ScrollService,
@@ -73,7 +72,6 @@ export class HomeComponent implements OnInit, AfterViewInit, RegistersSubscriber
     this.mobileConstraints();
 
     this.title.setTitle(`${this.config['main_site_title']} | Home`);
-    // console.log('HomeComponent initialized.', this);
   }
 
   ngAfterViewInit() {

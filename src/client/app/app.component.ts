@@ -21,7 +21,7 @@ export class AppComponent {
 		router.events.subscribe((evt: any) => {
 			if (evt.toString().match(/^RoutesRecognized/)) {
 				const data: any = evt.state.root.children[0].data;
-				if (data.hasOwnProperty('title') && cache.has('config')) {
+				if (data.hasOwnProperty('title') && cache.has('config') && evt.state.root.children[0].children.length === 0) {
 					const config: any = cache.get('config');
 					const title_root = config.main_site_title;
 					title.setTitle(`${title_root} | ${data['title']}`);
