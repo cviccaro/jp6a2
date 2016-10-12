@@ -66,6 +66,11 @@ export class ProjectConfig extends SeedConfig {
       defaultExtension: 'js'
     };
 
+    this.SYSTEM_BUILDER_CONFIG.packages['ng2-recaptcha'] = {
+      main: 'ng2-recaptcha.js',
+      defaultExtension: 'js'
+    };
+    
     this.SYSTEM_BUILDER_CONFIG.packages['moment'] = {
       main: 'min/moment-with-locales.min.js',
       defaultExtension: 'js'
