@@ -1,8 +1,17 @@
-:host {
+:host /deep/ {
   display: block;
   overflow: hidden;
   jp-splash {
   	height: 634px;
+  }
+  .logo {
+    max-width: 131px;
+    &.company {
+      margin-top: 42px;
+    }
+    img {
+      width: 100%;
+    }
   }
   nav {
   	position: absolute;

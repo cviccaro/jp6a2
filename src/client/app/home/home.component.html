@@ -2,6 +2,9 @@
 <jp-splash [splashUrl]="config.main_site_background.url" align="left">
     <h1 class="text-uppercase">{{ config.main_site_splash_headline }}</h1>
     <div class="splash-body" [innerHTML]="config.main_site_splash_body"></div>
+    <div class="logo company">
+    	<jp-logo></jp-logo>
+  	</div>
 </jp-splash>
 <section id="services" class="content-start flex-col theme-grey" #start>
 	<div class="container">
