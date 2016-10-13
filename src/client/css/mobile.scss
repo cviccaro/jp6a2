@@ -207,17 +207,18 @@
                 margin-left: auto!important;
                 margin-right: auto!important;
                 .icon-container {
-                    width: 54px!important;
-                    height: 54px!important;
+                    width: 43px!important;
+                    height: 43px!important;
                 }
                 jp-icon {
-                    opacity: 0!important;
+                    opacity: 1!important;
                 }
                 jp-icon,
                 jp-icon-hover {
                     background-image: url('../assets/images/balloon-icons-mdm-mobile.png')!important;
                 }
                 jp-icon-hover {
+                    opacity: 0!important;
                     background-position-y: -53px!important;
                 }
                 balloon-text {
@@ -226,6 +227,9 @@
                     opacity: 1!important;
                     color: $blackish!important;
                     white-space: nowrap;
+                }
+                &::after {
+                    display: none!important;
                 }
             }
             balloon-callout {
@@ -239,15 +243,18 @@
                 .balloon {
                     jp-icon,
                     jp-icon-hover {
-                        background-position-x: -80px!important;
+                        background-position-x: -65px!important;
                     }
                 }
             }
             &.creative {
                 .balloon {
+                    .icon-container {
+                        width: 39px!important;
+                    }
                     jp-icon,
                     jp-icon-hover {
-                        background-position-x: -133px!important;
+                        background-position-x: -108px!important;
                     }
                 }
             }
@@ -255,14 +262,14 @@
                 .balloon {
                     jp-icon,
                     jp-icon-hover {
-                        background-position-x: -181px!important;
+                        background-position-x: -147px!important;
                     }
                 }
             }
             &.mdm {
                 .balloon {
                     .icon-container {
-                        width: 80px!important;
+                        width: 64px!important;
                     }
                     // jp-icon-hover {
                     //     background-position: 0px -35px!important;
