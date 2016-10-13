@@ -3,6 +3,9 @@
   overflow: hidden;
   jp-splash {
   	height: 634px;
+    .splash-inner {
+      margin-top: $nav-height!important;
+    }
   }
   .logo {
     max-width: 131px;
