@@ -11,6 +11,16 @@
         }
     }
 
+    .text-right {
+        p {
+            margin-left: auto;
+        }
+    }
+    p {
+        font-size: 12px;
+        line-height: normal;
+    }
+
     jp-mobile-menu,
     jp-mobile-menu-trigger {
         display: block;
