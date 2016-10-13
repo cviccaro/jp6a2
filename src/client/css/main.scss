@@ -35,7 +35,7 @@ div {
 /* Set up a default font and some padding to provide breathing room */
 body {
   font-family: $source-sans-pro;
-  font-size: 13px;
+  font-size: $paragraph-font-size;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -51,7 +51,7 @@ footer {
     margin-bottom: 1em;
   }
   p {
-    font-size: 12px;
+    font-size: $paragraph-font-size - 2px;
     letter-spacing: .020em;
     margin: 0;
     line-height: normal;
@@ -82,7 +82,7 @@ button {
   color: rgba(255, 255, 255, 0.87);
   cursor: pointer;
   display: inline-block;
-  font-size: 14px;
+  font-size: $paragraph-font-size;
   height: 40px;
   padding: 8px 18px;
   text-decoration: none;
@@ -236,6 +236,7 @@ h3 {
 }
 
 p {
+  font-size: $paragraph-font-size;
   font-weight: 400;
   letter-spacing: 0.01em;
   line-height: 22px;
@@ -263,7 +264,7 @@ li {
 
 input {
   border: 1px solid $blue;
-  font-size: 14px;
+  font-size: $paragraph-font-size;
   height: 40px;
   outline: none;
   padding: 8px;
