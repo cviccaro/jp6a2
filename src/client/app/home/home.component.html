@@ -33,7 +33,7 @@
     		<jp-icon-hover></jp-icon-hover>
 	    	<balloon-text>Publishing</balloon-text>
 	    	<balloon-callout>
-	    		<jp-balloon-callout-icon class="traditional-catalogs" text="Traditional Catalogs" url="https://publishing.jpedev.com/traditional-publishing">
+	    		<jp-balloon-callout-icon class="traditional-catalogs" text="Traditional Catalogs" url="https://publishing.jpedev.com/traditional-catalogs">
 	    			<jp-icon></jp-icon>
 		    		<jp-icon-hover></jp-icon-hover>
 	    		</jp-balloon-callout-icon>
@@ -81,7 +81,7 @@
 	    			<jp-icon></jp-icon>
 		    		<jp-icon-hover></jp-icon-hover>
 	    		</jp-balloon-callout-icon>
-	    		<jp-balloon-callout-icon class="website-development" text="Website Development" url="https://interactive.jpedev.com/website-development">
+	    		<jp-balloon-callout-icon class="website-development" text="Website Development" url="https://interactive.jpedev.com/web-development">
 	    			<jp-icon></jp-icon>
 		    		<jp-icon-hover></jp-icon-hover>
 	    		</jp-balloon-callout-icon>
@@ -111,7 +111,7 @@
 	    		class="cell">
     		</jp-card>
 		</div>
-		<jp-pager class="wide" [currentPage]="workIndex" [totalPages]="3" [pagerType]="'minimal'" (pageChanged)="fetchWork($event)" [includeNav]="true"></jp-pager>
+		<jp-pager class="wide" [currentPage]="workIndex" [totalPages]="workTotal" [pagerType]="'minimal'" (pageChanged)="fetchWork($event)" [includeNav]="true"></jp-pager>
 	</div>
 </section>
 

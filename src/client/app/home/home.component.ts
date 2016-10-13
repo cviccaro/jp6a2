@@ -72,6 +72,9 @@ export class HomeComponent implements OnInit, AfterViewInit, RegistersSubscriber
 
     this.mobileConstraints();
 
+    let work: any = this.work;
+    this.workTotal = Math.round(work['total'] / this.workLimit);
+
     this.title.setTitle(`${this.config['main_site_title']} | Home`);
   }
 
