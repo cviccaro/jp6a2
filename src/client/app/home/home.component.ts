@@ -70,9 +70,6 @@ export class HomeComponent implements OnInit, AfterViewInit, RegistersSubscriber
     this.staff = this.cache.get('staff');
     this.work = this.cache.get('projects');
 
-    let work: any = this.work;
-    this.workTotal = Math.round(work['total'] / this.workLimit);
-
     this.mobileConstraints();
 
     this.title.setTitle(`${this.config['main_site_title']} | Home`);
@@ -90,12 +87,16 @@ export class HomeComponent implements OnInit, AfterViewInit, RegistersSubscriber
   }
 
   mobileConstraints() {
+    let work: any = this.work;
+
     if (window.innerWidth < Config.desktopWidth) {
       this.workLimit = 1;
       this.clientCols = 2;
+      this.workTotal = Math.min(Math.round(work['total'] / this.workLimit), 6);
     } else {
       this.workLimit = 6;
       this.clientCols = 6;
+      this.workTotal = Math.round(work['total'] / this.workLimit);
     }
   }
 
@@ -142,7 +143,11 @@ export class HomeComponent implements OnInit, AfterViewInit, RegistersSubscriber
                 that.work = res;
 
                 // Total number of pages of work
-                that.workTotal = Math.round(res.total / 6);
+                if (window.innerWidth < Config.desktopWidth) {
+                  that.workTotal = Math.min(Math.round(res.total / that.workLimit), 6);
+                } else {
+                  that.workTotal = Math.round(res.total / that.workLimit);
+                }
 
                 dynamics.css(elem, {
                     translateX: offsetX * -direction

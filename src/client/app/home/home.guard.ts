@@ -1,8 +1,8 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { CanActivate } from '@angular/router';
 import { Response } from '@angular/http';
-import {BlogService, CacheService, ClientService, StaffService, WorkService} from '../shared/index';
-import {Observable, Observer, Subscription} from 'rxjs/Rx';
+import { BlogService, CacheService, ClientService, StaffService, WorkService, Config } from '../shared/index';
+import { Observable, Observer, Subscription } from 'rxjs/Rx';
 
 @Injectable()
 export class HomeGuard implements CanActivate, OnDestroy {
@@ -25,6 +25,7 @@ export class HomeGuard implements CanActivate, OnDestroy {
 
   canActivate() {
     return Observable.create((observer: Observer<boolean>) => {
+      const workLimit = window.innerWidth > Config.desktopWidth ? 6 : 1;
       this.subs = [
         this.blogService.recent()
           .subscribe(res => this.fetchComplete('blogs', res, observer)),
@@ -32,7 +33,7 @@ export class HomeGuard implements CanActivate, OnDestroy {
           .subscribe(res => this.fetchComplete('clients', res, observer)),
         this.staffService.all()
           .subscribe(res => this.fetchComplete('staff', res, observer)),
-        this.workService.recent(0, 6)
+        this.workService.recent(0, workLimit)
           .subscribe(res => this.fetchComplete('projects', res, observer))
       ];
     });
