@@ -54,6 +54,7 @@
         & > jp-splash {
             //display: none !important;
             height: auto!important;
+            min-height: 560px!important;
             .splash {
                 .splash-inner {
                     width: calc(100% - 20px)!important;
@@ -71,6 +72,10 @@
                         text-align: center;
                     }
                 }
+            }
+            .logo {
+                margin-left: auto;
+                margin-right: auto;
             }
         }
     }
@@ -111,7 +116,7 @@
         }
     }
 
-    section, 
+    section,
     .section-padding,
     .layout-tworows-sidebar {
         padding: 4em 0;
@@ -122,6 +127,14 @@
                 flex-basis: 100%;
                 width: 100%;
                 margin: 0;
+            }
+        }
+    }
+
+    section {
+        .container {
+            &,p,h2 {
+                text-align: left;
             }
         }
     }

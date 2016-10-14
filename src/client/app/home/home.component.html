@@ -40,11 +40,11 @@
 	    			<jp-icon></jp-icon>
 		    		<jp-icon-hover></jp-icon-hover>
 	    		</jp-balloon-callout-icon>
-	    		<jp-balloon-callout-icon class="translations" text="Translations" url="https://publishing.jpedev.com/translations">
+	    		<jp-balloon-callout-icon class="project-management" text="Project Management" url="https://publishing.jpedev.com/project-management">
 	    			<jp-icon></jp-icon>
 		    		<jp-icon-hover></jp-icon-hover>
 	    		</jp-balloon-callout-icon>
-	    		<jp-balloon-callout-icon class="project-management" text="Project Management" url="https://publishing.jpedev.com/project-management">
+	    		<jp-balloon-callout-icon class="translations" text="Translations" url="https://publishing.jpedev.com/translations">
 	    			<jp-icon></jp-icon>
 		    		<jp-icon-hover></jp-icon-hover>
 	    		</jp-balloon-callout-icon>
@@ -101,14 +101,14 @@
 <section id="projects" class="flex-col">
 	<div class="container">
 		<h2 class="section-title text-right text-uppercase">Our Projects</h2>
-		<div class="content" 
-				*ngIf="work" 
+		<div class="content"
+				*ngIf="work"
 				(swipeLeft)="swipeLeftProjects($event)"
 				(swipeRight)="swipeRightProjects($event)"
 				#projects>
-	    	<jp-card *ngFor="let item of work.projects | slice: 0 : workLimit" 
-	    		[cardTitle]="item.title" 
-	    		[subTitle]="item.client?.name" 
+	    	<jp-card *ngFor="let item of work.projects | slice: 0 : workLimit"
+	    		[cardTitle]="item.title"
+	    		[subTitle]="item.client?.name"
 	    		[image]="item.image.url"
 	    		[routerLink]="['/projects/' + item.uri]"
 	    		class="cell">
@@ -122,12 +122,12 @@
 	<div class="container">
 		<h2 class="section-title text-uppercase">Our Leadership</h2>
 		<div class="content" *ngIf="staff">
-		    <jp-card *ngFor="let person of staff" 
+		    <jp-card *ngFor="let person of staff"
 		    [href]="'mailto:'+ person.email"
 		    class="cell"
-				[cardTitle]="person.first_name + ' ' + person.last_name" 
-				[subTitle]="person.title" 
-				[image]="person.image.url" 
+				[cardTitle]="person.first_name + ' ' + person.last_name"
+				[subTitle]="person.title"
+				[image]="person.image.url"
 				overlay="assets/images/contact-overlay.png">
 			</jp-card>
 		</div>
@@ -149,15 +149,15 @@
 	<div class="container">
 	  <h2 class="section-title text-uppercase">Our Blog</h2>
 	  <div class="content" *ngIf="blogs">
-	    <jp-post *ngFor="let blog of blogs.blogs" 
+	    <jp-post *ngFor="let blog of blogs.blogs"
 	    	class="cell"
-	    	[image]="blog.image.url" 
-	    	[title]="blog.title" 
-	    	[text]="blog.summary" 
-	    	[longText]="blog.body" 
-	    	[date]="blog.created_at" 
-	    	[tag]="blog.divisions[0].display_name ? blog.divisions[0].display_name : blog.divisions[0].name" 
-	    	[author]="blog.author?.full_name" 
+	    	[image]="blog.image.url"
+	    	[title]="blog.title"
+	    	[text]="blog.summary"
+	    	[longText]="blog.body"
+	    	[date]="blog.created_at"
+	    	[tag]="blog.divisions[0].display_name ? blog.divisions[0].display_name : blog.divisions[0].name"
+	    	[author]="blog.author?.full_name"
 	    	[routerLink]="['/blogs/' + blog.uri]">
 		</jp-post>
 	    <button md-button class="inverted-button boxy-button" [routerLink]="['/blogs']">Load More Blogs</button>

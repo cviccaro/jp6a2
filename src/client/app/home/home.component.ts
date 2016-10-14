@@ -101,7 +101,7 @@ export class HomeComponent implements OnInit, AfterViewInit, RegistersSubscriber
   }
 
   fetchWork(num: number) {
-    let direction = num > this.workIndex ? 1 : -1;
+    let direction = num > this.workIndex ? -1 : 1;
 
     this.workIndex = num;
 
