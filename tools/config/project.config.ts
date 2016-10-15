@@ -2,6 +2,9 @@ import { join } from 'path';
 
 import { SeedConfig } from './seed.config';
 
+import * as DevConfig from '../env/dev';
+import * as ProdConfig from '../env/prod';
+
 /**
  * This class extends the basic seed configuration, allowing for project specific overrides. A few examples can be found
  * below.
@@ -9,9 +12,11 @@ import { SeedConfig } from './seed.config';
 export class ProjectConfig extends SeedConfig {
 
   PROJECT_TASKS_DIR = join(process.cwd(), this.TOOLS_DIR, 'tasks', 'project');
+  CONF: any;
 
   constructor() {
     super();
+
     this.APP_TITLE = 'JP Enterprises';
 
     this.ENABLE_SCSS = true;
@@ -34,7 +39,7 @@ export class ProjectConfig extends SeedConfig {
       ...this.APP_ASSETS,
       { src: `${this.CSS_SRC}/theme.css`, inject: true, vendor: false },
       { src: `${this.CSS_SRC}/mobile.css`, inject: true, vendor: false },
-      { src: `${this.CSS_SRC}/animations.css`, inject: true, vendor: false }
+      { src: `${this.CSS_SRC}/animations.css`, inject: true, vendor: false },
       // {src: `${this.APP_SRC}/your-path-to-lib/libs/jquery-ui.js`, inject: true, vendor: false}
       // {src: `${this.CSS_SRC}/path-to-lib/test-lib.css`, inject: true, vendor: false},
     ];
@@ -100,6 +105,16 @@ export class ProjectConfig extends SeedConfig {
       defaultExtension: 'js',
       main: 'core.umd.js'
     };
+
+
+    switch(this.ENV) {
+      case 'dev':
+        this.CONF = DevConfig;
+        break;
+      case 'prod':
+        this.CONF = ProdConfig;
+        break;
+    }
   }
 
 }

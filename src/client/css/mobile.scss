@@ -13,10 +13,12 @@
 
     .text-right {
         p {
-            margin-left: auto;
+            margin-left: 0;
         }
     }
-    p {
+
+    p,
+    ul li {
         font-size: 12px;
         line-height: 22px;
     }
@@ -24,10 +26,6 @@
     jp-mobile-menu,
     jp-mobile-menu-trigger {
         display: block;
-    }
-
-    footer {
-        text-align: center;
     }
 
     .hide-mobile {
@@ -306,9 +304,5 @@
         button {
             width: 100%;
         }
-    }
-
-    footer {
-        padding-bottom: 80px!important;
     }
 }
