@@ -14,4 +14,18 @@
 		width: 100%;
 		text-align: center;
 	}
+	#filters {
+		h4 {
+			padding-left: 5px;
+		}
+		margin-bottom: 48px;
+		jp-icon-button-text {
+			font-size: 14px;
+		}
+	}
+	.overlay-toolbar {
+		md-toolbar-row {
+			height: auto;
+		}
+	}
 }

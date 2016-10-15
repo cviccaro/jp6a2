@@ -42,6 +42,14 @@
 	.container {
 		padding-top: 0;
 	}
+	jp-social-share.mobile {
+		display: none;
+	}
+	.right {
+		.blog-author-photo {
+			margin-top: 9px;
+		}
+	}
 }
 
 @media screen and (max-width: $mobile-max-width) {

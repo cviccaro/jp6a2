@@ -305,4 +305,57 @@
             width: 100%;
         }
     }
+
+    /**
+     * Blog filter buttonset
+     */
+    .overlay-toolbar  {
+        padding-left: 0!important;
+        padding-right: 0!important;
+        md-toolbar-row {
+            height: auto;
+        }
+    }
+    #filters {
+        md-toolbar-row {
+            flex-direction: column;
+        }
+        h4 {
+            width: 100%;
+            display: block;
+            text-align: center;
+        }
+        .filters-buttonset {
+            width: 100%;
+            margin-left: 0!important;
+            min-width: 0px!important;
+            jp-icon-button {
+                width: auto;
+                flex: 1 1 auto;
+                margin: auto;
+                jp-icon-button-text {
+                    // margin: 0 auto;
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $mobile-max-width * .5) {
+    #filters {
+        .filters-buttonset {
+            flex-wrap: wrap;
+            jp-icon-button {
+                max-width: 50%;
+                width: 50%;
+                .icon-container {
+                    display: none;
+                }
+                jp-icon-button-text {
+                    margin: 0 auto;
+                }
+            }
+        }
+    }
 }

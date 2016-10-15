@@ -26,14 +26,14 @@
 	</md-toolbar>
 	<div class="content" *ngIf="blogs">
 	<!-- <md-content layout="row" layout-wrap ng-cloak jp-infinite-scroll [container]="container" (prefetch)="prefetchMoreBlogs()" (render)="renderMoreBlogs()" class="blogs-list grid"> -->
-		<jp-post *ngFor="let blog of blogs.blogs" 
-			[image]="blog.image.url" 
-			[title]="blog.title" 
-			[text]="blog.summary" 
-			[longText]="blog.body" 
-			[date]="blog.created_at" 
-			[tag]="blog.divisions[0].display_name ? blog.divisions[0].display_name : blog.divisions[0].name" 
-			[author]="blog.author?.full_name" 
+		<jp-post *ngFor="let blog of blogs.blogs"
+			[image]="blog.image.url"
+			[title]="blog.title"
+			[text]="blog.summary"
+			[longText]="blog.body"
+			[date]="blog.created_at"
+			[tag]="blog.divisions[0].display_name ? blog.divisions[0].display_name : blog.divisions[0].name"
+			[author]="blog.author?.full_name"
 			[routerLink]="['/blogs/' + blog.uri]"
 			[animateIn]="blog.animateIn"
 			class="cell">
