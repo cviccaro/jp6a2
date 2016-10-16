@@ -23,32 +23,28 @@
 
 @media screen and (max-width: $mobile-max-width) {
 	:host /deep/ {
-			jp-pager {
-			    ul.jp-pager {
-			        display: none!important;
-		      }
-			}
+		jp-pager {
+		    ul.jp-pager {
+		        display: none!important;
+	      }
+		}
 
-			.layout-sidebar {
-				.left {
-					width: 100%;
-					flex-basis: 100%;
-					flex-direction: column;
-
-					.section-title {
-						display: flex;
-						flex-direction: row;
-						.client-logo {
-							margin-left: 24px;
-						}
-					}
-				}
-				.right {
-					display: none;
-				}
-			}
-			.overlay-close-notitle {
+		.layout-sidebar {
+			.left {
 				width: 100%;
+				flex-basis: 100%;
+				flex-direction: column;
 			}
+			.right {
+				display: none;
+			}
+		}
+		.section-title {
+			display: flex;
+			flex-direction: row;
+		}
+		.overlay-close-notitle {
+			width: 100%;
+		}
 	}
 }

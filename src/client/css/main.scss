@@ -83,6 +83,9 @@ button {
   height: 40px;
   padding: 8px 18px;
   text-decoration: none;
+  md-icon {
+      vertical-align: middle;
+  }
 }
 
 .inverted-button,
@@ -137,6 +140,12 @@ md-icon.small {
  */
 nav {
   min-height: $nav_height;
+}
+
+.centered,
+[md-button].centered {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .wide,
@@ -200,10 +209,11 @@ nav {
   }
 }
 
-.mobile,
-jp-mobile-menu-trigger,
-jp-mobile-menu {
+.mobile {
   display: none;
+}
+[md-button].mobile {
+  display: none!important;
 }
 
 .icon-buttons {

@@ -6,7 +6,7 @@
 		<div class="layout-sidebar" *ngIf="ready">
 			<div class="left">
 				<h1 class="section-title text-uppercase">
-					{{ project.title }}
+					<span>{{ project.title }}</span>
 					<div class="mobile client-logo">
 						<img *ngIf="project.client.image" [src]="project.client.image.url" [title]="project.client.image.description" [alt]="project.client.name" />
 					</div>
