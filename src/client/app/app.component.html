@@ -1,2 +1,6 @@
 <router-outlet></router-outlet>
-<jp-mobile-menu></jp-mobile-menu>
+<jp-mobile-menu>
+    <a md-button jp-mobile-menu-item [routerLink]="['/services']" title="Services" disableRipple="true">Services</a>
+    <a md-button jp-mobile-menu-item [routerLink]="['/staff']" title="Leadership" disableRipple="true">Leadership</a>
+    <a md-button jp-mobile-menu-item [routerLink]="['/clients']" title="Clients" disableRipple="true">Clients</a>
+</jp-mobile-menu>

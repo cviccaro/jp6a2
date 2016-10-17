@@ -12,7 +12,8 @@ import { CacheService } from './shared/index';
 @Component({
   moduleId: module.id,
   selector: 'jp-app',
-  templateUrl: 'app.component.html'
+  templateUrl: 'app.component.html',
+  styleUrls: [ './app.component.css' ]
 })
 export class AppComponent {
 	constructor(overlay: Overlay, vcRef: ViewContainerRef, router: Router, title: Title, cache: CacheService) {

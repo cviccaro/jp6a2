@@ -1,0 +1,14 @@
+:host /deep/ {
+    jp-navbar,
+    jp-mobile-menu {
+        a[title="Services"] {
+            order: 1;
+        }
+        a[title="Leadership"] {
+            order: 3;
+        }
+        a[title="Clients"] {
+            order: 4;
+        }
+    }
+}

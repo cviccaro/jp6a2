@@ -12,7 +12,8 @@ import {
   ScrollService,
   StaffService,
   WorkService,
-  Config
+  Config,
+  NavbarService
 } from '../shared/index';
 
 declare var jQuery: any;
@@ -55,9 +56,10 @@ export class HomeComponent implements OnInit, AfterViewInit, RegistersSubscriber
     public blogService: BlogService,
     public cache: CacheService,
     public clientService: ClientService,
+    public navbarService: NavbarService,
+    public scrollService: ScrollService,
     public staffService: StaffService,
     public workService: WorkService,
-    public scrollService: ScrollService,
     public modal: Modal,
     public title: Title
   ) {
@@ -185,6 +187,16 @@ export class HomeComponent implements OnInit, AfterViewInit, RegistersSubscriber
             .open();
         })
     );
+  }
+
+  navLinkClicked(e: Event) {
+    e.stopPropagation();
+    e.preventDefault();
+    let href = jQuery(e.target).parents('a').attr('href');
+    if (href) {
+      let selector = href.replace('/','');
+      this.navbarService.buttonClicked.emit({target: e.target, selector: selector});
+    }
   }
 
   swipeLeftProjects(e: any) {

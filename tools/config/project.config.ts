@@ -13,6 +13,7 @@ export class ProjectConfig extends SeedConfig {
 
   PROJECT_TASKS_DIR = join(process.cwd(), this.TOOLS_DIR, 'tasks', 'project');
   CONF: any;
+  SHARED_MODULE_SRC = 'app/shared'
 
   constructor() {
     super();
@@ -36,19 +37,15 @@ export class ProjectConfig extends SeedConfig {
 
     // Add `local` third-party libraries to be injected/bundled.
     this.APP_ASSETS = [
-      ...this.APP_ASSETS,
-      { src: `${this.CSS_SRC}/theme.css`, inject: true, vendor: false },
-      { src: `${this.CSS_SRC}/mobile.css`, inject: true, vendor: false },
-      { src: `${this.CSS_SRC}/animations.css`, inject: true, vendor: false },
-      // {src: `${this.APP_SRC}/your-path-to-lib/libs/jquery-ui.js`, inject: true, vendor: false}
-      // {src: `${this.CSS_SRC}/path-to-lib/test-lib.css`, inject: true, vendor: false},
+      ...this.APP_ASSETS
     ];
 
     /* Add to or override NPM module configurations: */
     this.mergeObject(this.PLUGIN_CONFIGS['gulp-sass'], {
       includePaths: [
         './node_modules/',
-        './resources/scss/'
+        './resources/scss/',
+        `./${this.APP_SRC}/app/`
       ]
     });
 
@@ -115,6 +112,8 @@ export class ProjectConfig extends SeedConfig {
         this.CONF = ProdConfig;
         break;
     }
+
+    console.log(this);
   }
 
 }

@@ -3,7 +3,7 @@ import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Rx';
 
-import { CacheService, NavbarService } from '../shared/index';
+import { CacheService, NavbarService, Config } from '../shared/index';
 
 declare var jQuery: any;
 
@@ -56,6 +56,9 @@ export class ScrollToComponent implements AfterViewInit, OnDestroy {
 	}
 
 	scrollToEl(el: HTMLElement, offset = 45) {
+		if (window.innerWidth < Config.desktopWidth && offset === 0) {
+			offset = -55;
+		}
 		let top = el.offsetTop;
 		jQuery('html, body').animate({
 			scrollTop: top + offset
