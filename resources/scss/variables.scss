@@ -1,8 +1,9 @@
 @import 'sass-material-colors/sass/sass-material-colors';
 
 $nav_height: 75px;
-$desktop-width: 992px;
+$desktop-min-width: 992px;
 $mobile-max-width: 991px;
+$container-large-desktop: 1170px;
 
 /**
  * Palette

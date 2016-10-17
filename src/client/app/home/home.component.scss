@@ -3,9 +3,6 @@
   overflow: hidden;
   jp-splash {
   	height: 634px;
-    .splash-inner {
-      margin-top: $nav-height!important;
-    }
   }
   .logo {
     max-width: 131px;
@@ -15,12 +12,6 @@
     img {
       width: 100%;
     }
-  }
-  nav {
-  	position: absolute;
-  	top: 0;
-  	left: 0;
-  	right: 0;
   }
 
   section#services {
