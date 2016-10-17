@@ -112,8 +112,6 @@ export class ProjectConfig extends SeedConfig {
         this.CONF = ProdConfig;
         break;
     }
-
-    console.log(this);
   }
 
 }
