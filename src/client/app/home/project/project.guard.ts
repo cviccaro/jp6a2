@@ -1,8 +1,8 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot } from '@angular/router';
 import { Response } from '@angular/http';
-import {CacheService, WorkService} from './../../shared/index';
-import {Observable, Observer, Subscription} from 'rxjs/Rx';
+import { CacheService, WorkService } from './../../shared/index';
+import { Observable, Observer, Subscription } from 'rxjs/Rx';
 
 @Injectable()
 export class ProjectGuard implements CanActivate, OnDestroy {

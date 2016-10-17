@@ -1,8 +1,8 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { CanActivate } from '@angular/router';
 import { Response } from '@angular/http';
-import {BlogService, CacheService} from '../../shared/index';
-import {Observable, Observer, Subscription} from 'rxjs/Rx';
+import { BlogService, CacheService } from '../../shared/index';
+import { Observable, Observer, Subscription } from 'rxjs/Rx';
 
 @Injectable()
 export class BlogsGuard implements CanActivate, OnDestroy {

@@ -13,7 +13,7 @@ export class ProjectConfig extends SeedConfig {
 
   PROJECT_TASKS_DIR = join(process.cwd(), this.TOOLS_DIR, 'tasks', 'project');
   CONF: any;
-  SHARED_MODULE_SRC = 'app/shared'
+  SHARED_MODULE_SRC = 'app/shared';
 
   constructor() {
     super();
@@ -49,8 +49,6 @@ export class ProjectConfig extends SeedConfig {
       ]
     });
 
-
-    this.SYSTEM_CONFIG_DEV.packageConfigPaths.push('/node_modules/@angular/material/*/package.json');
     this.SYSTEM_BUILDER_CONFIG.packageConfigPaths.push(
       join(this.PROJECT_ROOT, 'node_modules', '@angular', 'material', '*', 'package.json')
     );
@@ -63,45 +61,46 @@ export class ProjectConfig extends SeedConfig {
     this.SYSTEM_CONFIG_DEV.paths['angular2-modal/plugins/bootstrap'] = bootstrapModalBundle;
     this.SYSTEM_BUILDER_CONFIG.paths['angular2-modal/plugins/bootstrap'] = bootstrapModalBundle;
 
-    this.SYSTEM_BUILDER_CONFIG.packages['hammerjs'] = {
+    let that = this;
+    function addToPackages(name: string, config: any) {
+      that.SYSTEM_CONFIG_DEV.packages[name] = config;
+      that.SYSTEM_BUILDER_CONFIG.packages[name] = config;
+    }
+
+    addToPackages('hammerjs', {
       main: 'hammer.min.js',
       defaultExtension: 'js'
-    };
+    });
 
-    this.SYSTEM_BUILDER_CONFIG.packages['ng2-recaptcha'] = {
+    addToPackages('ng2-recaptcha', {
       main: 'ng2-recaptcha.js',
       defaultExtension: 'js'
-    };
+    });
 
-    this.SYSTEM_BUILDER_CONFIG.packages['moment'] = {
+    addToPackages('moment', {
       main: 'min/moment-with-locales.min.js',
       defaultExtension: 'js'
-    };
+    });
 
-    this.SYSTEM_BUILDER_CONFIG.packages['angular2-moment'] = {
+    addToPackages('angular2-moment', {
       main: 'index.js',
       defaultExtension: 'js'
-    };
+    });
 
-    this.SYSTEM_BUILDER_CONFIG.packages['angular2-modal'] = {
-      main: 'bundles/angular2-modal.umd',
+    addToPackages('angular2-modal', {
+      main: 'bundles/angular2-modal.umd.js',
       defaultExtension: 'js'
-    };
+    });
 
-    // this.SYSTEM_BUILDER_CONFIG.packages['angular2-modal/plugins/bootstrap'] = {
-    //   main: 'angular2-modal.bootstrap.js',
-    //   defaultExtension: 'js'
-    // };
-
-    this.SYSTEM_BUILDER_CONFIG.packages['@angular/material'] = {
+    addToPackages('@angular/material', {
       format: 'cjs',
       main: 'material.umd.js',
-    };
+    });
 
-    this.SYSTEM_BUILDER_CONFIG.packages['angular2-google-maps/core'] = {
+    addToPackages('angular2-google-maps/core', {
       defaultExtension: 'js',
       main: 'core.umd.js'
-    };
+    });
 
 
     switch(this.ENV) {

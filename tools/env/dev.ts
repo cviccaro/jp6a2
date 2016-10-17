@@ -1,4 +1,4 @@
-import {EnvConfig} from './env-config.interface';
+import { EnvConfig } from './env-config.interface';
 
 const DevConfig: EnvConfig = {
     API: '//api.jpedev.com',

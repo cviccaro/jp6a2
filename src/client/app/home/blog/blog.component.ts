@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import {DomSanitizer, SafeHtml, SafeResourceUrl, Title} from '@angular/platform-browser';
+import { DomSanitizer, SafeHtml, SafeResourceUrl, Title } from '@angular/platform-browser';
 import { Subscription } from 'rxjs/Rx';
 
 import { Blog, BlogService, CacheService } from '../../shared/index';
