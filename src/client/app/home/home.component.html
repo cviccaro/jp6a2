@@ -15,7 +15,7 @@
 		<h2 class="section-title text-uppercase">Our Services</h2>
 		<p>We specialize in print and digital graphic design, digital marketing, content development/management, multi-channel publishing, mobile application development, website design/development, and technical design.</p>
     <div class="flex-row icon-buttons">
-	    <jp-balloon class="mdm" url="https://mdm.jpedev.com">
+	    <jp-balloon class="mdm" [url]="links.mdm">
     		<jp-icon></jp-icon>
     		<jp-icon-hover></jp-icon-hover>
 	    	<balloon-text>MDM Solutions</balloon-text>
@@ -35,7 +35,7 @@
 	    	</balloon-callout>
 	    </jp-balloon>
 
-	    <jp-balloon class="publishing" url="https://publishing.jpedev.com">
+	    <jp-balloon class="publishing" [url]="links.publishing">
     		<jp-icon></jp-icon>
     		<jp-icon-hover></jp-icon-hover>
 	    	<balloon-text>Publishing</balloon-text>
@@ -55,7 +55,7 @@
 	    	</balloon-callout>
 	    </jp-balloon>
 
-	    <jp-balloon class="creative" url="https://creative.jpedev.com">
+	    <jp-balloon class="creative" [url]="links.creative">
     		<jp-icon></jp-icon>
     		<jp-icon-hover></jp-icon-hover>
 	    	<balloon-text>Creative</balloon-text>
@@ -79,7 +79,7 @@
 	    	</balloon-callout>
 	    </jp-balloon>
 
-	    <jp-balloon class="interactive" url="https://interactive.jpedev.com">
+	    <jp-balloon class="interactive" [url]="links.interactive">
     		<jp-icon></jp-icon>
     		<jp-icon-hover></jp-icon-hover>
 	    	<balloon-text>Interactive</balloon-text>

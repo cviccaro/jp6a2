@@ -33,6 +33,8 @@ export class HomeComponent implements OnInit, AfterViewInit, RegistersSubscriber
   config: any;
   clientCols = 6;
   clients: any[];
+  divisions:any[] = ['creative', 'interactive', 'mdm', 'publishing'];
+  links: any = {};
   staff: any[];
   wowEnabled = true;
   work: any[];
@@ -64,6 +66,12 @@ export class HomeComponent implements OnInit, AfterViewInit, RegistersSubscriber
     public title: Title
   ) {
     this.config = this.cache.get('config');
+    const onProdServer = window.location.hostname.match(/\.jpenterprises\.com$/) !== null;
+    const host =  onProdServer ? 'jpenterprises.com' : 'jpedev.com';
+
+    this.divisions.forEach((division:string) => {
+      this.links[division] = `${window.location.protocol}//${division}.${host}`;
+    });
   }
 
   ngOnInit() {
