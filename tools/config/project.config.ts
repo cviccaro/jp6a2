@@ -37,7 +37,8 @@ export class ProjectConfig extends SeedConfig {
 
     // Add `local` third-party libraries to be injected/bundled.
     this.APP_ASSETS = [
-      ...this.APP_ASSETS
+      ...this.APP_ASSETS,
+      { src: `${this.APP_SRC}/${this.SHARED_MODULE_SRC}/_scss/modernizr.js`, inject: true }
     ];
 
     /* Add to or override NPM module configurations: */
