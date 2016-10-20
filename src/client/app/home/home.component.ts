@@ -41,7 +41,6 @@ export class HomeComponent implements OnInit, AfterViewInit, RegistersSubscriber
   workIndex = 1;
   workLimit = 6;
   workTotal = 0;
-  year = new Date().getFullYear();
 
   _subscriptions: Subscription[] = [];
 
