@@ -17,7 +17,7 @@ export class BlogsGuard implements CanActivate, OnDestroy {
     return Observable.create((observer: Observer<boolean>) => {
       this.sub = this.blogService.recent(0, 12)
           .subscribe((res: Response) => {
-            this.cache.store('blogs', res);
+            this.cache.store('blogs_page', res);
             observer.complete();
           });
     });

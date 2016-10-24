@@ -22,7 +22,7 @@ export class BlogsComponent implements OnInit, OnDestroy {
 	constructor(public blogService: BlogService, public cache: CacheService, public title: Title) { }
 
 	ngOnInit() {
-		this.blogs = this.cache.get('blogs');
+		this.blogs = this.cache.get('blogs_page');
 
 		this.title.setTitle('JP Enterprises | Blogs');
 	}

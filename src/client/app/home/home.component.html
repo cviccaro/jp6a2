@@ -114,7 +114,7 @@
 	    		[cardTitle]="item.title"
 	    		[subTitle]="item.client?.name"
 	    		[image]="item.image.url"
-	    		[routerLink]="['/projects/' + item.uri]"
+	    		[route]="['/projects/' + item.uri]"
 	    		class="cell">
     		</jp-card>
 		</div>
@@ -154,17 +154,18 @@
 	<div class="container">
 	  <h2 class="section-title text-uppercase">Our Blog</h2>
 	  <div class="content" *ngIf="blogs">
-	    <jp-post *ngFor="let blog of blogs.blogs"
+	    <jp-card *ngFor="let blog of blogs.blogs"
 	    	class="cell"
 	    	[image]="blog.image.url"
-	    	[title]="blog.title"
-	    	[text]="blog.summary"
-	    	[longText]="blog.body"
+	    	[cardTitle]="blog.title"
+	    	[summary]="blog.summary"
+	    	[body]="blog.body"
 	    	[date]="blog.created_at"
 	    	[tag]="blog.divisions[0].display_name ? blog.divisions[0].display_name : blog.divisions[0].name"
 	    	[author]="blog.author?.full_name"
-	    	[routerLink]="['/blogs/' + blog.uri]">
-		</jp-post>
+	    	[route]="['/blogs/' + blog.uri]"
+	    	theme="post">
+			</jp-card>
 	    <button md-button class="inverted-button boxy-button" [routerLink]="['/blogs']">Load More Blogs</button>
 	  </div>
 	</div>

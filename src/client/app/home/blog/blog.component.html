@@ -26,18 +26,18 @@
 	    <div class="bottom-row">
 	        <h2 class="text-uppercase">Related Articles</h2>
 	        <div class="content">
-	            <jp-post
-	            		class="cell"
-	                *ngFor="let post of related"
-	                [title]="post.title"
-	                [image]="post.image.url"
-	                [text]="post.summary"
-	                [longText]="post.body"
-	                [date]="post.created_at"
-	                [tag]="post.divisions[0].display_name ? post.divisions[0].display_name : post.divisions[0].name"
-	                [author]="post.author?.full_name"
-	                [routerLink]="['/blogs/' + post.uri]">
-	            </jp-post>
+	            <jp-card *ngFor="let post of related"
+	            	class="cell"
+	            	[image]="post.image.url"
+	            	[cardTitle]="post.title"
+	            	[summary]="post.summary"
+	            	[body]="post.body"
+	            	[date]="post.created_at"
+	            	[tag]="post.divisions[0].display_name ? post.divisions[0].display_name : post.divisions[0].name"
+	            	[author]="post.author?.full_name"
+	            	[route]="['/blogs/' + post.uri]"
+	            	theme="post">
+	        		</jp-card>
 	        </div>
 	    </div>
 	</div>
