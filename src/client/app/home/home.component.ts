@@ -7,7 +7,7 @@ import {
   CacheService,
   ContactFormComponent,
   ClientService,
-  FormSubmission,
+  ContactFormSubmission,
   RegistersSubscribers,
   ScrollService,
   StaffService,
@@ -180,7 +180,7 @@ export class HomeComponent implements OnInit, AfterViewInit, RegistersSubscriber
       this.registerSubscriber(sub);
   }
 
-  formSubmitSuccess(submission: FormSubmission) {
+  formSubmitSuccess(submission: ContactFormSubmission) {
     this.registerSubscriber(
       this.contactForm.postToServer()
         .subscribe((res: any) => {
