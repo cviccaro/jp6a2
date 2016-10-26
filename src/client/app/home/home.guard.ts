@@ -1,7 +1,7 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { CanActivate } from '@angular/router';
 import { Response } from '@angular/http';
-import { BlogService, CacheService, ClientService, StaffService, WorkService, Config } from '../shared/index';
+import { BlogService, CacheService, ClientService, StaffService, ProjectService, Config } from '../shared/index';
 import { Observable, Observer, Subscription } from 'rxjs/Rx';
 
 @Injectable()
@@ -20,7 +20,7 @@ export class HomeGuard implements CanActivate, OnDestroy {
     public cacheService: CacheService,
     public clientService: ClientService,
     public staffService: StaffService,
-    public workService: WorkService
+    public projectService: ProjectService
   ) { }
 
   canActivate() {
@@ -33,7 +33,7 @@ export class HomeGuard implements CanActivate, OnDestroy {
           .subscribe(res => this.fetchComplete('clients', res, observer)),
         this.staffService.all()
           .subscribe(res => this.fetchComplete('staff', res, observer)),
-        this.workService.recent(0, workLimit)
+        this.projectService.recent(0, workLimit)
           .subscribe(res => this.fetchComplete('projects', res, observer))
       ];
     });

@@ -11,7 +11,7 @@ import {
   RegistersSubscribers,
   ScrollService,
   StaffService,
-  WorkService,
+  ProjectService,
   Config,
   NavbarService
 } from '../shared/index';
@@ -35,6 +35,7 @@ export class HomeComponent implements OnInit, AfterViewInit, RegistersSubscriber
   clients: any[];
   divisions:any[] = ['creative', 'interactive', 'mdm', 'publishing'];
   links: any = {};
+  rssBlogFeedUrl: string = `${Config.API}/rss/blogs`;
   staff: any[];
   wowEnabled = true;
   work: any[];
@@ -60,7 +61,7 @@ export class HomeComponent implements OnInit, AfterViewInit, RegistersSubscriber
     public navbarService: NavbarService,
     public scrollService: ScrollService,
     public staffService: StaffService,
-    public workService: WorkService,
+    public projectService: ProjectService,
     public modal: Modal,
     public title: Title
   ) {
@@ -114,7 +115,7 @@ export class HomeComponent implements OnInit, AfterViewInit, RegistersSubscriber
 
     this.workIndex = num;
 
-    let sub = this.workService.recent((num-1) * this.workLimit, this.workLimit)
+    let sub = this.projectService.recent((num-1) * this.workLimit, this.workLimit)
       .subscribe((res) => {
         // Prepare to animate out current work
         let changed = false;

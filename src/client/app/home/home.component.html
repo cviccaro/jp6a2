@@ -132,6 +132,7 @@
 				[cardTitle]="person.first_name + ' ' + person.last_name"
 				[subTitle]="person.title"
 				[image]="person.image.url"
+				[summary]="person.bio"
 				jpHoverDynamicsMobile
 				overlay="assets/images/contact-overlay.png">
 			</jp-card>
@@ -152,7 +153,7 @@
 
 <section id="blog">
 	<div class="container">
-	  <h2 class="section-title text-uppercase">Our Blog</h2>
+	  <h2 class="section-title text-uppercase">Our Blog <a md-button md-icon-button [href]="rssBlogFeedUrl" class="rss" title="Subscribe to our RSS feed"><md-icon>rss_feed</md-icon></a></h2>
 	  <div class="content" *ngIf="blogs">
 	    <jp-card *ngFor="let blog of blogs.blogs"
 	    	class="cell"
@@ -167,6 +168,7 @@
 	    	theme="post">
 			</jp-card>
 	    <button md-button class="inverted-button boxy-button" [routerLink]="['/blogs']">Load More Blogs</button>
+	    <a [routerLink]="['/subscribe']" class="clear-link">Subscribe to our mailing list</a>
 	  </div>
 	</div>
 </section>
