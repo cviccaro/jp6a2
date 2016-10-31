@@ -54,7 +54,10 @@ function processComponentStylesheets() {
  * Process scss files referenced from Angular component `styleUrls` metadata
  */
 function processComponentScss() {
-  return gulp.src(join(Config.APP_SRC, '**', '*.scss'))
+  return gulp.src([
+      join(Config.APP_SRC, '**', '*.scss'),
+      '!' + join(Config.APP_SRC, 'app', 'shared', '_scss', '**', '*.scss')
+    ])
     .pipe(isProd ? plugins.cached('process-component-scss') : plugins.util.noop())
     .pipe(isProd ? plugins.progeny() : plugins.util.noop())
     .pipe(plugins.sourcemaps.init())
@@ -72,9 +75,9 @@ function processComponentScss() {
  */
 function processComponentCss() {
   return gulp.src([
-    join(Config.APP_SRC, '**', '*.css'),
-    '!' + join(Config.APP_SRC, 'assets', '**', '*.css')
-  ])
+      join(Config.APP_SRC, '**', '*.css'),
+      '!' + join(Config.APP_SRC, 'assets', '**', '*.css')
+    ])
     .pipe(isProd ? plugins.cached('process-component-css') : plugins.util.noop())
     .pipe(plugins.postcss(processors))
     .on('error', reportPostCssError)

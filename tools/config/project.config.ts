@@ -45,7 +45,7 @@ export class ProjectConfig extends SeedConfig {
     this.mergeObject(this.PLUGIN_CONFIGS['gulp-sass'], {
       includePaths: [
         './node_modules/',
-        './resources/scss/',
+        `./${this.APP_SRC}/app/shared/_scss/includes/`,
         `./${this.APP_SRC}/app/`
       ]
     });
