@@ -103,10 +103,10 @@ export class ProjectConfig extends SeedConfig {
       main: 'core.umd.js'
     });
 
-    addToPackages('ng2-disqus', {
-      defaultExtension: 'js',
-      main: 'disqus.js'
-    });
+    // addToPackages('ng2-disqus', {
+    //   defaultExtension: 'js',
+    //   main: 'disqus.js'
+    // });
 
 
     switch(this.ENV) {
