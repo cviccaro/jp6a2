@@ -50,10 +50,6 @@ export class ProjectConfig extends SeedConfig {
       ]
     });
 
-    this.SYSTEM_BUILDER_CONFIG.packageConfigPaths.push(
-      join(this.PROJECT_ROOT, 'node_modules', '@angular', 'material', '*', 'package.json')
-    );
-
     this.SYSTEM_CONFIG_DEV.paths['angular2-google-maps/core'] = 'node_modules/angular2-google-maps/core/core.umd.js';
     this.SYSTEM_BUILDER_CONFIG.paths['angular2-google-maps/core'] = 'node_modules/angular2-google-maps/core/core.umd.js';
 
@@ -109,7 +105,7 @@ export class ProjectConfig extends SeedConfig {
     // });
 
 
-    switch(this.ENV) {
+    switch(this.BUILD_TYPE) {
       case 'dev':
         this.CONF = DevConfig;
         break;

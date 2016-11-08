@@ -20,7 +20,7 @@ import { routes } from './app.routes';
 		HttpModule,
 		RouterModule.forRoot(routes),
 		HomeModule,
-		AgmCoreModule.forRoot({apiKey: Config.GoogleMapsAPIKey}),
+		AgmCoreModule.forRoot({apiKey: 'AIzaSyD6OLSQawz3GV_l25DsiOkJprC_PRO57Rc'}),
 		SharedModule.forRoot(),
 		ModalModule.forRoot(),
 		BootstrapModalModule
