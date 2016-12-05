@@ -13,7 +13,10 @@ import {
   StaffService,
   ProjectService,
   Config,
-  NavbarService
+  NavbarService,
+  Staff,
+  StaffModalComponent,
+  StaffModalComponentData
 } from '../shared/index';
 
 declare var jQuery: any;
@@ -222,6 +225,17 @@ export class HomeComponent implements OnInit, AfterViewInit, RegistersSubscriber
   scrollToFold() {
     this.scrollService.scrollToElementAnimated(this.contentStartEl.nativeElement, 1000, 0, 60);
   }
+
+  launchStaffModal(person: Staff) {
+    // console.log('Launch Staff Modal: ', person);
+    this.modal.open(StaffModalComponent, {
+      context: new StaffModalComponentData(person)
+    });
+  }
+
+  /**
+   * Utilities and end-of-lifecycle
+   */
 
   registerSubscriber(sub: Subscription) {
     this._subscriptions.push(sub);

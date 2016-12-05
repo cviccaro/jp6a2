@@ -126,14 +126,15 @@
 		<h2 class="section-title text-uppercase">Our Leadership</h2>
 		<div class="content" *ngIf="staff">
 		    <jp-card *ngFor="let person of staff"
-		    [href]="'mailto:'+ person.email"
 		    class="cell"
 				[cardTitle]="person.first_name + ' ' + person.last_name"
 				[subTitle]="person.title"
 				[image]="person.image?.url"
 				[summary]="person.bio"
 				jpHoverDynamicsMobile
-				overlay="assets/images/contact-overlay.png">
+				[overlay]="true"
+				(clicked)="launchStaffModal(person)">
+					<md-icon>pageview</md-icon>&nbsp;&nbsp;Details
 			</jp-card>
 		</div>
 	</div>

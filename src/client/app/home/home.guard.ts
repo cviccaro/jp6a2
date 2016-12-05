@@ -47,6 +47,7 @@ export class HomeGuard implements CanActivate, OnDestroy {
       if (this.data[k] === null) return;
     }
 
+    observer.next(true);
     observer.complete();
   }
 
