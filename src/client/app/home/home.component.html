@@ -101,9 +101,9 @@
 	</div>
 </section>
 
-<section id="projects" class="flex-col">
+<section id="work" class="flex-col">
 	<div class="container">
-		<h2 class="section-title text-right text-uppercase">Our Projects</h2>
+		<h2 class="section-title text-right text-uppercase">Our Work</h2>
 		<div class="content"
 				*ngIf="work"
 				(swipeLeft)="swipeLeftProjects($event)"
@@ -113,7 +113,7 @@
 	    		[cardTitle]="item.title"
 	    		[subTitle]="item.client?.name"
 	    		[image]="item.image.url"
-	    		[route]="['/projects/' + item.uri]"
+	    		[route]="['/work/' + item.uri]"
 	    		class="cell">
     		</jp-card>
 		</div>

@@ -24,7 +24,7 @@ export const HomeRoutes: Route[] = [
 		children: [
 			{ path: 'blogs', component: BlogsComponent, data: { returnTo: '/home' }, canActivate: [ BlogsGuard ] },
 			{ path: 'blogs/:slug', component: BlogComponent, data: { returnTo: '/home'}, canActivate: [ BlogGuard ]},
-			{ path: 'projects/:slug', component: ProjectComponent, data: { returnTo: '/home'}, canActivate: [ ProjectGuard ]},
+			{ path: 'work/:slug', component: ProjectComponent, data: { returnTo: '/home'}, canActivate: [ ProjectGuard ]},
 			{ path: 'privacy', component: PrivacyComponent, data: { returnTo: '/home', title: 'Privacy Policy' } },
 			{ path: 'subscribe', component: SubscribeComponent, data: { returnTo: '/home', title: 'Subscribe' } },
 			{ path: ':selector', component: ScrollToComponent },
