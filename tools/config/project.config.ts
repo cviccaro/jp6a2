@@ -99,6 +99,11 @@ export class ProjectConfig extends SeedConfig {
       main: 'core.umd.js'
     });
 
+    addToPackages('ng-inline-svg', {
+      defaultExtension: 'js',
+      main: 'lib/index.js'
+    });
+
     switch(this.BUILD_TYPE) {
       case 'dev':
         this.CONF = DevConfig;
