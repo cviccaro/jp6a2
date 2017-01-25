@@ -162,7 +162,7 @@
 	    	[summary]="blog.summary"
 	    	[body]="blog.body"
 	    	[date]="blog.created_at"
-	    	[tag]="blog.divisions[0].display_name ? blog.divisions[0].display_name : blog.divisions[0].name"
+	    	[tag]="blog.tags?.length && blog.tags[0].name === 'News' ? 'News' : blog.divisions[0].display_name ? blog.divisions[0].display_name : blog.divisions[0].name"
 	    	[author]="blog.author?.full_name"
 	    	[route]="['/blogs/' + blog.uri]"
 	    	theme="post">
