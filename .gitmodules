@@ -1,4 +1,4 @@
 [submodule "src/client/app/shared"]
 	path = src/client/app/shared
 	url = http://public:public@scm.jperesources.com/scm/git/jp6a2-shared
-	branch = angular2-final
+	branch = angular-2.4.0
