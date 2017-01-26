@@ -15,6 +15,8 @@ export class ProjectConfig extends SeedConfig {
   CONF: any;
   SHARED_MODULE_SRC = 'app/shared';
 
+  addToPackages: (name: string, config: any) => void;
+
   constructor() {
     super();
 
@@ -30,7 +32,7 @@ export class ProjectConfig extends SeedConfig {
       ...this.NPM_DEPENDENCIES,
       { src: 'jquery/dist/jquery.min.js', inject: 'libs' },
       { src: 'dynamics.js/lib/dynamics.min.js', inject: 'libs' },
-      { src: '@angular/material/core/overlay/overlay.css', inject: true, vendor: false }
+      // { src: '@angular/material/core/overlay/overlay.css', inject: true, vendor: false }
      // { src: 'hammerjs/hammer.min.js', inject: 'libs' }
       // {src: 'lodash/lodash.min.js', inject: 'libs'},
     ];
@@ -58,48 +60,47 @@ export class ProjectConfig extends SeedConfig {
     this.SYSTEM_CONFIG_DEV.paths['angular2-modal/plugins/bootstrap'] = bootstrapModalBundle;
     this.SYSTEM_BUILDER_CONFIG.paths['angular2-modal/plugins/bootstrap'] = bootstrapModalBundle;
 
-    let that = this;
-    function addToPackages(name: string, config: any) {
-      that.SYSTEM_CONFIG_DEV.packages[name] = config;
-      that.SYSTEM_BUILDER_CONFIG.packages[name] = config;
-    }
+    this.addToPackages = (name: string, config: any) => {
+      this.SYSTEM_CONFIG_DEV.packages[name] = config;
+      this.SYSTEM_BUILDER_CONFIG.packages[name] = config;
+    };
 
-    addToPackages('hammerjs', {
+    this.addToPackages('hammerjs', {
       main: 'hammer.min.js',
       defaultExtension: 'js'
     });
 
-    addToPackages('ng2-recaptcha', {
+    this.addToPackages('ng2-recaptcha', {
       main: 'ng2-recaptcha.js',
       defaultExtension: 'js'
     });
 
-    addToPackages('moment', {
+    this.addToPackages('moment', {
       main: 'min/moment-with-locales.min.js',
       defaultExtension: 'js'
     });
 
-    addToPackages('angular2-moment', {
+    this.addToPackages('angular2-moment', {
       main: 'index.js',
       defaultExtension: 'js'
     });
 
-    addToPackages('angular2-modal', {
+    this.addToPackages('angular2-modal', {
       main: 'bundles/angular2-modal.umd.js',
       defaultExtension: 'js'
     });
 
-    addToPackages('@angular/material', {
+    this.addToPackages('@angular/material', {
       format: 'cjs',
-      main: 'material.umd.js',
+      main: 'bundles/material.umd.js',
     });
 
-    addToPackages('angular2-google-maps/core', {
+    this.addToPackages('angular2-google-maps/core', {
       defaultExtension: 'js',
       main: 'core.umd.js'
     });
 
-    addToPackages('ng-inline-svg', {
+    this.addToPackages('ng-inline-svg', {
       defaultExtension: 'js',
       main: 'lib/index.js'
     });
