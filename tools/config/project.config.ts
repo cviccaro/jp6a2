@@ -16,9 +16,19 @@ export class ProjectConfig extends SeedConfig {
   SHARED_MODULE_SRC = 'app/shared';
 
   addToPackages: (name: string, config: any) => void;
+  addToPaths: (name: string, config: any) => void;
 
   constructor() {
     super();
+
+    this.addToPackages = (name: string, config: any) => {
+      this.SYSTEM_CONFIG_DEV.packages[name] = config;
+      this.SYSTEM_BUILDER_CONFIG.packages[name] = config;
+    };
+    this.addToPaths = (name: string, config: any) => {
+      this.SYSTEM_CONFIG_DEV.paths[name] = config;
+      this.SYSTEM_BUILDER_CONFIG.packages[name] = config;
+    };
 
     this.APP_TITLE = 'JP Enterprises';
 
@@ -52,18 +62,7 @@ export class ProjectConfig extends SeedConfig {
       ]
     });
 
-    // this.SYSTEM_CONFIG_DEV.paths['angular2-google-maps/core'] = 'node_modules/angular2-google-maps/core/core.umd.js';
-    // this.SYSTEM_BUILDER_CONFIG.paths['angular2-google-maps/core'] = 'node_modules/angular2-google-maps/core/core.umd.js';
-
-    const bootstrapModalBundle = 'node_modules/angular2-modal/bundles/angular2-modal.bootstrap.umd.js';
-
-    this.SYSTEM_CONFIG_DEV.paths['angular2-modal/plugins/bootstrap'] = bootstrapModalBundle;
-    this.SYSTEM_BUILDER_CONFIG.paths['angular2-modal/plugins/bootstrap'] = bootstrapModalBundle;
-
-    this.addToPackages = (name: string, config: any) => {
-      this.SYSTEM_CONFIG_DEV.packages[name] = config;
-      this.SYSTEM_BUILDER_CONFIG.packages[name] = config;
-    };
+    this.addToPaths('angular2-modal/plugins/bootstrap', 'node_modules/angular2-modal/bundles/angular2-modal.bootstrap.umd.js');
 
     this.addToPackages('hammerjs', {
       main: 'hammer.min.js',
