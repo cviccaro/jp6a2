@@ -52,8 +52,8 @@ export class ProjectConfig extends SeedConfig {
       ]
     });
 
-    this.SYSTEM_CONFIG_DEV.paths['angular2-google-maps/core'] = 'node_modules/angular2-google-maps/core/core.umd.js';
-    this.SYSTEM_BUILDER_CONFIG.paths['angular2-google-maps/core'] = 'node_modules/angular2-google-maps/core/core.umd.js';
+    // this.SYSTEM_CONFIG_DEV.paths['angular2-google-maps/core'] = 'node_modules/angular2-google-maps/core/core.umd.js';
+    // this.SYSTEM_BUILDER_CONFIG.paths['angular2-google-maps/core'] = 'node_modules/angular2-google-maps/core/core.umd.js';
 
     const bootstrapModalBundle = 'node_modules/angular2-modal/bundles/angular2-modal.bootstrap.umd.js';
 
@@ -97,7 +97,7 @@ export class ProjectConfig extends SeedConfig {
 
     this.addToPackages('angular2-google-maps/core', {
       defaultExtension: 'js',
-      main: 'core.umd.js'
+      main: 'index.js'
     });
 
     this.addToPackages('ng-inline-svg', {
