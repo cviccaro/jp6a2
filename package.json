@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "Modular starter project for Angular 2 (and beyond) with statically typed build and AoT compilation",
   "repository": {
-    "url": "https://github.com/mgechev/angular2-seed"
+    "url": "https://github.com/mgechev/angular-seed"
   },
   "scripts": {
     "build.dev": "gulp build.dev --color --env-config dev",
@@ -46,8 +46,8 @@
   "author": "Minko Gechev <mgechev>",
   "license": "MIT",
   "devDependencies": {
-    "@angular/compiler-cli": "~2.4.0",
-    "@angular/platform-server": "~2.4.0",
+    "@angular/compiler-cli": "~2.4.5",
+    "@angular/platform-server": "~2.4.5",
     "@types/async": "^2.0.32",
     "@types/browser-sync": "^0.0.34",
     "@types/express": "^4.0.33",
@@ -138,19 +138,19 @@
     "yargs": "^6.0.0"
   },
   "dependencies": {
-    "@angular/common": "~2.4.0",
-    "@angular/compiler": "~2.4.0",
-    "@angular/core": "~2.4.0",
-    "@angular/forms": "~2.4.0",
-    "@angular/http": "~2.4.0",
-    "@angular/platform-browser": "~2.4.0",
-    "@angular/platform-browser-dynamic": "~2.4.0",
-    "@angular/router": "~3.4.1",
+    "@angular/common": "~2.4.5",
+    "@angular/compiler": "~2.4.5",
+    "@angular/core": "~2.4.5",
+    "@angular/forms": "~2.4.5",
+    "@angular/http": "~2.4.5",
+    "@angular/platform-browser": "~2.4.5",
+    "@angular/platform-browser-dynamic": "~2.4.5",
+    "@angular/router": "~3.4.5",
     "core-js": "^2.4.1",
     "intl": "^1.2.5",
     "rxjs": "~5.0.3",
     "systemjs": "0.19.41",
-    "zone.js": "^0.7.2",
+    "zone.js": "^0.7.6",
     "@angular/material": "^2.0.0-beta.1",
     "angular2-google-maps": "^0.17.0",
     "angular2-modal": "^2.0.3",

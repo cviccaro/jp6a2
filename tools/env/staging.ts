@@ -4,7 +4,7 @@ const StagingConfig: EnvConfig = {
 	API: '//api.jpedev.com',
 	desktopWidth: 992,
 	GoogleMapsAPIKey: 'AIzaSyD6OLSQawz3GV_l25DsiOkJprC_PRO57Rc',
-	GoogleRecaptchaAPIKey: '6LccUQkUAAAAABmKw5rflMFcFo6t3m0SqfUEFBv0',
+	GoogleRecaptchaAPIKey: '6LeUUgkUAAAAAJHKBv9tQjl9GcmQOAPO0ytXXTEI',
 	ENV: 'STAGING'
 };
 
