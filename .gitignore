@@ -44,6 +44,7 @@ docs
 lib
 test
 tmp
+public
 
 gulpfile.js
 gulpfile.js.map

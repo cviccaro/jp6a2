@@ -14,6 +14,7 @@ export class ProjectConfig extends SeedConfig {
   PROJECT_TASKS_DIR = join(process.cwd(), this.TOOLS_DIR, 'tasks', 'project');
   CONF: any;
   SHARED_MODULE_SRC = 'app/shared';
+  OUTPUT_FOLDER = 'public';
 
   addToPackages: (name: string, config: any) => void;
   addToPaths: (name: string, config: any) => void;
