@@ -1,8 +1,15 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { CanActivate } from '@angular/router';
 import { Response } from '@angular/http';
-import { BlogService, CacheService, ClientService, StaffService, ProjectService, Config } from '../shared/index';
-import { Observable, Observer, Subscription } from 'rxjs/Rx';
+import { BlogService } from '../shared/blog/blog.service';
+import { CacheService } from '../shared/cache/cache.service';
+import { ClientService } from '../shared/client/client.service';
+import { StaffService } from '../shared/staff/staff.service';
+import { ProjectService } from '../shared/project/project.service';
+import { Config } from '../shared/config';
+import { Subscription } from 'rxjs/Subscription';
+import { Observable } from 'rxjs/Observable';
+import { Observer } from 'rxjs/Observer';
 
 @Injectable()
 export class HomeGuard implements CanActivate, OnDestroy {

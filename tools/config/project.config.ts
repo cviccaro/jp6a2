@@ -41,7 +41,6 @@ export class ProjectConfig extends SeedConfig {
     // Add `NPM` third-party libraries to be injected/bundled.
     this.NPM_DEPENDENCIES = [
       ...this.NPM_DEPENDENCIES,
-      { src: 'jquery/dist/jquery.min.js', inject: 'libs' },
       { src: 'dynamics.js/lib/dynamics.min.js', inject: 'libs' },
       // { src: '@angular/material/core/overlay/overlay.css', inject: true, vendor: false }
      // { src: 'hammerjs/hammer.min.js', inject: 'libs' }
@@ -64,7 +63,7 @@ export class ProjectConfig extends SeedConfig {
     });
 
     this.addToPaths('angular2-modal/plugins/bootstrap', 'node_modules/angular2-modal/bundles/angular2-modal.bootstrap.umd.js');
-    this.addToPaths('angular2-google-maps/core', 'node_modules/angular2-google-maps/core/core.umd.js');
+    this.addToPaths('angular2-google-maps/core', 'node_modules/angular2-google-maps/core/index.js');
 
     this.addToPackages('hammerjs', {
       main: 'hammer.min.js',
@@ -91,10 +90,10 @@ export class ProjectConfig extends SeedConfig {
       defaultExtension: 'js'
     });
 
-    this.addToPackages('@angular/material', {
-      format: 'cjs',
-      main: 'bundles/material.umd.js',
-    });
+    // this.addToPackages('@angular/material', {
+    //   format: 'cjs',
+    //   main: 'bundles/material.umd.js',
+    // });
 
     this.addToPackages('angular2-google-maps/core', {
       defaultExtension: 'js',
@@ -106,6 +105,11 @@ export class ProjectConfig extends SeedConfig {
       main: 'lib/index.js'
     });
 
+    // this.addToPackages('ng2-page-scroll', {
+    //   defaultExtension: 'js',
+    //   main: 'bundles/ng2-page-scroll.umd.min.js'
+    // });
+
     switch(this.BUILD_TYPE) {
       case 'dev':
         this.CONF = DevConfig;
@@ -115,5 +119,4 @@ export class ProjectConfig extends SeedConfig {
         break;
     }
   }
-
 }

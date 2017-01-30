@@ -1,6 +1,6 @@
 import { Route } from '@angular/router';
 
-import { HomeComponent } from './index';
+import { HomeComponent } from './home.component';
 import { ConfigGuard } from '../shared/config/config.guard';
 import { HomeGuard } from './home.guard';
 

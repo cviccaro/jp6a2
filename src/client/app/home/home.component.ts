@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterViewInit, OnDestroy, ElementRef, ViewChild, HostListener } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { Subscription } from 'rxjs/Rx';
-import { Modal } from 'angular2-modal';
+import { Subscription } from 'rxjs/Subscription';
+import { Modal } from 'angular2-modal/esm/angular2-modal';
 import {
   BlogService,
   CacheService,
@@ -19,7 +19,6 @@ import {
   StaffModalComponentData
 } from '../shared/index';
 
-declare var jQuery: any;
 declare var dynamics: any;
 
 /**
@@ -144,7 +143,7 @@ export class HomeComponent implements OnInit, AfterViewInit, RegistersSubscriber
 
         // As soon as the animation is off the screen...
         function animateStep() {
-            let matrix: string[] = jQuery(elem).css('transform').split(',');
+            let matrix: string[] = window.getComputedStyle(elem).transform.split(',');
 
             let x = (matrix[12] === undefined) ? +matrix[4] : +matrix[12];
 
@@ -176,7 +175,7 @@ export class HomeComponent implements OnInit, AfterViewInit, RegistersSubscriber
 
         // When the animation completes, remove the explicitly-set height.
         function animateComplete() {
-            jQuery(elem).css('height', '');
+            elem.style.height = '';
         }
       });
 
@@ -203,7 +202,8 @@ export class HomeComponent implements OnInit, AfterViewInit, RegistersSubscriber
   navLinkClicked(e: Event) {
     e.stopPropagation();
     e.preventDefault();
-    let href = jQuery(e.target).parents('a').attr('href');
+    let href = (<HTMLAnchorElement>(<HTMLElement>e.target).parentElement).href;
+
     if (href) {
       let selector = href.replace('/','');
       this.navbarService.buttonClicked.emit({target: e.target, selector: selector});
@@ -223,7 +223,8 @@ export class HomeComponent implements OnInit, AfterViewInit, RegistersSubscriber
   }
 
   scrollToFold() {
-    this.scrollService.scrollToElementAnimated(this.contentStartEl.nativeElement, 1000, 0, 60);
+    //this.scrollService.scrollToElementAnimated(this.contentStartEl.nativeElement, 1000, 0, 60);
+    this.scrollService.scrollToElementAnimated(this.contentStartEl.nativeElement);
   }
 
   launchStaffModal(person: Staff) {

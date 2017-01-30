@@ -4,6 +4,7 @@ import { Title } from '@angular/platform-browser';
 import { Overlay } from 'angular2-modal';
 
 import { CacheService } from './shared/index';
+import { PageScrollConfig } from 'ng2-page-scroll';
 
 /**
  * This class represents the main application component. Within the @Routes annotation is the configuration of the
@@ -17,6 +18,9 @@ import { CacheService } from './shared/index';
 })
 export class AppComponent {
 	constructor(overlay: Overlay, vcRef: ViewContainerRef, router: Router, title: Title, cache: CacheService) {
+		//PageScrollConfig.defaultScrollOffset = 160;
+		PageScrollConfig.defaultDuration = 1000;
+
 		overlay.defaultViewContainer = vcRef;
 
 		router.events.subscribe((evt: any) => {
