@@ -161,7 +161,7 @@
 	  <div class="content" *ngIf="blogs">
 	    <jp-card *ngFor="let blog of blogs.blogs"
 	    	class="cell"
-	    	[image]="blog.image.url"
+	    	[image]="blog.image?.url"
 	    	[cardTitle]="blog.title"
 	    	[summary]="blog.summary"
 	    	[body]="blog.body"
