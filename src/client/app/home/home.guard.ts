@@ -6,7 +6,7 @@ import { CacheService } from '../shared/cache/cache.service';
 import { ClientService } from '../shared/client/client.service';
 import { StaffService } from '../shared/staff/staff.service';
 import { ProjectService } from '../shared/project/project.service';
-import { Config } from '../shared/config';
+import { Config } from '../shared/config/env.config';
 import { Subscription } from 'rxjs/Subscription';
 import { Observable } from 'rxjs/Observable';
 import { Observer } from 'rxjs/Observer';

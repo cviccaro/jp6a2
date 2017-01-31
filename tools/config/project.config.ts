@@ -64,6 +64,13 @@ export class ProjectConfig extends SeedConfig {
 
     this.addToPaths('angular2-modal/plugins/bootstrap', 'node_modules/angular2-modal/bundles/angular2-modal.bootstrap.umd.js');
     this.addToPaths('angular2-google-maps/core', 'node_modules/angular2-google-maps/core/index.js');
+    this.addToPaths('@angular/material/core', 'node_modules/@angular/material/bundles/material.umd.js');
+    this.addToPaths('@angular/material/button', 'node_modules/@angular/material/bundles/material.umd.js');
+    this.addToPaths('@angular/material/icon', 'node_modules/@angular/material/bundles/material.umd.js');
+    this.addToPaths('@angular/material/input', 'node_modules/@angular/material/bundles/material.umd.js');
+    this.addToPaths('@angular/material/grid-list', 'node_modules/@angular/material/bundles/material.umd.js');
+    this.addToPaths('@angular/material/toolbar', 'node_modules/@angular/material/bundles/material.umd.js');
+    this.addToPaths('@angular/material/progress-bar', 'node_modules/@angular/material/bundles/material.umd.js');
 
     this.addToPackages('hammerjs', {
       main: 'hammer.min.js',
@@ -90,10 +97,10 @@ export class ProjectConfig extends SeedConfig {
       defaultExtension: 'js'
     });
 
-    // this.addToPackages('@angular/material', {
-    //   format: 'cjs',
-    //   main: 'bundles/material.umd.js',
-    // });
+    this.addToPackages('@angular/material', {
+      format: 'cjs',
+      main: 'bundles/material.umd.js',
+    });
 
     this.addToPackages('angular2-google-maps/core', {
       defaultExtension: 'js',
@@ -105,10 +112,10 @@ export class ProjectConfig extends SeedConfig {
       main: 'lib/index.js'
     });
 
-    // this.addToPackages('ng2-page-scroll', {
-    //   defaultExtension: 'js',
-    //   main: 'bundles/ng2-page-scroll.umd.min.js'
-    // });
+    this.addToPackages('ng2-page-scroll', {
+      defaultExtension: 'js',
+      main: 'bundles/ng2-page-scroll.umd.min.js'
+    });
 
     switch(this.BUILD_TYPE) {
       case 'dev':
@@ -118,5 +125,7 @@ export class ProjectConfig extends SeedConfig {
         this.CONF = ProdConfig;
         break;
     }
+
+    console.log(this);
   }
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterViewInit, OnDestroy, ElementRef, ViewChild, HostListener } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Subscription } from 'rxjs/Subscription';
-import { Modal } from 'angular2-modal/esm/angular2-modal';
+import { Modal } from 'angular2-modal';
 import {
   BlogService,
   CacheService,
@@ -202,11 +202,18 @@ export class HomeComponent implements OnInit, AfterViewInit, RegistersSubscriber
   navLinkClicked(e: Event) {
     e.stopPropagation();
     e.preventDefault();
-    let href = (<HTMLAnchorElement>(<HTMLElement>e.target).parentElement).href;
+    const target = <HTMLElement>e.target;
+    let href:string;
+
+    if (target.tagName === 'SPAN') {
+      href = (<HTMLAnchorElement>target.parentElement).href;
+    } else {
+      href = (<HTMLAnchorElement>target).href;
+    }
 
     if (href) {
-      let selector = href.replace('/','');
-      this.navbarService.buttonClicked.emit({target: e.target, selector: selector});
+      let selector = href.replace(`${window.location.protocol}//${window.location.hostname}`, '').replace('/','')
+      this.scrollService.scrollToElementAnimated('#' + selector);
     }
   }
 
