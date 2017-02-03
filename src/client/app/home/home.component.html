@@ -3,7 +3,7 @@
 	<a md-button [routerLink]="['/staff']" title="Leadership" disableRipple="true" (click)="navLinkClicked($event)">Leadership</a>
 	<a md-button [routerLink]="['/clients']" title="Clients" disableRipple="true" (click)="navLinkClicked($event)">Clients</a>
 </jp-navbar>
-<jp-splash [splashUrl]="config.main_site_background.url" align="left">
+<jp-splash [splashUrl]="config.main_site_background.urlBlob" align="left">
     <h1 class="text-uppercase">{{ config.main_site_splash_headline }}</h1>
     <div class="splash-body" [innerHTML]="config.main_site_splash_body"></div>
     <div class="logo company">
