@@ -7,6 +7,7 @@ import { AgmCoreModule } from 'angular2-google-maps/core';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { HomeModule } from './home/home.module';
+import { TestModule } from './test/test.module';
 import { ConfigGuard } from './shared/index';
 // import { Config } from './shared/config/env.config';
 import { routes } from './app.routes';

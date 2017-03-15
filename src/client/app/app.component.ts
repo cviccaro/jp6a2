@@ -3,7 +3,8 @@ import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { Overlay } from 'angular2-modal';
 
-import { CacheService } from './shared/index';
+import { CacheService } from './shared/cache/cache.service';
+import { JpImageZoomer } from './shared/image-zoom/image-zoomer';
 import { PageScrollConfig } from 'ng2-page-scroll';
 
 /**
@@ -17,11 +18,12 @@ import { PageScrollConfig } from 'ng2-page-scroll';
   styleUrls: [ './app.component.css' ]
 })
 export class AppComponent {
-	constructor(overlay: Overlay, vcRef: ViewContainerRef, router: Router, title: Title, cache: CacheService) {
+	constructor(overlay: Overlay, vcRef: ViewContainerRef, router: Router, title: Title, cache: CacheService, imageZoomer: JpImageZoomer) {
 		//PageScrollConfig.defaultScrollOffset = 160;
 		PageScrollConfig.defaultDuration = 1000;
 
 		overlay.defaultViewContainer = vcRef;
+		imageZoomer.defaultViewContainer = vcRef;
 
 		router.events.subscribe((evt: any) => {
 			if (evt.toString().match(/^RoutesRecognized/)) {
