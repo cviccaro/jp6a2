@@ -42,7 +42,7 @@ dist
 dev
 docs
 lib
-test
+/test
 tmp
 public
 
