@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Http } from '@angular/http';
 import { SharedModule } from '../shared/shared.module';
-import { TestLazyRoutes } from './test.routes';
+//import { TestLazyRoutes } from './test.routes';
 import { TestComponent } from './test.component';
 
 @NgModule({
 	imports: [
 		SharedModule,
-		TestLazyRoutes
+		// TestLazyRoutes
 	],
 	declarations: [
 		TestComponent
