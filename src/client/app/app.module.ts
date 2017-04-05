@@ -19,6 +19,7 @@ import { routes } from './app.routes';
 		RouterModule.forRoot(routes),
 		AgmCoreModule.forRoot({apiKey: 'AIzaSyD6OLSQawz3GV_l25DsiOkJprC_PRO57Rc'}),
 		HomeModule,
+		TestModule,
 		SharedModule.forRoot()
 	],
 	declarations: [ AppComponent ],
