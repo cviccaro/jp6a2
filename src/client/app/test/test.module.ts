@@ -7,7 +7,7 @@ import { TestComponent } from './test.component';
 @NgModule({
 	imports: [
 		SharedModule,
-		// TestLazyRoutes
+		//TestLazyRoutes
 	],
 	declarations: [
 		TestComponent

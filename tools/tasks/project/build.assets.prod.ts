@@ -23,6 +23,7 @@ export = () => {
   return gulp.src([
     join(Config.APP_SRC, '.htaccess'),
     join(Config.APP_SRC, '**'),
+    join(Config.NPM_BASE, '@angular', 'service-worker', 'bundles', 'worker-basic.min.js'),
     '!' + join(Config.APP_SRC, 'tsconfig.json'),
     '!' + join(Config.APP_SRC, '**', '*.ts'),
     '!' + join(Config.APP_SRC, '**', '*.css'),

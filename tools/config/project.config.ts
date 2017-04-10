@@ -1,6 +1,7 @@
 import { join } from 'path';
 
 import { SeedConfig } from './seed.config';
+import { ExtendPackages } from './seed.config.interfaces';
 
 import * as DevConfig from '../env/dev';
 import * as ProdConfig from '../env/prod';
@@ -12,7 +13,7 @@ import * as ProdConfig from '../env/prod';
 export class ProjectConfig extends SeedConfig {
 
   PROJECT_TASKS_DIR = join(process.cwd(), this.TOOLS_DIR, 'tasks', 'project');
-  CONF: any;
+  CONF: any;NF: any;
   SHARED_MODULE_SRC = 'app/shared';
   OUTPUT_FOLDER = 'public';
 
@@ -35,6 +36,8 @@ export class ProjectConfig extends SeedConfig {
 
     this.ENABLE_SCSS = true;
 
+    // this.GOOGLE_ANALYTICS_ID = 'Your site's ID';
+
     /* Enable typeless compiler runs (faster) between typed compiler runs. */
     // this.TYPED_COMPILE_INTERVAL = 5;
 
@@ -53,14 +56,38 @@ export class ProjectConfig extends SeedConfig {
       { src: `${this.APP_SRC}/${this.SHARED_MODULE_SRC}/_scss/modernizr.js`, inject: true }
     ];
 
+    this.ROLLUP_INCLUDE_DIR = [
+      ...this.ROLLUP_INCLUDE_DIR,
+      //'node_modules/moment/**'
+    ];
+
+    this.ROLLUP_NAMED_EXPORTS = [
+      ...this.ROLLUP_NAMED_EXPORTS,
+      //{'node_modules/immutable/dist/immutable.js': [ 'Map' ]},
+    ];
+
     /* Add to or override NPM module configurations: */
-    this.mergeObject(this.PLUGIN_CONFIGS['gulp-sass'], {
+    this.PLUGIN_CONFIGS['gulp-sass'] = {
       includePaths: [
         './node_modules/',
         `./${this.APP_SRC}/app/shared/_scss/includes/`,
         `./${this.APP_SRC}/app/`
       ]
-    });
+    };
+
+    // Add packages (e.g. ng2-translate)
+    // let additionalPackages: ExtendPackages[] = [{
+    //   name: 'ng2-translate',
+    //   // Path to the package's bundle
+    //   path: 'node_modules/ng2-translate/bundles/ng2-translate.umd.js'
+    // }];
+    // //
+    // this.addPackagesBundles(additionalPackages);
+
+    /* Add proxy middleware */
+    // this.PROXY_MIDDLEWARE = [
+    //   require('http-proxy-middleware')('/api', { ws: false, target: 'http://localhost:3003' })
+    // ];
 
     this.addToPaths('angular2-modal/plugins/bootstrap', 'node_modules/angular2-modal/bundles/angular2-modal.bootstrap.umd.js');
     this.addToPaths('angular2-google-maps/core', 'node_modules/angular2-google-maps/core/index.js');
