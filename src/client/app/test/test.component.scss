@@ -1,6 +1,19 @@
 :host {
 	display: block;	
+	overflow-x: hidden;
 	.card-right {
 		text-align: right;
+	}
+	.card {
+		max-width: 100%;
+		&:not(:only-child) {
+			width: 50%;
+		}
+	}
+	.row {
+		margin: 0;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
 	}
 }

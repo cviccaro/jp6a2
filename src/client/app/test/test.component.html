@@ -1,115 +1,146 @@
-<div class="card">
-	<h4 class="card-title">Inline Image Zoom</h4>
-	<img src="/assets/images/sample-image.jpg" style="max-width: 450px" 
-			jp-image-zoom 
-			jp-image-zoom-mode="inline" />
-</div>
+<div class="containe-fluid">
+	<div class="row">
+		<div class="card">
+			<h4 class="card-title">Inline Image Zoom (Larger image, Circular Lens)</h4>
+			<div style="background-position: top center; background-size: cover;"
+					[jpBackground]="'http://api.jpedev.com/managed-file/images/projects/img_01_52.jpg'"
+					jp-image-zoom 
+					jp-image-zoom-mode="inline"
+					jp-image-zoom-bg-mode="cover"
+					jp-image-zoom-lens-shape="circle">
+					<div class="gallery-spacer">
+							<img src="http://api.jpedev.com/managed-file/images/projects/img_01_52.jpg" style="visibility: hidden">
+					</div>
+			</div>
+		</div>
+	</div>
 
-<div class="card">
-	<h4 class="card-title">Inline Image Zoom (Circular Lens)</h4>
-	<img src="/assets/images/sample-image.jpg" style="max-width: 450px" 
-			jp-image-zoom 
-			jp-image-zoom-mode="inline" 
-			jp-image-zoom-lens-shape="circle" />
-</div>
+	<div class="row">
+		<div class="card">
+			<h4 class="card-title">Inline Image Zoom</h4>
+			<img src="/assets/images/sample-image.jpg" style="max-width: 450px" 
+					jp-image-zoom 
+					jp-image-zoom-mode="inline" />
+		</div>
 
-<div class="card">
-	<h4 class="card-title">Inline Image Zoom (Custom Lens Size)</h4>
-	<img src="/assets/images/sample-image.jpg" style="max-width: 450px" 
-			jp-image-zoom 
-			jp-image-zoom-mode="inline" 
-			jp-image-zoom-lens-width="150px" 
-			jp-image-zoom-lens-height="150px" />
-</div>
+		<div class="card">
+			<h4 class="card-title">Inline Image Zoom (Circular Lens)</h4>
+			<img src="/assets/images/sample-image.jpg" style="max-width: 450px" 
+					jp-image-zoom 
+					jp-image-zoom-mode="inline" 
+					jp-image-zoom-lens-shape="circle" />
+		</div>
+	</div>
 
-<div class="card">
-	<h4 class="card-title">Inline Image Zoom (Custom Lens Size, Circular Lens)</h4>
-	<img src="/assets/images/sample-image.jpg" style="max-width: 450px" 
-			jp-image-zoom 
-			jp-image-zoom-mode="inline" 
-			jp-image-zoom-lens-width="150px" 
-			jp-image-zoom-lens-height="150px"
-			jp-image-zoom-lens-shape="circle" />
-</div>
+	<div class="row">
+		<div class="card">
+			<h4 class="card-title">Inline Image Zoom (Custom Lens Size)</h4>
+			<img src="/assets/images/sample-image.jpg" style="max-width: 450px" 
+					jp-image-zoom 
+					jp-image-zoom-mode="inline" 
+					jp-image-zoom-lens-width="150px" 
+					jp-image-zoom-lens-height="150px" />
+		</div>
 
-<div class="card">
-	<h4 class="card-title">Inline Image Zoom (Larger image, Circular Lens)</h4>
-	<img src="/assets/images/sample-image.jpg" style="max-width: 800px" 
-			jp-image-zoom 
-			jp-image-zoom-mode="inline"
-			jp-image-zoom-lens-shape="circle" />
-</div>
+		<div class="card">
+			<h4 class="card-title">Inline Image Zoom (Custom Lens Size, Circular Lens)</h4>
+			<img src="/assets/images/sample-image.jpg" style="max-width: 450px" 
+					jp-image-zoom 
+					jp-image-zoom-mode="inline" 
+					jp-image-zoom-lens-width="150px" 
+					jp-image-zoom-lens-height="150px"
+					jp-image-zoom-lens-shape="circle" />
+		</div>
+	</div>
 
-<div class="card">
-	<h4 class="card-title">Inline Image Zoom (Larger image, 1.5x Zoom, Circular Lens)</h4>
-	<img src="/assets/images/sample-image.jpg" style="max-width: 800px" 
-			jp-image-zoom 
-			jp-image-zoom-mode="inline"
-			jp-image-zoom-lens-shape="circle" 
-			jp-image-zoom-amount="1.5" />
-</div>
+	<div class="row">
+		<div class="card">
+			<h4 class="card-title">Inline Image Zoom (Larger image, Circular Lens)</h4>
+			<img src="/assets/images/sample-image.jpg" style="max-width: 800px" 
+					jp-image-zoom 
+					jp-image-zoom-mode="inline"
+					jp-image-zoom-lens-shape="circle" />
+		</div>
+	</div>
+	<div class="row">
+		<div class="card">
+			<h4 class="card-title">Inline Image Zoom (Larger image, 1.5x Zoom, Circular Lens)</h4>
+			<img src="/assets/images/sample-image.jpg" style="max-width: 800px" 
+					jp-image-zoom 
+					jp-image-zoom-mode="inline"
+					jp-image-zoom-lens-shape="circle" 
+					jp-image-zoom-amount="1.5" />
+		</div>
+	</div>
 
-<div class="card">
-	<h4 class="card-title">Inline Image Zoom (Larger image, 2x Zoom, Circular Lens)</h4>
-	<img src="/assets/images/sample-image.jpg" style="max-width: 800px" 
-			jp-image-zoom 
-			jp-image-zoom-mode="inline"
-			jp-image-zoom-lens-shape="circle" 
-			jp-image-zoom-amount="2" />
-</div>
+	<div class="row">
+		<div class="card">
+			<h4 class="card-title">Inline Image Zoom (Larger image, 2x Zoom, Circular Lens)</h4>
+			<img src="/assets/images/sample-image.jpg" style="max-width: 800px" 
+					jp-image-zoom 
+					jp-image-zoom-mode="inline"
+					jp-image-zoom-lens-shape="circle" 
+					jp-image-zoom-amount="2" />
+		</div>
+	</div>
 
-<div class="card">
-	<h4 class="card-title">Outside Image Zoom</h4>
-	<img src="/assets/images/sample-image.jpg" style="max-width: 450px" 
-			jp-image-zoom />
-</div>
+	<div class="row">
+		<div class="card">
+			<h4 class="card-title">Outside Image Zoom</h4>
+			<img src="/assets/images/sample-image.jpg" style="max-width: 450px" 
+					jp-image-zoom />
+		</div>
+	</div>
 
-<div class="card">
-	<h4 class="card-title">Outside Image Zoom (Custom Lens Size)</h4>
-	<img src="/assets/images/sample-image.jpg" style="max-width: 450px" 
-			jp-image-zoom 
-			jp-image-zoom-lens-width="150px" 
-			jp-image-zoom-lens-height="150px" />
-</div>
+	<div class="row">
+		<div class="card">
+			<h4 class="card-title">Outside Image Zoom (Custom Lens Size)</h4>
+			<img src="/assets/images/sample-image.jpg" style="max-width: 450px" 
+					jp-image-zoom 
+					jp-image-zoom-lens-width="150px" 
+					jp-image-zoom-lens-height="150px" />
+		</div>
+		<div class="card">
+			<h4 class="card-title">Outside Image Zoom (Custom Lens Size, Circular Lens)</h4>
+			<img src="/assets/images/sample-image.jpg" style="max-width: 450px" 
+					jp-image-zoom 
+					jp-image-zoom-lens-width="150px" 
+					jp-image-zoom-lens-height="150px" 
+					jp-image-zoom-lens-shape="circle" />
+		</div>
+	</div>
 
-<div class="card">
-	<h4 class="card-title">Outside Image Zoom (Custom Lens Size, Circular Lens)</h4>
-	<img src="/assets/images/sample-image.jpg" style="max-width: 450px" 
-			jp-image-zoom 
-			jp-image-zoom-lens-width="150px" 
-			jp-image-zoom-lens-height="150px" 
-			jp-image-zoom-lens-shape="circle" />
-</div>
+	<div class="row">
+		<div class="card">
+			<h4 class="card-title">Outside Image Zoom (Smaller picture)</h4>
+			<img src="/assets/images/sample-image.jpg" style="max-width: 250px" 
+					jp-image-zoom />
+		</div>
+		<div class="card">
+			<h4 class="card-title">Outside Image Zoom (Smaller picture, Custom Lens Size)</h4>
+			<img src="/assets/images/sample-image.jpg" style="max-width: 250px" 
+					jp-image-zoom
+					jp-image-zoom-lens-width="70px" 
+					jp-image-zoom-lens-height="70px" />
+		</div>
+	</div>
 
-<div class="card">
-	<h4 class="card-title">Outside Image Zoom (Smaller picture)</h4>
-	<img src="/assets/images/sample-image.jpg" style="max-width: 250px" 
-			jp-image-zoom />
-</div>
-
-<div class="card">
-	<h4 class="card-title">Outside Image Zoom (Smaller picture, Custom Lens Size)</h4>
-	<img src="/assets/images/sample-image.jpg" style="max-width: 250px" 
-			jp-image-zoom
-			jp-image-zoom-lens-width="70px" 
-			jp-image-zoom-lens-height="70px" />
-</div>
-
-<div class="card">
-	<h4 class="card-title">Outside Image Zoom (Smaller picture, Custom Lens Size, Circular Lens)</h4>
-	<img src="/assets/images/sample-image.jpg" style="max-width: 250px" 
-			jp-image-zoom
-			jp-image-zoom-lens-width="70px" 
-			jp-image-zoom-lens-height="70px"
-			jp-image-zoom-lens-shape="circle" />
-</div>
-
-
-<div class="card card-right">
-	<h4 class="card-title">Collision Detection Proof-of-Concept</h4>
-	<img src="/assets/images/sample-image.jpg" style="max-width: 450px" 
-			jp-image-zoom
-			jp-image-zoom-lens-width="70px" 
-			jp-image-zoom-lens-height="70px"
-			jp-image-zoom-lens-shape="circle" />
+	<div class="row">
+		<div class="card">
+			<h4 class="card-title">Outside Image Zoom (Smaller picture, Custom Lens Size, Circular Lens)</h4>
+			<img src="/assets/images/sample-image.jpg" style="max-width: 250px" 
+					jp-image-zoom
+					jp-image-zoom-lens-width="70px" 
+					jp-image-zoom-lens-height="70px"
+					jp-image-zoom-lens-shape="circle" />
+		</div>
+		<div class="card card-right">
+			<h4 class="card-title">Collision Detection Proof-of-Concept</h4>
+			<img src="/assets/images/sample-image.jpg" style="max-width: 450px" 
+					jp-image-zoom
+					jp-image-zoom-lens-width="70px" 
+					jp-image-zoom-lens-height="70px"
+					jp-image-zoom-lens-shape="circle" />
+		</div>
+	</div>
 </div>
