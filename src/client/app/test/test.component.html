@@ -1,13 +1,16 @@
 <div class="containe-fluid">
 	<div class="row">
 		<div class="card">
-			<h4 class="card-title">Inline Image Zoom (Larger image, Circular Lens)</h4>
+			<h4 class="card-title">Inline Image Zoom with Overflowed Background (like gallery)</h4>
 			<div style="background-position: top center; background-size: cover;"
 					[jpBackground]="'http://api.jpedev.com/managed-file/images/projects/img_01_52.jpg'"
 					jp-image-zoom 
 					jp-image-zoom-mode="inline"
 					jp-image-zoom-bg-mode="cover"
-					jp-image-zoom-lens-shape="circle">
+					jp-image-zoom-lens-shape="circle"
+					jp-image-zoom-lens-width="125px"
+					jp-image-zoom-lens-height="125px"
+					jp-image-zoom-amount="1.25">
 					<div class="gallery-spacer">
 							<img src="http://api.jpedev.com/managed-file/images/projects/img_01_52.jpg" style="visibility: hidden">
 					</div>
