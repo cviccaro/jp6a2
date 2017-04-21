@@ -32,7 +32,7 @@ export class ProjectConfig extends SeedConfig {
       this.SYSTEM_BUILDER_CONFIG.paths[name] = config;
     };
 
-    this.APP_TITLE = 'JP Enterprises';
+    this.APP_TITLE = 'Advertising & Digital Marketing Agency | JP Enterprises';
 
     this.ENABLE_SCSS = true;
 

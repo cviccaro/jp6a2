@@ -1,6 +1,6 @@
 <jp-navbar>
 	<a md-button [routerLink]="['/services']" title="Services" disableRipple="true" (click)="navLinkClicked($event)">Services</a>
-	<a md-button [routerLink]="['/staff']" title="Leadership" disableRipple="true" (click)="navLinkClicked($event)">Leadership</a>
+	<a md-button [routerLink]="['/about']" title="About Us" disableRipple="true" (click)="navLinkClicked($event)">About Us</a>
 	<a md-button [routerLink]="['/clients']" title="Clients" disableRipple="true" (click)="navLinkClicked($event)">Clients</a>
 </jp-navbar>
 <jp-splash [splashUrl]="config.main_site_background.urlBlob" align="left">
@@ -125,10 +125,11 @@
 	</div>
 </section>
 
-<section id="staff" class="theme-dark">
+<section id="about" class="theme-dark">
 	<div class="container">
-		<h2 class="section-title text-uppercase">Our Leadership</h2>
+		<h2 class="section-title text-uppercase">About Us</h2>
 		<div class="content" *ngIf="staff">
+				<p class="section-caption">Founded in 1994, JP Enterprises is a privately owned marketing agency offering a single source for MDM, publishing, creative and digital marketing solutions to B2B and B2C customers.  Our expertise saves clients time and money and helps maximize their ROI.  Based in Pittsburgh with an office in Los Angeles, JPE serves clients ranging from small businesses to Fortune 1000 companies.</p>
 		    <jp-card *ngFor="let person of staff"
 		    class="cell"
 				[cardTitle]="person.first_name + ' ' + person.last_name"
