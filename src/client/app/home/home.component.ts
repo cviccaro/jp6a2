@@ -1,5 +1,4 @@
 import { Component, OnInit, AfterViewInit, OnDestroy, ElementRef, ViewChild, HostListener } from '@angular/core';
-import { Title } from '@angular/platform-browser';
 import { Subscription } from 'rxjs/Subscription';
 import { Modal } from 'angular2-modal';
 import {
@@ -16,7 +15,8 @@ import {
   NavbarService,
   Staff,
   StaffModalComponent,
-  StaffModalComponentData
+  StaffModalComponentData,
+  TitleService
 } from '../shared/index';
 
 declare var dynamics: any;
@@ -65,7 +65,7 @@ export class HomeComponent implements OnInit, AfterViewInit, RegistersSubscriber
     public staffService: StaffService,
     public projectService: ProjectService,
     public modal: Modal,
-    public title: Title
+    public title: TitleService
   ) {
     this.config = this.cache.get('config');
     const onProdServer = window.location.hostname.match(/\.jpenterprises\.com$/) !== null;
@@ -84,7 +84,7 @@ export class HomeComponent implements OnInit, AfterViewInit, RegistersSubscriber
 
     this.mobileConstraints();
 
-    this.title.setTitle(`${this.config['main_site_title']} | Home`);
+    this.title.setTitle('Home');
   }
 
   ngAfterViewInit() {

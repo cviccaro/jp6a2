@@ -1,4 +1,5 @@
 import { join } from 'path';
+import { Config } from '../../src/client/app/shared/config/index';
 
 import { SeedConfig } from './seed.config';
 import { ExtendPackages } from './seed.config.interfaces';
