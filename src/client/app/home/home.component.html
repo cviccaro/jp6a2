@@ -134,8 +134,7 @@
 		    class="cell"
 				[cardTitle]="person.first_name + ' ' + person.last_name"
 				[subTitle]="person.title"
-				[image]="person.image?.url"
-				[summary]="person.bio"
+				[image]="person.image?.url"				
 				jpHoverDynamicsMobile
 				[overlay]="true"
 				(clicked)="launchStaffModal(person)">
