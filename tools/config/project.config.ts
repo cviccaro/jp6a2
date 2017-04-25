@@ -18,20 +18,8 @@ export class ProjectConfig extends SeedConfig {
   SHARED_MODULE_SRC = 'app/shared';
   OUTPUT_FOLDER = 'public';
 
-  addToPackages: (name: string, config: any) => void;
-  addToPaths: (name: string, config: any) => void;
-
   constructor() {
     super();
-
-    this.addToPackages = (name: string, config: any) => {
-      this.SYSTEM_CONFIG_DEV.packages[name] = config;
-      this.SYSTEM_BUILDER_CONFIG.packages[name] = config;
-    };
-    this.addToPaths = (name: string, config: any) => {
-      this.SYSTEM_CONFIG_DEV.paths[name] = config;
-      this.SYSTEM_BUILDER_CONFIG.paths[name] = config;
-    };
 
     this.APP_TITLE = 'Advertising & Digital Marketing Agency | JP Enterprises';
 
@@ -76,74 +64,73 @@ export class ProjectConfig extends SeedConfig {
       ]
     };
 
-    // Add packages (e.g. ng2-translate)
-    // let additionalPackages: ExtendPackages[] = [{
-    //   name: 'ng2-translate',
-    //   // Path to the package's bundle
-    //   path: 'node_modules/ng2-translate/bundles/ng2-translate.umd.js'
-    // }];
-    // //
-    // this.addPackagesBundles(additionalPackages);
+    let additionalPackages: ExtendPackages[] = [{
+      name: 'hammerjs',
+      path: 'node_modules/hammerjs/hammer.min.js'
+    }, 
+    {
+      name: 'ng2-recaptcha',
+      path: 'node_modules/ng2-recaptcha/ng2-recaptcha.js'
+    },
+    {
+      name: 'moment',
+      path: 'node_modules/moment/min/moment-with-locales.min.js'
+    },
+    {
+      name: 'angular2-moment',
+      path: 'node_modules/angular2-moment/index.js'
+    },
+    {
+      name: 'angular2-modal',
+      path: 'node_modules/angular2-modal/bundles/angular2-modal.umd.js'
+    },
+    {
+      name: 'angular2-modal/plugins/bootstrap', 
+      path: 'node_modules/angular2-modal/bundles/angular2-modal.bootstrap.umd.js'
+    },
+    {
+      name: 'ng2-dnd',
+      path: 'node_modules/ng2-dnd/bundles/index.umd.js'
+    },
+    {
+      name: '@angular/material',
+      path: 'node_modules/@angular/material/bundles/material.umd.js'
+    },
+    {
+      name: 'angular2-google-maps/core',
+      path: 'node_modules/angular2-google-maps/core/index.js'
+    },
+    {
+      name: 'ng-inline-svg',
+      path: 'node_modules/ng-inline-svg/lib/index.js'
+    },
+    {
+      name: 'ng2-page-scroll',
+      path: 'node_modules/ng2-page-scroll/bundles/ng2-page-scroll.umd.min.js'
+    }];
+
+    //
+    this.addPackagesBundles(additionalPackages);
 
     /* Add proxy middleware */
     // this.PROXY_MIDDLEWARE = [
     //   require('http-proxy-middleware')('/api', { ws: false, target: 'http://localhost:3003' })
     // ];
 
-    this.addToPaths('angular2-modal/plugins/bootstrap', 'node_modules/angular2-modal/bundles/angular2-modal.bootstrap.umd.js');
-    this.addToPaths('angular2-google-maps/core', 'node_modules/angular2-google-maps/core/index.js');
-    this.addToPaths('@angular/material/core', 'node_modules/@angular/material/bundles/material.umd.js');
-    this.addToPaths('@angular/material/button', 'node_modules/@angular/material/bundles/material.umd.js');
-    this.addToPaths('@angular/material/icon', 'node_modules/@angular/material/bundles/material.umd.js');
-    this.addToPaths('@angular/material/input', 'node_modules/@angular/material/bundles/material.umd.js');
-    this.addToPaths('@angular/material/grid-list', 'node_modules/@angular/material/bundles/material.umd.js');
-    this.addToPaths('@angular/material/toolbar', 'node_modules/@angular/material/bundles/material.umd.js');
-    this.addToPaths('@angular/material/progress-bar', 'node_modules/@angular/material/bundles/material.umd.js');
+    // this.addToPaths('angular2-modal/plugins/bootstrap', 'node_modules/angular2-modal/bundles/angular2-modal.bootstrap.umd.js');
+    // this.addToPaths('angular2-google-maps/core', 'node_modules/angular2-google-maps/core/index.js');
+    // this.addToPaths('@angular/material/core', 'node_modules/@angular/material/bundles/material.umd.js');
+    // this.addToPaths('@angular/material/button', 'node_modules/@angular/material/bundles/material.umd.js');
+    // this.addToPaths('@angular/material/icon', 'node_modules/@angular/material/bundles/material.umd.js');
+    // this.addToPaths('@angular/material/input', 'node_modules/@angular/material/bundles/material.umd.js');
+    // this.addToPaths('@angular/material/grid-list', 'node_modules/@angular/material/bundles/material.umd.js');
+    // this.addToPaths('@angular/material/toolbar', 'node_modules/@angular/material/bundles/material.umd.js');
+    // this.addToPaths('@angular/material/progress-bar', 'node_modules/@angular/material/bundles/material.umd.js');
 
-    this.addToPackages('hammerjs', {
-      main: 'hammer.min.js',
-      defaultExtension: 'js'
-    });
-
-    this.addToPackages('ng2-recaptcha', {
-      main: 'ng2-recaptcha.js',
-      defaultExtension: 'js'
-    });
-
-    this.addToPackages('moment', {
-      main: 'min/moment-with-locales.min.js',
-      defaultExtension: 'js'
-    });
-
-    this.addToPackages('angular2-moment', {
-      main: 'index.js',
-      defaultExtension: 'js'
-    });
-
-    this.addToPackages('angular2-modal', {
-      main: 'bundles/angular2-modal.umd.js',
-      defaultExtension: 'js'
-    });
-
-    this.addToPackages('@angular/material', {
-      format: 'cjs',
-      main: 'bundles/material.umd.js',
-    });
-
-    this.addToPackages('angular2-google-maps/core', {
-      defaultExtension: 'js',
-      main: 'index.js'
-    });
-
-    this.addToPackages('ng-inline-svg', {
-      defaultExtension: 'js',
-      main: 'lib/index.js'
-    });
-
-    this.addToPackages('ng2-page-scroll', {
-      defaultExtension: 'js',
-      main: 'bundles/ng2-page-scroll.umd.min.js'
-    });
+    // this.addToPackages('ng2-page-scroll', {
+    //   defaultExtension: 'js',
+    //   main: 'bundles/ng2-page-scroll.umd.min.js'
+    // });
 
     switch(this.BUILD_TYPE) {
       case 'dev':
