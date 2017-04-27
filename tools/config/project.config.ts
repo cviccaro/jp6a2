@@ -109,28 +109,12 @@ export class ProjectConfig extends SeedConfig {
       path: 'node_modules/ng2-page-scroll/bundles/ng2-page-scroll.umd.min.js'
     }];
 
-    //
     this.addPackagesBundles(additionalPackages);
 
     /* Add proxy middleware */
     // this.PROXY_MIDDLEWARE = [
     //   require('http-proxy-middleware')('/api', { ws: false, target: 'http://localhost:3003' })
     // ];
-
-    // this.addToPaths('angular2-modal/plugins/bootstrap', 'node_modules/angular2-modal/bundles/angular2-modal.bootstrap.umd.js');
-    // this.addToPaths('angular2-google-maps/core', 'node_modules/angular2-google-maps/core/index.js');
-    // this.addToPaths('@angular/material/core', 'node_modules/@angular/material/bundles/material.umd.js');
-    // this.addToPaths('@angular/material/button', 'node_modules/@angular/material/bundles/material.umd.js');
-    // this.addToPaths('@angular/material/icon', 'node_modules/@angular/material/bundles/material.umd.js');
-    // this.addToPaths('@angular/material/input', 'node_modules/@angular/material/bundles/material.umd.js');
-    // this.addToPaths('@angular/material/grid-list', 'node_modules/@angular/material/bundles/material.umd.js');
-    // this.addToPaths('@angular/material/toolbar', 'node_modules/@angular/material/bundles/material.umd.js');
-    // this.addToPaths('@angular/material/progress-bar', 'node_modules/@angular/material/bundles/material.umd.js');
-
-    // this.addToPackages('ng2-page-scroll', {
-    //   defaultExtension: 'js',
-    //   main: 'bundles/ng2-page-scroll.umd.min.js'
-    // });
 
     switch(this.BUILD_TYPE) {
       case 'dev':
