@@ -35,7 +35,7 @@ export class ProjectConfig extends SeedConfig {
     // Add `NPM` third-party libraries to be injected/bundled.
     this.NPM_DEPENDENCIES = [
       ...this.NPM_DEPENDENCIES,
-      //{ src: 'dynamics.js/lib/dynamics.min.js', inject: 'libs' },
+      { src: 'dynamics.js/lib/dynamics.min.js', inject: 'libs' },
       // { src: '@angular/material/core/overlay/overlay.css', inject: true, vendor: false }
      // { src: 'hammerjs/hammer.min.js', inject: 'libs' }
       // {src: 'lodash/lodash.min.js', inject: 'libs'},
@@ -67,9 +67,10 @@ export class ProjectConfig extends SeedConfig {
     };
 
     let additionalPackages: ExtendPackages[] = [{
-    //   name: 'hammerjs',
-    //   path: 'node_modules/hammerjs/hammer.min.js'
-    // },
+      name: 'hammerjs',
+      path: 'node_modules/hammerjs/hammer.min.js'
+    },
+    {
       name: 'angular2-recaptcha',
       path: 'node_modules/angular2-recaptcha/index.js'
     },
@@ -81,18 +82,18 @@ export class ProjectConfig extends SeedConfig {
       name: 'angular2-moment',
       path: 'node_modules/angular2-moment/index.js'
     },
-    // {
-    //   name: 'angular2-modal',
-    //   path: 'node_modules/angular2-modal/bundles/angular2-modal.umd.js'
-    // },
-    // {
-    //   name: 'angular2-modal/plugins/bootstrap',
-    //   path: 'node_modules/angular2-modal/bundles/angular2-modal.bootstrap.umd.js'
-    // },
-    // {
-    //   name: 'ng2-dnd',
-    //   path: 'node_modules/ng2-dnd/bundles/index.umd.js'
-    // },
+    {
+      name: 'angular2-modal',
+      path: 'node_modules/angular2-modal/bundles/angular2-modal.umd.js'
+    },
+    {
+      name: 'angular2-modal/plugins/bootstrap',
+      path: 'node_modules/angular2-modal/bundles/angular2-modal.bootstrap.umd.js'
+    },
+    {
+      name: 'ng2-dnd',
+      path: 'node_modules/ng2-dnd/bundles/index.umd.js'
+    },
     {
       name: '@angular/material',
       path: 'node_modules/@angular/material/bundles/material.umd.js'

@@ -1,23 +1,20 @@
 import { Component, OnInit, AfterViewInit, OnDestroy, ElementRef, ViewChild, HostListener } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { Modal } from 'angular2-modal';
-import {
-  BlogService,
-  CacheService,
-  ContactFormComponent,
-  ClientService,
-  ContactFormSubmission,
-  RegistersSubscribers,
-  ScrollService,
-  StaffService,
-  ProjectService,
-  Config,
-  NavbarService,
-  Staff,
-  StaffModalComponent,
-  StaffModalComponentData,
-  TitleService
-} from '../shared/index';
+import { BlogService } from '../shared/blog/blog.service';
+import { ContactFormComponent } from '../shared/core/forms/contact-form/contact-form.component';
+import { ContactFormSubmission } from '../shared/core/forms/contact-form/form-submissions';
+import { CacheService } from '../shared/core/services/cache.service';
+import { ClientService } from '../shared/client/client.service';
+import { ScrollService } from '../shared/core/components/scroll/scroll.service';
+import { StaffService } from '../shared/staff/staff.service';
+import { StaffModalComponent } from '../shared/staff/staff-modal.component';
+import { StaffModalComponentData } from '../shared/staff/staff-modal.component';
+import { ProjectService } from '../shared/project/project.service';
+import { Config } from '../shared/core/config/env.config';
+import { NavbarService } from '../shared/core/components/nav/navbar.service';
+import { Staff } from '../shared/staff/staff';
+import { TitleService } from '../shared/core/services/title.service';
 
 declare var dynamics: any;
 

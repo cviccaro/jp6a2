@@ -2,8 +2,8 @@ import { Component, ViewContainerRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { Overlay } from 'angular2-modal';
 
-import { TitleService } from './shared/title/title.service';
-import { JpImageZoomer } from './shared/image-zoom/image-zoomer';
+import { TitleService } from './shared/core/services/title.service';
+import { JpImageZoomer } from './shared/core/components/image-zoom/image-zoomer';
 import { PageScrollConfig } from 'ng2-page-scroll';
 
 /**
