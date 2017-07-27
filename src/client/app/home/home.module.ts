@@ -4,8 +4,10 @@ import { SharedModule } from '../shared/shared.module';
 import { HomeComponent } from './home.component';
 import { HomeGuard } from './home.guard';
 
+import { HomeRoutingModule } from './home-routing.module';
+
 @NgModule({
-	imports: [SharedModule,],
+	imports: [HomeRoutingModule, SharedModule,],
 	declarations: [HomeComponent],
 	exports: [HomeComponent],
 	providers:  [HomeGuard]

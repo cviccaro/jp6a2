@@ -3,7 +3,7 @@ import { EnvConfig } from './env-config.interface';
 const BaseConfig: EnvConfig = {
   API: '//api.jpedev.com',
   desktopWidth: 992,
-  GoogleMapsAPIKey: 'AIzaSyD6OLSQawz3GV_l25DsiOkJprC_PRO57Rc',
+  GoogleMapsAPIKey: 'AIzaSyBa3VRsUfI2xU6RBvzL4s14hiM1HxyVsOY',
   siteTitle: 'Advertising & Digital Marketing Agency | JP Enterprises'
 };
 

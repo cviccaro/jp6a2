@@ -16,7 +16,7 @@ function cleanPublic() {
 	}
 
 	return clean(publicPath);
-};
+}
 
 function copyHtAccess() {
 	cleanPublic();

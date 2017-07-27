@@ -28,7 +28,7 @@ const isProd = Config.BUILD_TYPE === 'prod';
 if (isProd) {
   processors.push(
     cssnano({
-      discardComments: {removeAll: true},
+      discardComments: { removeAll: true },
       discardUnused: false, // unsafe, see http://goo.gl/RtrzwF
       zindex: false, // unsafe, see http://goo.gl/vZ4gbQ
       reduceIdents: false // unsafe, see http://goo.gl/tNOPv0
@@ -36,12 +36,12 @@ if (isProd) {
   );
 }
 
-const appSCSSFiles      = [
-                            join(Config.APP_SRC, '**', '*.scss'),
-                            '!' + join(Config.APP_SRC, 'app', 'shared', '_scss', '**', '*.scss')
-                          ];
-const entrySCSSFiles    = join(Config.CSS_SRC, '**', '*.scss');
-const abtractSCSSFiles  = join(Config.SCSS_SRC, '**', '*.scss');
+const appSCSSFiles = [
+  join(Config.APP_SRC, '**', '*.scss'),
+  '!' + join(Config.APP_SRC, 'app', 'shared', 'core', 'styles', '**', '*.scss')
+];
+const entrySCSSFiles = join(Config.CSS_SRC, '**', '*.scss');
+const abtractSCSSFiles = join(Config.SCSS_SRC, '**', '*.scss');
 
 /**
  * Copies all HTML files in `src/client` over to the `dist/tmp` directory.
@@ -55,12 +55,12 @@ function prepareTemplates() {
  * Execute the appropriate component-stylesheet processing method based on user stylesheet preference.
  */
 function processComponentStylesheets() {
- return Config.ENABLE_SCSS ?
-   merge(
-     processComponentScss(),
-     processComponentCss())
-   :
-   processComponentCss();
+  return Config.ENABLE_SCSS ?
+    merge(
+      processComponentScss(),
+      processComponentCss())
+    :
+    processComponentCss();
 }
 
 /**
@@ -85,10 +85,10 @@ function processComponentScss() {
 /**
  + * Get SCSS Files to process
  + */
-function getSCSSFiles(cacheName:string, filesToCompile:string[], filesToExclude:string[] = []) {
-  let allFiles:string[] = filesToCompile.concat(filesToExclude);
-  let filteredFiles:string[] = filesToCompile.concat(
-    filesToExclude.map((path:string) => { return '!' + path; })
+function getSCSSFiles(cacheName: string, filesToCompile: string[], filesToExclude: string[] = []) {
+  let allFiles: string[] = filesToCompile.concat(filesToExclude);
+  let filteredFiles: string[] = filesToCompile.concat(
+    filesToExclude.map((path: string) => { return '!' + path; })
   );
   return gulp.src(allFiles)
     .pipe(plugins.cached(cacheName))
@@ -102,9 +102,9 @@ function getSCSSFiles(cacheName:string, filesToCompile:string[], filesToExclude:
  */
 function processComponentCss() {
   return gulp.src([
-      join(Config.APP_SRC, '**', '*.css'),
-      '!' + join(Config.APP_SRC, 'assets', '**', '*.css')
-    ])
+    join(Config.APP_SRC, '**', '*.css'),
+    '!' + join(Config.APP_SRC, 'assets', '**', '*.css')
+  ])
     .pipe(isProd ? plugins.cached('process-component-css') : plugins.util.noop())
     .pipe(plugins.postcss(processors))
     .on('error', reportPostCssError)

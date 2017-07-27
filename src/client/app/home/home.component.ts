@@ -3,7 +3,7 @@ import { Subscription } from 'rxjs/Subscription';
 import { Modal } from 'angular2-modal';
 import { BlogService } from '../shared/blog/blog.service';
 import { ContactFormComponent } from '../shared/core/forms/contact-form/contact-form.component';
-import { ContactFormSubmission } from '../shared/core/forms/contact-form/form-submissions';
+import { ContactFormSubmission } from '../shared/core/forms/form-submissions';
 import { CacheService } from '../shared/core/services/cache.service';
 import { ClientService } from '../shared/client/client.service';
 import { ScrollService } from '../shared/core/components/scroll/scroll.service';
@@ -27,7 +27,7 @@ declare var dynamics: any;
   templateUrl: 'home.component.html',
   styleUrls: ['home.component.css']
 })
-export class HomeComponent implements OnInit, AfterViewInit, RegistersSubscribers, OnDestroy {
+export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   blogs: any[];
   config: any;
   clientCols = 6;

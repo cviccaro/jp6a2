@@ -1,6 +1,5 @@
 import { join } from 'path';
 import { argv } from 'yargs';
-
 import { SeedConfig } from './seed.config';
 import { ExtendPackages } from './seed.config.interfaces';
 
@@ -27,6 +26,7 @@ export class ProjectConfig extends SeedConfig {
 
     this.APP_TITLE = 'Advertising & Digital Marketing Agency | JP Enterprises';
     this.ENABLE_SCSS = true;
+    this.TYPEKIT_ID = 'wqu6orw';
     // this.GOOGLE_ANALYTICS_ID = 'Your site's ID';
 
     /* Enable typeless compiler runs (faster) between typed compiler runs. */
@@ -44,7 +44,7 @@ export class ProjectConfig extends SeedConfig {
     // Add `local` third-party libraries to be injected/bundled.
     this.APP_ASSETS = [
       ...this.APP_ASSETS,
-      { src: `${this.APP_SRC}/${this.SHARED_MODULE_SRC}/_scss/modernizr.js`, inject: true }
+      { src: `${this.APP_SRC}/${this.SHARED_MODULE_SRC}/core/styles/modernizr.js`, inject: true }
     ];
 
     this.ROLLUP_INCLUDE_DIR = [
@@ -66,13 +66,21 @@ export class ProjectConfig extends SeedConfig {
       ]
     };
 
+    let map = {
+       'angular2-moment': 'node_modules/angular2-moment/',
+       'angular2-recaptcha': 'node_modules/angular2-recaptcha/'
+    };
+
     let additionalPackages: ExtendPackages[] = [{
       name: 'hammerjs',
       path: 'node_modules/hammerjs/hammer.min.js'
     },
     {
       name: 'angular2-recaptcha',
-      path: 'node_modules/angular2-recaptcha/index.js'
+      packageMeta: {
+        main: 'index',
+        defaultExtension: 'js'
+      }
     },
     {
       name: 'moment',
@@ -80,19 +88,26 @@ export class ProjectConfig extends SeedConfig {
     },
     {
       name: 'angular2-moment',
-      path: 'node_modules/angular2-moment/index.js'
+      packageMeta: {
+        main: 'index',
+        defaultExtension: 'js'
+      }
     },
     {
       name: 'angular2-modal',
-      path: 'node_modules/angular2-modal/bundles/angular2-modal.umd.js'
+      path: 'node_modules/angular2-modal/bundle/angular2-modal.rollup.umd.js'
     },
     {
       name: 'angular2-modal/plugins/bootstrap',
-      path: 'node_modules/angular2-modal/bundles/angular2-modal.bootstrap.umd.js'
+      path: 'node_modules/angular2-modal/plugins/bootstrap/bundle/angular2-modal-bootstrap.rollup.umd.js'
     },
     {
       name: 'ng2-dnd',
       path: 'node_modules/ng2-dnd/bundles/index.umd.js'
+    },
+    {
+      name: '@angular/cdk',
+      path: 'node_modules/@angular/cdk/bundles/cdk.umd.js'
     },
     {
       name: '@angular/material',
@@ -100,17 +115,18 @@ export class ProjectConfig extends SeedConfig {
     },
     {
       name: '@agm/core',
-      path: 'node_modules/@agm/core/index.js'
+      path: 'node_modules/@agm/core/core.umd.js'
     },
-    // {
-    //   name: 'ng-inline-svg',
-    //   path: 'node_modules/ng-inline-svg/lib/index.js'
-    // },
+    {
+      name: 'ng-inline-svg',
+      path: 'node_modules/ng-inline-svg/lib/index.js'
+    },
     {
       name: 'ng2-page-scroll',
-      path: 'node_modules/ng2-page-scroll/bundles/ng2-page-scroll.umd.min.js'
+      path: 'node_modules/ng2-page-scroll/bundles/ng2-page-scroll.umd.js'
     }];
 
+    this.addPackagesMap(map);
     this.addPackagesBundles(additionalPackages);
 
     /* Add proxy middleware */
@@ -122,8 +138,21 @@ export class ProjectConfig extends SeedConfig {
     // this.PLUGIN_CONFIGS['browser-sync'] = { ghostMode: false };
   }
 
+  addPackagesMap(map: { [key: string]: string }) {
+    if (this.SYSTEM_CONFIG_DEV.map === undefined) {
+      this.SYSTEM_CONFIG_DEV.map = {};
+    }
+    if (this.SYSTEM_BUILDER_CONFIG.map === undefined) {
+      this.SYSTEM_BUILDER_CONFIG.map = {};
+    }
+    for (let packageName in map) {
+      this.SYSTEM_CONFIG_DEV.map[packageName] = map[packageName];
+      this.SYSTEM_BUILDER_CONFIG.map[packageName] = map[packageName];
+    }
+  }
+
   setConfig() {
-    let type = (argv['build-type'] || argv['env'] || '').toLowerCase();
+    let type = argv['env-config'] || 'dev';
 
     switch(type) {
       case 'dev':
@@ -137,4 +166,5 @@ export class ProjectConfig extends SeedConfig {
         break;
     }
   }
+
 }
