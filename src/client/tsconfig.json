@@ -25,14 +25,11 @@
       "node",
       "jasmine",
       "systemjs",
-      "hammerjs",
-      "grecaptcha"
+      "hammerjs"
     ]
   },
+  "compileOnSave": false,
   "exclude": [
-    "node_modules",
-    "dist",
-    "src"
-  ],
-  "compileOnSave": false
+    "app/main-prod.ts"
+  ]
 }

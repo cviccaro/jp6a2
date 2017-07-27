@@ -1,4 +1,4 @@
 [submodule "src/client/app/shared"]
 	path = src/client/app/shared
 	url = http://public:public@scm.jperesources.com/scm/git/jp6a2-shared
-	branch = image-zoomer+angular2.4
+	branch = 2017-july-rebuild

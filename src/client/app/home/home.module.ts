@@ -5,13 +5,9 @@ import { HomeComponent } from './home.component';
 import { HomeGuard } from './home.guard';
 
 @NgModule({
-	imports: [
-		SharedModule,
-	],
-	declarations: [
-		HomeComponent
-	],
-	exports: [ HomeComponent ],
-	providers: [ HomeGuard ]
+	imports: [SharedModule,],
+	declarations: [HomeComponent],
+	exports: [HomeComponent],
+	providers:  [HomeGuard]
 })
 export class HomeModule { }

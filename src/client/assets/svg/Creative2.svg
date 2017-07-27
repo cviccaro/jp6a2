@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   version="1.1"
+   viewBox="0 0 252.88 288"
+   data-name="Layer 1"
+   id="Layer_1">
+  <metadata
+     id="metadata41">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>Creative</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs12">
+    <style
+       id="style10">.cls-1{fill:#221f1f;}</style>
+   <mask id="c1" maskUnits="objectBoundingBox" maskContentUnits="objectBoundingBox">
+       <g id="group1">
+         <rect x="0" y="0" width="1" height="1" />
+       </g>
+     </mask>
+  </defs>
+  <title
+     id="title14">Creative</title>
+  <path
+     id="path16"
+     transform="translate(-270 -162)"
+     d="M396.44,197.12a84.31,84.31,0,0,0-73,126.47c18.38,32.61,21.88,49,22.42,55.49v20.34H447V379.08c.55-6.5,4-22.88,22.42-55.49a84.31,84.31,0,0,0-73-126.47ZM458.8,317.43l-.07.12c-5.17,9.18-19.58,35.91-23.28,55.05l-18.95,4.34h-9.58l45.13-99.66a7,7,0,0,0-3.5-9.3h0a7,7,0,0,0-9.3,3.5l-5.9,13L419,269.41a6.47,6.47,0,0,0-9.45,0l-14.16,14.89-14.16-14.89a6.47,6.47,0,0,0-9.45,0L358.84,283l-5.22-11.53a7,7,0,0,0-9.3-3.5h0a7,7,0,0,0-3.5,9.3L386,376.95h-9.58l-18.95-4.34c-3.7-19.14-18.1-45.87-23.28-55.05l-.07-.12a72,72,0,1,1,124.72,0ZM396.44,366l-31.5-69.56,11.56-12.16,14,14.73.15.18a6.49,6.49,0,0,0,9.46,0l.15-.18,14-14.73,13,13.66Z"
+     class="cls-1" />
+  <path
+     id="path18"
+     transform="translate(-270 -162)"
+     d="M441.4,405H351.48a5.62,5.62,0,1,0,0,11.24H441.4a5.62,5.62,0,0,0,0-11.24Z"
+     class="cls-1" />
+  <path
+     id="path20"
+     transform="translate(-270 -162)"
+     d="M441.4,421.9H351.48a5.62,5.62,0,1,0,0,11.24H441.4a5.62,5.62,0,0,0,0-11.24Z"
+     class="cls-1" />
+  <path
+     id="path22"
+     transform="translate(-270 -162)"
+     d="M430.16,438.76H362.72a5.62,5.62,0,0,0,0,11.24h67.43a5.62,5.62,0,1,0,0-11.24Z"
+     class="cls-1" />
+  <path
+     id="path24"
+     transform="translate(-270 -162)"
+     d="M396.44,162a7,7,0,0,0-7,7v14a7,7,0,0,0,14,0V169a7,7,0,0,0-7-7Z"
+     class="cls-1" />
+  <path
+     id="path26"
+     transform="translate(-270 -162)"
+     d="M312,197a7,7,0,0,0-5,12L317,218.9a7,7,0,0,0,9.93,0h0a7,7,0,0,0,0-9.93L317,199a7,7,0,0,0-5-2Z"
+     class="cls-1" />
+  <path
+     id="path28"
+     transform="translate(-270 -162)"
+     d="M291.07,281.41H277a7,7,0,0,0,0,14h14a7,7,0,0,0,0-14Z"
+     class="cls-1" />
+  <path
+     id="path30"
+     transform="translate(-270 -162)"
+     d="M325.66,366.67h0m-3.73-10.74a7,7,0,0,0-5,2L307,367.91a7,7,0,0,0,9.93,9.93l9.93-9.93a7,7,0,0,0,0-9.93h0a7,7,0,0,0-5-2Z"
+     class="cls-1" />
+  <path
+     id="path32"
+     transform="translate(-270 -162)"
+     d="M470.94,355.93a7,7,0,0,0-5,2h0a7,7,0,0,0,0,9.93l9.93,9.93a7,7,0,1,0,9.93-9.93L475.91,358a7,7,0,0,0-5-2Z"
+     class="cls-1" />
+  <path
+     id="path34"
+     transform="translate(-270 -162)"
+     d="M515.85,281.41h-14a7,7,0,0,0,0,14h14a7,7,0,1,0,0-14Z"
+     class="cls-1" />
+  <path
+     id="path36"
+     transform="translate(-270 -162)"
+     d="M484.6,207.73h0M480.88,197a7,7,0,0,0-5,2L466,209a7,7,0,0,0,0,9.93h0a7,7,0,0,0,9.93,0l9.93-9.93a7,7,0,0,0,0-9.93h0a7,7,0,0,0-5-2Z"
+     class="cls-1" />
+</svg>
