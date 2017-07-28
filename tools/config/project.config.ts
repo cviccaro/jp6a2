@@ -68,7 +68,8 @@ export class ProjectConfig extends SeedConfig {
 
     let map = {
        'angular2-moment': 'node_modules/angular2-moment/',
-       'angular2-recaptcha': 'node_modules/angular2-recaptcha/'
+       'angular2-recaptcha': 'node_modules/angular2-recaptcha/',
+       'ng-inline-svg': 'node_modules/ng-inline-svg/lib/'
     };
 
     let additionalPackages: ExtendPackages[] = [{
@@ -119,7 +120,10 @@ export class ProjectConfig extends SeedConfig {
     },
     {
       name: 'ng-inline-svg',
-      path: 'node_modules/ng-inline-svg/lib/index.js'
+      packageMeta: {
+        main: 'index',
+        defaultExtension: 'js'
+      }
     },
     {
       name: 'ng2-page-scroll',
