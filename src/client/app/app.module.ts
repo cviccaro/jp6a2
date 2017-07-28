@@ -10,14 +10,13 @@ import { AppComponent } from './app.component';
 import { HomeModule } from './home/home.module';
 import { TestModule } from './test/test.module';
 import { SharedModule } from './shared/shared.module';
-import { ConfigGuard } from './shared/core/config/config.guard';
 
 const AppBaseProvider = {provide: APP_BASE_HREF, useValue: '<%= APP_BASE %>' };
 
 @NgModule({
 	imports: [BrowserModule, BrowserAnimationsModule, HttpModule, AppRoutingModule, HomeModule, TestModule, SharedModule.forRoot()],
 	declarations: [ AppComponent ],
-	providers: [AppBaseProvider, ConfigGuard, Title	],
+	providers: [AppBaseProvider, Title],
 	bootstrap: [ AppComponent ]
 })
 export class AppModule { }
