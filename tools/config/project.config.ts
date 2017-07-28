@@ -24,7 +24,7 @@ export class ProjectConfig extends SeedConfig {
 
     this.setConfig();
 
-    this.APP_TITLE = 'Advertising & Digital Marketing Agency | JP Enterprises';
+    this.APP_TITLE = this.CFG.siteTitle;
     this.ENABLE_SCSS = true;
     this.TYPEKIT_ID = 'wqu6orw';
     // this.GOOGLE_ANALYTICS_ID = 'Your site's ID';
