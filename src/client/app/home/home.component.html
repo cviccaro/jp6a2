@@ -4,11 +4,12 @@
 	<a md-button [routerLink]="['/clients']" title="Clients" disableRipple="true" (click)="navLinkClicked($event)">Clients</a>
 </jp-navbar>
 <jp-splash [splashUrl]="config.main_site_background.urlBlob" align="left">
-    <h1 class="text-uppercase" *ngIf="config.main_site_splash_headline">{{ config.main_site_splash_headline }}</h1>
-    <div class="splash-body" [innerHTML]="config.main_site_splash_body"></div>
-<!--     <div class="logo company">
-    	<jp-logo></jp-logo>
-  	</div> -->
+	<jp-splash-content>
+		<div class="content-reveal" #contentReveal>
+    	<h1 class="text-uppercase" *ngIf="config.main_site_splash_headline">{{ config.main_site_splash_headline }}</h1>
+    	<div class="splash-body" [innerHTML]="config.main_site_splash_body"></div>
+    </div>
+  </jp-splash-content>
 </jp-splash>
 <section id="services" class="content-start flex-col theme-grey" #start>
 	<div class="container">
