@@ -179,8 +179,10 @@ export class SeedConfig {
   /**
    * Tracking ID.
    * @type {string}
-   */
+   
   GOOGLE_ANALYTICS_ID = 'UA-XXXXXXXX-X';
+  */
+  GOOGLE_ANALYTICS_ID = 'UA-27349841-1';
 
   /**
    * The base folder of the applications source files.
