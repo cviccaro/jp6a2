@@ -169,6 +169,8 @@ export class ProjectConfig extends SeedConfig {
           this.CFG = ProdConfig;
         break;
     }
+	
+	this.GOOGLE_ANALYTICS_ID = this.CFG['GoogleAnalyticsAPIKey'] ? this.CFG['GoogleAnalyticsAPIKey'] : null;
   }
 
 }
