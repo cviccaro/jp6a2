@@ -1,6 +1,6 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { CanActivate } from '@angular/router';
-import { Response } from '@angular/http';
+import { HttpResponse } from '@angular/common/http';
 import { BlogService } from '../shared/blog/blog.service';
 import { CacheService } from '../shared/core/services/cache.service';
 import { ClientService } from '../shared/client/client.service';
@@ -46,7 +46,7 @@ export class HomeGuard implements CanActivate, OnDestroy {
     });
   }
 
-  fetchComplete(key: string, res: Response, observer: Observer<boolean>) {
+  fetchComplete(key: string, res: HttpResponse<Object>, observer: Observer<boolean>) {
     this.data[key] = res;
     this.cacheService.store(key, res);
 

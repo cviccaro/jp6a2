@@ -5,7 +5,7 @@
     "curly": false,
     "eofline": true,
     "import-spacing": true,
-    "indent": [true, "spaces"],
+    "indent": [false, "tab"],
     "max-line-length": [true, 140],
     "member-ordering": [true,
       "public-before-private",
