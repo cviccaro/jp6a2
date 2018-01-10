@@ -115,7 +115,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     this.workIndex = num;
 
     let sub = this.projectService.recent((num-1) * this.workLimit, this.workLimit)
-      .subscribe((res) => {
+      .subscribe(res => {
         // Prepare to animate out current work
         let changed = false;
         let elem: HTMLElement = this.projectsEl.nativeElement;
@@ -149,7 +149,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
                 changed = true;
 
                 // ...and change the work collection in scope.
-                that.work = res;
+                that.work = res.projects;
 
                 // Total number of pages of work
                 if (window.innerWidth < Config.desktopWidth) {

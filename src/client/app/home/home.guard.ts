@@ -2,6 +2,7 @@ import { Injectable, OnDestroy } from '@angular/core';
 import { CanActivate } from '@angular/router';
 import { HttpResponse } from '@angular/common/http';
 import { BlogService } from '../shared/blog/blog.service';
+import { BlogsHttpResponse } from '../shared/blog/blog';
 import { CacheService } from '../shared/core/services/cache.service';
 import { ClientService } from '../shared/client/client.service';
 import { StaffService } from '../shared/staff/staff.service';
@@ -46,7 +47,7 @@ export class HomeGuard implements CanActivate, OnDestroy {
     });
   }
 
-  fetchComplete(key: string, res: HttpResponse<Object>, observer: Observer<boolean>) {
+  fetchComplete(key: string, res: any, observer: Observer<boolean>) {
     this.data[key] = res;
     this.cacheService.store(key, res);
 
