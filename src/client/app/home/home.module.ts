@@ -7,7 +7,7 @@ import { HomeGuard } from './home.guard';
 import { HomeRoutingModule } from './home-routing.module';
 
 @NgModule({
-	imports: [HomeRoutingModule, SharedModule,],
+	imports: [HomeRoutingModule, SharedModule],
 	declarations: [HomeComponent],
 	exports: [HomeComponent],
 	providers:  [HomeGuard]

@@ -14,7 +14,7 @@ import { Observer } from 'rxjs/Observer';
 
 @Injectable()
 export class HomeGuard implements CanActivate, OnDestroy {
-  data: { [key: string] : any } = {
+  data: { [key: string]: any } = {
     blogs: null,
     clients: null,
     staff: null,
@@ -51,7 +51,7 @@ export class HomeGuard implements CanActivate, OnDestroy {
     this.data[key] = res;
     this.cacheService.store(key, res);
 
-    for (let k in this.data) {
+    for (const k in this.data) {
       if (this.data[k] === null) return;
     }
 

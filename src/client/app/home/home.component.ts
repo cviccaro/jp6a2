@@ -32,9 +32,9 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   config: any;
   clientCols = 6;
   clients: any[];
-  divisions:any[] = ['creative', 'interactive', 'mdm', 'publishing'];
+  divisions: any[] = ['creative', 'interactive', 'mdm', 'publishing'];
   links: any = {};
-  rssBlogFeedUrl: string = `${Config.API}/rss/blogs`;
+  rssBlogFeedUrl = `${Config.API}/rss/blogs`;
   staff: any[];
   wowEnabled = true;
   work: any[];
@@ -68,7 +68,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     const onProdServer = window.location.hostname.match(/\.jpenterprises\.com$/) !== null;
     const host =  onProdServer ? 'jpenterprises.com' : 'jpedev.com';
 
-    this.divisions.forEach((division:string) => {
+    this.divisions.forEach((division: string) => {
       this.links[division] = `${window.location.protocol}//${division}.${host}`;
     });
   }
@@ -85,9 +85,9 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit() {
-    let int = setInterval(() => {
-      let bootstrapping = document.getElementById('bootstrapping');
-      let style = window.getComputedStyle(bootstrapping);
+    const int = setInterval(() => {
+      const bootstrapping = document.getElementById('bootstrapping');
+      const style = window.getComputedStyle(bootstrapping);
       if (+style.opacity === 0) {
         bootstrapping.parentNode.removeChild(bootstrapping);
         clearInterval(int);
@@ -96,7 +96,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   mobileConstraints() {
-    let work: any = this.work;
+    const work: any = this.work;
 
     if (window.innerWidth < Config.desktopWidth) {
       this.workLimit = 1;
@@ -110,18 +110,18 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   fetchWork(num: number) {
-    let direction = num > this.workIndex ? -1 : 1;
+    const direction = num > this.workIndex ? -1 : 1;
 
     this.workIndex = num;
 
-    let sub = this.projectService.recent((num-1) * this.workLimit, this.workLimit)
+    const sub = this.projectService.recent((num - 1) * this.workLimit, this.workLimit)
       .subscribe(res => {
         // Prepare to animate out current work
         let changed = false;
-        let elem: HTMLElement = this.projectsEl.nativeElement;
-        let offsetX = window.innerWidth - elem.offsetLeft;
+        const elem: HTMLElement = this.projectsEl.nativeElement;
+        const offsetX = window.innerWidth - elem.offsetLeft;
 
-        dynamics.css(elem,{
+        dynamics.css(elem, {
             translateX: 0,
             height: elem.offsetHeight // Set the height explicitly so there are no quirks when transitioning
         });
@@ -136,13 +136,13 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
             complete: animateComplete
         });
 
-        var that = this;
+        const that = this;
 
         // As soon as the animation is off the screen...
         function animateStep() {
-            let matrix: string[] = window.getComputedStyle(elem).transform.split(',');
+            const matrix: string[] = window.getComputedStyle(elem).transform.split(',');
 
-            let x = (matrix[12] === undefined) ? +matrix[4] : +matrix[12];
+            const x = (matrix[12] === undefined) ? +matrix[4] : +matrix[12];
 
             if (!changed && Math.abs(x) >= (offsetX - 1)) {
                 // ...set a flag...
@@ -183,7 +183,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     this.registerSubscriber(
       this.contactForm.postToServer()
         .subscribe((res: any) => {
-          let modal: any = this.modal.alert();
+          const modal: any = this.modal.alert();
 
           modal
             .size('sm')
@@ -200,7 +200,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     e.stopPropagation();
     e.preventDefault();
     const target = <HTMLElement>e.target;
-    let href:string;
+    let href: string;
 
     if (target.tagName === 'SPAN') {
       href = (<HTMLAnchorElement>target.parentElement).href;
@@ -209,7 +209,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     if (href) {
-      let selector = href.replace(`${window.location.protocol}//${window.location.hostname}`, '').replace('/','')
+      const selector = href.replace(`${window.location.protocol}//${window.location.hostname}`, '').replace('/', '');
       this.scrollService.scrollToElementAnimated('#' + selector);
     }
   }

@@ -8,9 +8,9 @@ import { Component, AfterViewInit } from '@angular/core';
 })
 export class TestComponent implements AfterViewInit {
 	ngAfterViewInit() {
-		let int = setInterval(() => {
-		  let bootstrapping = document.getElementById('bootstrapping');
-		  let style = window.getComputedStyle(bootstrapping);
+		const int = setInterval(() => {
+		  const bootstrapping = document.getElementById('bootstrapping');
+		  const style = window.getComputedStyle(bootstrapping);
 		  if (+style.opacity === 0) {
 		    bootstrapping.parentNode.removeChild(bootstrapping);
 		    clearInterval(int);

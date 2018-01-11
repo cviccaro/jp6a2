@@ -66,13 +66,13 @@ export class ProjectConfig extends SeedConfig {
       ]
     };
 
-    let map = {
+    const map = {
        'angular2-moment': 'node_modules/angular2-moment/',
        'angular2-recaptcha': 'node_modules/angular2-recaptcha/',
        'ng-inline-svg': 'node_modules/ng-inline-svg/lib/'
     };
 
-    let additionalPackages: ExtendPackages[] = [{
+    const additionalPackages: ExtendPackages[] = [{
       name: 'hammerjs',
       path: 'node_modules/hammerjs/hammer.min.js'
     },
@@ -149,28 +149,28 @@ export class ProjectConfig extends SeedConfig {
     if (this.SYSTEM_BUILDER_CONFIG.map === undefined) {
       this.SYSTEM_BUILDER_CONFIG.map = {};
     }
-    for (let packageName in map) {
+    for (const packageName in map) {
       this.SYSTEM_CONFIG_DEV.map[packageName] = map[packageName];
       this.SYSTEM_BUILDER_CONFIG.map[packageName] = map[packageName];
     }
   }
 
   setConfig() {
-    let type = argv['env-config'] || 'dev';
+    const type = argv['env-config'] || 'dev';
 
-    switch(type) {
+    switch (type) {
       case 'dev':
         this.CFG = DevConfig;
         break;
       case 'staging':
         this.CFG = StagingConfig;
         break;
-        case 'prod':
-          this.CFG = ProdConfig;
+      case 'prod':
+        this.CFG = ProdConfig;
         break;
     }
-	
-	this.GOOGLE_ANALYTICS_ID = this.CFG['GoogleAnalyticsAPIKey'] ? this.CFG['GoogleAnalyticsAPIKey'] : null;
+
+	  this.GOOGLE_ANALYTICS_ID = this.CFG['GoogleAnalyticsAPIKey'] ? this.CFG['GoogleAnalyticsAPIKey'] : null;
   }
 
 }
