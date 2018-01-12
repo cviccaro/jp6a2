@@ -1,7 +1,7 @@
 <jp-navbar>
-	<a md-button [routerLink]="['/services']" title="Services" disableRipple="true" (click)="navLinkClicked($event)">Services</a>
-	<a md-button [routerLink]="['/about']" title="About Us" disableRipple="true" (click)="navLinkClicked($event)">About Us</a>
-	<a md-button [routerLink]="['/clients']" title="Clients" disableRipple="true" (click)="navLinkClicked($event)">Clients</a>
+	<a mat-button [routerLink]="['/services']" title="Services" disableRipple="true" (click)="navLinkClicked($event)">Services</a>
+	<a mat-button [routerLink]="['/about']" title="About Us" disableRipple="true" (click)="navLinkClicked($event)">About Us</a>
+	<a mat-button [routerLink]="['/clients']" title="Clients" disableRipple="true" (click)="navLinkClicked($event)">Clients</a>
 </jp-navbar>
 <jp-splash [splashUrl]="config.main_site_background.urlBlob" align="left">
 	<jp-splash-content>
@@ -139,7 +139,7 @@
 				jpDynamicsMobile
 				[overlay]="true"
 				(clicked)="launchStaffModal(person)">
-					<md-icon>pageview</md-icon>&nbsp;&nbsp;Details
+					<mat-icon>pageview</mat-icon>&nbsp;&nbsp;Details
 			</jp-card>
 		</div>
 	</div>
@@ -148,17 +148,17 @@
 <section id="clients" [jpBackground]="'assets/images/banner-clients.jpg'">
 	<div class="container">
 		<h2 class="section-title text-right text-uppercase">Our Clients</h2>
-		<md-grid-list [cols]="clientCols" gutterSize="8px" rowHeight="1:1" *ngIf="clients">
-		  <md-grid-tile *ngFor="let client of clients">
+		<mat-grid-list [cols]="clientCols" gutterSize="8px" rowHeight="1:1" *ngIf="clients">
+		  <mat-grid-tile *ngFor="let client of clients">
 		  	<img [alt]="client" [title]="client.name" [src]="client.image?.url" />
-		  </md-grid-tile>
-		</md-grid-list>
+		  </mat-grid-tile>
+		</mat-grid-list>
 	</div>
 </section>
 
 <section id="blog">
 	<div class="container">
-	  <h2 class="section-title text-uppercase">Our Blog <a md-button md-icon-button [href]="rssBlogFeedUrl" class="rss" title="Subscribe to our RSS feed"><md-icon>rss_feed</md-icon></a></h2>
+	  <h2 class="section-title text-uppercase">Our Blog <a mat-button mat-icon-button [href]="rssBlogFeedUrl" class="rss" title="Subscribe to our RSS feed"><mat-icon>rss_feed</mat-icon></a></h2>
 	  <div class="content" *ngIf="blogs">
 	    <jp-card *ngFor="let blog of blogs.blogs"
 	    	class="cell"
@@ -172,7 +172,7 @@
 	    	[route]="['/blogs/' + blog.uri]"
 	    	theme="post">
 			</jp-card>
-	    <button md-button class="inverted-button boxy-button" [routerLink]="['/blogs']">Load More Blogs</button>
+	    <button mat-button class="inverted-button boxy-button" [routerLink]="['/blogs']">Load More Blogs</button>
 	    <!-- <a [routerLink]="['/subscribe']" class="clear-link">Subscribe to our mailing list</a> -->
 	  </div>
 	</div>
