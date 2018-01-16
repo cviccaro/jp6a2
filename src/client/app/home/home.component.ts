@@ -37,7 +37,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   rssBlogFeedUrl = `${Config.API}/rss/blogs`;
   staff: any[];
   wowEnabled = true;
-  work: any[];
+  work: any;
   workIndex = 1;
   workLimit = 6;
   workTotal = 0;
@@ -149,7 +149,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
                 changed = true;
 
                 // ...and change the work collection in scope.
-                that.work = res.projects;
+                that.work = res;
 
                 // Total number of pages of work
                 if (window.innerWidth < Config.desktopWidth) {
