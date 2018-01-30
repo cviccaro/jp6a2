@@ -20,8 +20,8 @@ const getTask = (target: string, destDir: string, sourceMaps: boolean = false) =
     )
     .pipe(
       plugins.uglify({
-        compress: true,
-        mangle: true
+        compress: false,
+        mangle: false
       })
     )
     .pipe(sourceMaps && Config.PRESERVE_SOURCE_MAPS ? plugins.sourcemaps.write('.') : plugins.util.noop())

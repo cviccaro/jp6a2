@@ -97,7 +97,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
   mobileConstraints() {
     const work: any = this.work;
-
+console.log(work);
     if (window.innerWidth < Config.desktopWidth) {
       this.workLimit = 1;
       this.clientCols = 2;

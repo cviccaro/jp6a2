@@ -13,7 +13,6 @@ import * as ProdConfig from '../env/prod';
  */
 export class ProjectConfig extends SeedConfig {
   CFG: any;
-  NF: any;
   OUTPUT_FOLDER = 'public';
   PROJECT_TASKS_DIR = join(process.cwd(), this.TOOLS_DIR, 'tasks', 'project');
   SHARED_MODULE_SRC = 'app/shared';
@@ -36,6 +35,7 @@ export class ProjectConfig extends SeedConfig {
     this.NPM_DEPENDENCIES = [
       ...this.NPM_DEPENDENCIES,
       { src: 'dynamics.js/lib/dynamics.min.js', inject: 'libs' },
+      { src: 'hammerjs/hammer.min.js', inject: 'libs' }
       // { src: '@angular/material/core/overlay/overlay.css', inject: true, vendor: false }
      // { src: 'hammerjs/hammer.min.js', inject: 'libs' }
       // {src: 'lodash/lodash.min.js', inject: 'libs'},
@@ -69,13 +69,14 @@ export class ProjectConfig extends SeedConfig {
     const map = {
        'angular2-moment': 'node_modules/angular2-moment/',
        'angular2-recaptcha': 'node_modules/angular2-recaptcha/',
-       'ng-inline-svg': 'node_modules/ng-inline-svg/lib/'
+       //'ng-inline-svg': 'node_modules/ng-inline-svg/lib/'
     };
 
-    const additionalPackages: ExtendPackages[] = [{
-      name: 'hammerjs',
-      path: 'node_modules/hammerjs/hammer.min.js'
-    },
+    const additionalPackages: ExtendPackages[] = [
+    // {
+    //   name: 'hammerjs',
+    //   path: 'node_modules/hammerjs/hammer.min.js'
+    // },
     {
       name: 'angular2-recaptcha',
       packageMeta: {
@@ -175,20 +176,61 @@ export class ProjectConfig extends SeedConfig {
       path: 'node_modules/@angular/material/bundles/material.umd.js'
     },
     {
+      name: '@angular/material/button',
+      path: 'node_modules/@angular/material/bundles/material-button.umd.js'
+    },
+    {
+      name: '@angular/material/common',
+      path: 'node_modules/@angular/material/bundles/material-common.umd.js'
+    },
+    {
+      name: '@angular/material/core',
+      path: 'node_modules/@angular/material/bundles/material-core.umd.js'
+    },
+    {
+      name: '@angular/material/icon',
+      path: 'node_modules/@angular/material/bundles/material-icon.umd.js'
+    },
+    {
+      name: '@angular/material/input',
+      path: 'node_modules/@angular/material/bundles/material-input.umd.js'
+    },
+    {
+      name: '@angular/material/form-field',
+      path: 'node_modules/@angular/material/bundles/material-form-field.umd.js'
+    },
+    {
+      name: '@angular/material/grid-list',
+      path: 'node_modules/@angular/material/bundles/material-grid-list.umd.js'
+    },
+    {
+      name: '@angular/material/progress-bar',
+      path: 'node_modules/@angular/material/bundles/material-progress-bar.umd.js'
+    },
+    {
+      name: '@angular/material/toolbar',
+      path: 'node_modules/@angular/material/bundles/material-toolbar.umd.js'
+    },
+    {
+      name: '@angular/material/tooltip',
+      path: 'node_modules/@angular/material/bundles/material-tooltip.umd.js'
+    },
+    {
       name: '@agm/core',
-      path: 'node_modules/@agm/core/core.umd.js'
+      path: 'node_modules/@agm/core/core.umd.js',
     },
     {
       name: 'ng-inline-svg',
-      packageMeta: {
-        main: 'index',
-        defaultExtension: 'js'
-      }
+      path: 'node_modules/ng-inline-svg/lib/index.js'
     },
     {
       name: 'ng2-page-scroll',
       path: 'node_modules/ng2-page-scroll/bundles/ng2-page-scroll.umd.js'
     }];
+
+    // this.SYSTEM_BUILDER_CONFIG.paths['@agm/core'] = 'node_modules/@agm/core/core.umd.js';
+    //this.SYSTEM_CONFIG_DEV.paths['@agm/core'] = 'node_modules/@agm/core/core.umd.js';
+    this.SYSTEM_BUILDER_CONFIG.packageConfigPaths.push('node_modules/@agm/*/package.json');
 
     this.addPackagesMap(map);
     this.addPackagesBundles(additionalPackages);
@@ -200,6 +242,8 @@ export class ProjectConfig extends SeedConfig {
 
     /* Add to or override NPM module configurations: */
     // this.PLUGIN_CONFIGS['browser-sync'] = { ghostMode: false };
+    
+    console.log(this);
   }
 
   addPackagesMap(map: { [key: string]: string }) {

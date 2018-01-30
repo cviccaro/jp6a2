@@ -11,7 +11,8 @@ import { HomeModule } from './home/home.module';
 import { TestModule } from './test/test.module';
 import { SharedModule } from './shared/shared.module';
 
-const AppBaseProvider = {provide: APP_BASE_HREF, useValue: '<%= APP_BASE %>' };
+//const AppBaseProvider = {provide: APP_BASE_HREF, useValue: '<%= APP_BASE %>' };
+const AppBaseProvider = {provide: APP_BASE_HREF, useValue: '/' };
 
 @NgModule({
 	imports: [BrowserModule, BrowserAnimationsModule, HttpClientModule, AppRoutingModule, HomeModule, TestModule, SharedModule.forRoot()],
