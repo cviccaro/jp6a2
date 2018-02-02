@@ -69,14 +69,14 @@ export class ProjectConfig extends SeedConfig {
     const map = {
        'angular2-moment': 'node_modules/angular2-moment/',
        'angular2-recaptcha': 'node_modules/angular2-recaptcha/',
-       //'ng-inline-svg': 'node_modules/ng-inline-svg/lib/'
+       'ng-inline-svg': 'node_modules/ng-inline-svg/'
     };
 
     const additionalPackages: ExtendPackages[] = [
-    // {
-    //   name: 'hammerjs',
-    //   path: 'node_modules/hammerjs/hammer.min.js'
-    // },
+    {
+      name: 'hammerjs',
+      path: 'node_modules/hammerjs/hammer.min.js'
+    },
     {
       name: 'angular2-recaptcha',
       packageMeta: {
@@ -96,12 +96,12 @@ export class ProjectConfig extends SeedConfig {
       }
     },
     {
-      name: 'angular2-modal',
-      path: 'node_modules/angular2-modal/bundle/angular2-modal.rollup.umd.js'
+      name: 'ngx-modialog',
+      path: 'node_modules/ngx-modialog/bundle/ngx-modialog.umd.min.js'
     },
     {
       name: 'angular2-modal/plugins/bootstrap',
-      path: 'node_modules/angular2-modal/plugins/bootstrap/bundle/angular2-modal-bootstrap.rollup.umd.js'
+      path: 'node_modules/angular2-modal/plugins/bootstrap/bundle/angular2-modal-bootstrap.rollup.umd.min.js'
     },
     {
       name: 'ng2-dnd',
@@ -221,7 +221,11 @@ export class ProjectConfig extends SeedConfig {
     },
     {
       name: 'ng-inline-svg',
-      path: 'node_modules/ng-inline-svg/lib/index.js'
+      //path: 'node_modules/ng-inline-svg/lib/index.js',
+      packageMeta: {
+        defaaultExtension: 'js',
+        main: 'lib/index'
+      }
     },
     {
       name: 'ng2-page-scroll',

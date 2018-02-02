@@ -1,6 +1,6 @@
 import { Component, OnInit, AfterViewInit, OnDestroy, ElementRef, ViewChild, HostListener } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
-import { Modal } from 'angular2-modal';
+import { Modal } from 'ngx-modialog';
 import { BlogService } from '../shared/blog/blog.service';
 import { ContactFormComponent } from '../shared/core/forms/contact-form/contact-form.component';
 import { ContactFormSubmission } from '../shared/core/forms/form-submissions';
