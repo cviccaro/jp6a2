@@ -1,0 +1,4 @@
+[submodule "src/client/app/shared"]
+	path = src/client/app/shared
+	url = https://github.com/cviccaro/jp6a2-shared.git
+	branch = master
