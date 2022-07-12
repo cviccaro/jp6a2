@@ -1,0 +1,42 @@
+
+/*  GO FULL WIDTH BELOW 800 PIXELS */
+@media only screen and (max-width: 800px) {
+.footer {
+	width:100%;
+	padding:36px 0px !important;
+	background:#222222;
+	float:left;	
+	position:relative !important;
+}
+
+.centerbanner {
+    width: 100%;
+    position: relative;
+    float: left;
+}
+
+
+}
+
+/*  GO FULL WIDTH BELOW 600 PIXELS */
+@media only screen and (max-width: 600px) {
+	.slideshow {
+	width:100%;
+	height:400px;
+	overflow:hidden;
+	position:absolute;
+	z-index:1;	
+	top:0px !important;
+}
+
+.centerbanner {
+    width: 100%;
+    position: relative;
+    float: left;
+	height: auto !important;
+}
+
+
+
+
+}

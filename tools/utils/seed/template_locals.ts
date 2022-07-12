@@ -43,6 +43,7 @@ export class TemplateLocalsBuilder {
     if (this.stringifySystemConfigDev) {
       Object.assign(locals, {SYSTEM_CONFIG_DEV: JSON.stringify(Config.SYSTEM_CONFIG_DEV)});
     }
+    console.log(locals);
     return locals;
   }
 
